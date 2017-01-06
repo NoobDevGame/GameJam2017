@@ -12,6 +12,6 @@ namespace NoobFight.Contract.Simulation
     {
         IMap Map { get; }
 
-        IEnumerable<IEntity> Entities { get; }
+        IEnumerable<IPlayer> Players { get; }
     }
 }
