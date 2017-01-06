@@ -23,6 +23,7 @@ namespace NoobFight.Server
 
         public void Start()
         {
+            listener.Start();
             listener.BeginAcceptTcpClient(HandShake, null);
         }
 
@@ -40,7 +41,6 @@ namespace NoobFight.Server
 
                 client.BeginReceived();
                 client.OnMessageReceived += client_OnMessageReceived;
-                
             });
         }
 
@@ -48,6 +48,6 @@ namespace NoobFight.Server
         {
             throw new NotImplementedException("Uuups I did it again >:" + message.ToString());
         }
-        
+
     }
 }
