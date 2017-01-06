@@ -30,7 +30,14 @@ namespace NoobFight.Screens
             connectButton.MinWidth = 300;
             connectButton.LeftMouseClick += (s, e) =>
             {
-                //manager.NavigateToScreen(new LoadScreen(manager));
+                try
+                {
+                    manager.Game.NetworkComponent.Connect(ipInput.Text, 667);
+                }
+                catch(Exception ex)
+                {
+                    throw new Exception("Connection unsuccessful", ex);
+                }
             };
             stack.Controls.Add(connectButton);
 
