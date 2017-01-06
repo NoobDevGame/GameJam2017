@@ -1,4 +1,5 @@
-﻿using System;
+﻿using engenious;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace NoobFight
 {
-    class Program
+    public class NoobFight : Game
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

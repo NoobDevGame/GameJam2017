@@ -1,8 +1,0 @@
-﻿<Content>
-  <References />
-  <Configuration>Debug</Configuration>
-  <OutputDir>bin/{Configuration}/</OutputDir>
-  <Name>Content</Name>
-  <Contents>
-  </Contents>
-</Content>
