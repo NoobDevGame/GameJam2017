@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\NetworkComponent.cs" />
     <Compile Include="Components\ScreenComponent.cs" />
     <Compile Include="NoobFight.cs" />
     <Compile Include="Program.cs" />
@@ -89,6 +90,12 @@
     <Content Include="Content\ui\progress_background.png" />
     <Content Include="Content\ui\progress_red.png" />
     <Content Include="libs\MonoGameUi.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NoobFight.Core\NoobFight.Core.csproj">
+      <Project>{26B9DCA1-6F5C-4488-9F2D-24E8C9B3B88A}</Project>
+      <Name>NoobFight.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\engenious.0.1.1\build\engenious.targets" Condition="Exists('..\packages\engenious.0.1.1\build\engenious.targets')" />

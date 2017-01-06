@@ -11,6 +11,7 @@ namespace NoobFight
     public class NoobFight : Game
     {
         public ScreenComponent ScreenManager { get; private set; }
+        public NetworkComponent NetworkComponent { get; private set; }
 
         public NoobFight()
         {
@@ -19,7 +20,11 @@ namespace NoobFight
             ScreenManager = new ScreenComponent(this);
             ScreenManager.UpdateOrder = 1;
             ScreenManager.DrawOrder = 1;
+
+            NetworkComponent = new NetworkComponent(this);
+
             Components.Add(ScreenManager);
+            Components.Add(NetworkComponent);
         }
     }
 }
