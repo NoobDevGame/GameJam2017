@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Map;
 using NoobFight.Contract.Simulation;
@@ -16,11 +18,13 @@ namespace NoobFight.Core.Simulation
 
         public IMap Map { get; }
 
-        private List<Player> _players = new List<Player>();
+        private List<IPlayer> _players = new List<IPlayer>();
         public IEnumerable<IPlayer> Players => _players;
 
-        public GameMode Mode { get; }
+        public GameMode Mode { get; private set; }
         public WorldState State { get; private set; }
+
+        public TimeSpan WorldTime { get; private set; }
 
         public void Start()
         {
@@ -31,6 +35,21 @@ namespace NoobFight.Core.Simulation
         public void Pause()
         {
             State = WorldState.Paused;
+        }
+
+        public void UpdateWorld(GameTime gameTime)
+        {
+            WorldTime += gameTime.ElapsedTime;
+        }
+
+        public void AddPlayer(IPlayer player)
+        {
+            _players.Add(player);
+        }
+
+        public void RemovePlayer(IPlayer player)
+        {
+            _players.Remove(player);
         }
     }
 }

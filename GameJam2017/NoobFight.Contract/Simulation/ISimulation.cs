@@ -12,6 +12,6 @@ namespace NoobFight.Contract.Simulation
 
         IWorld CreateNewWorld(GameMode mode);
 
-        void Update();
+        void Update(GameTime gameTime);
     }
 }

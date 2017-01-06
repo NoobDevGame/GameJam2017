@@ -18,9 +18,17 @@ namespace NoobFight.Contract.Simulation
 
         WorldState State { get; }
 
+        TimeSpan WorldTime { get; }
+
         void Start();
 
         void Pause();
+
+        void UpdateWorld(GameTime gameTime);
+
+        void AddPlayer(IPlayer player);
+
+        void RemovePlayer(IPlayer player);
 
 
     }

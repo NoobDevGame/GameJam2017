@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NoobFight.Contract;
 using NoobFight.Contract.Simulation;
 
 namespace NoobFight.Core.Simulation
@@ -17,12 +18,29 @@ namespace NoobFight.Core.Simulation
 
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             foreach (var world in _worlds)
             {
-
+                Update(world,gameTime);
             }
+        }
+
+        private void Update(IWorld world,GameTime gameTime)
+        {
+            switch (world.State)
+            {
+                case WorldState.Running:
+                    world.UpdateWorld(gameTime);
+                    break;
+                case WorldState.Ended:
+                    break;
+                default:
+                    break;
+            }
+
+
+
         }
     }
 }
