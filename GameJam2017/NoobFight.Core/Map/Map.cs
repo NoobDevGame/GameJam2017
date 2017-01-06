@@ -1,19 +1,11 @@
-﻿using NoobFight.Contract.Map;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NoobFight.Contract.Map;
 
 namespace NoobFight.Core.Map
 {
-    class Map : IMap
+    public class Map : IMap
     {
-        public int Id { get; private set; }
-
-        public ICollection<IArea> Areas { get; private set; }
-
-
-        public Map(int Id, ICollection<IArea> Areas)
-        {
-            this.Id = Id;
-            this.Areas = Areas;
-        }
+        private List<Area> _areas =new List<Area>();
+        public IEnumerable<IArea> Areas => _areas;
     }
 }

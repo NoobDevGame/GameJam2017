@@ -1,21 +1,20 @@
-﻿using NoobFight.Contract.Map;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NoobFight.Contract.Map;
 
 namespace NoobFight.Core.Map
 {
-    class Area : IArea
+    public class Area : IArea
     {
-        public ICollection<ILayer> Layers { get; private set; }
-
-        public int Height { get; private set; }
-
-        public int Width { get; private set; }
-
-        public Area(int Height, int Width, ICollection<ILayer> Layers)
+        public Area(int width, int height)
         {
-            this.Width = Width;
-            this.Height = Height;
-            this.Layers = Layers;
+            Width = width;
+            Height = height;
         }
+
+        public int Width { get; }
+        public int Height { get; }
+
+        private List<Layer> _layers = new List<Layer>();
+        public IEnumerable<ILayer> Layers => _layers;
     }
 }

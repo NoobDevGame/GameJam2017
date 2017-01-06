@@ -2,13 +2,13 @@
 
 namespace NoobFight.Core.Map
 {
-    class Layer : ILayer
+    public class Layer : ILayer
     {
-        public ITile[,] Tiles { get; private set; }
+        public ITile[,] Tiles { get; }
 
-        public Layer(ITile[,] Tiles)
+        public Layer(int width, int height)
         {
-            this.Tiles = Tiles;
+            Tiles = new ITile[width,height];
         }
     }
 }
