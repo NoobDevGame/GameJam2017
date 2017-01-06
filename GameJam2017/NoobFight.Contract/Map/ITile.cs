@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NoobFight.Contract.Map
+﻿namespace NoobFight.Contract.Map
 {
     public interface ITile
     {
+        int Asset { get; }
+        bool Collidable { get; }
     }
 }

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace NoobFight.Contract.Map
 {
     public interface IMap
     {
+        int Id { get; }
         ICollection<IArea> Areas { get; }
     }
 }
