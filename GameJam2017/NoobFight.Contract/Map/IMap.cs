@@ -9,5 +9,7 @@ namespace NoobFight.Contract.Map
     public interface IMap
     {
         IEnumerable<IArea> Areas { get; }
+
+        void AddArea(IArea area);
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using NoobFight.Contract.Map;
+﻿using NoobFight.Contract.Map;
 
 namespace NoobFight.Core.Map
 {
@@ -9,10 +8,22 @@ namespace NoobFight.Core.Map
 
         public bool Collidable { get; private set; }
 
-        public Tile(int Asset, bool Collidable)
+        public int X { get; set; }
+
+        public int Y { get; set; }
+
+        public Tile(int asset, bool collidable)
         {
-            this.Asset = Asset;
-            this.Collidable = Collidable;
+            this.Asset = asset;
+            this.Collidable = collidable;
+        }
+
+        public Tile(int asset, bool collidable, int x, int y)
+        {
+            this.X = x;
+            this.Y = y;
+            this.Asset = asset;
+            this.Collidable = collidable;
         }
     }
 }

@@ -4,11 +4,19 @@ namespace NoobFight.Core.Map
 {
     public class Layer : ILayer
     {
-        public ITile[,] Tiles { get; }
+        public int Id { get; set; }
 
-        public Layer(int width, int height)
+        public ITile[] Tiles { get; }
+
+        internal Layer()
         {
-            Tiles = new ITile[width,height];
+
+        }
+
+        public Layer(int id, ITile[] tiles)
+        {
+            this.Id = id;
+            this.Tiles = tiles;
         }
     }
 }

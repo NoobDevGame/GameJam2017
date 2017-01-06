@@ -1,0 +1,22 @@
+{"Name":"TestMap",
+"Areas":
+[
+	{
+	"Name":"HalloArea",
+	"Height":5,
+	"Width":5,
+	"Layers":
+		[{
+		"Tiles":
+			[
+				{
+				"x":0,
+				"y":0,
+				"Asset":1,
+				"Collidable":true
+				}
+			]
+			}
+		]
+	}
+]}

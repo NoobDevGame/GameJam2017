@@ -49,7 +49,7 @@
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Map\Area.cs" />
     <Compile Include="Map\Layer.cs" />
-    <Compile Include="Map\Loader.cs" />
+    <Compile Include="Map\MapLoader.cs" />
     <Compile Include="Map\Map.cs" />
     <Compile Include="Map\Tile.cs" />
     <Compile Include="Network\Client.cs" />
