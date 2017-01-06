@@ -10,7 +10,7 @@
         <ContentFile>
           <Name>dirt.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -20,7 +20,7 @@
         <ContentFile>
           <Name>grass_corner_left.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -30,7 +30,7 @@
         <ContentFile>
           <Name>grass_corner_right.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -40,7 +40,7 @@
         <ContentFile>
           <Name>grass_float_center.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -50,7 +50,7 @@
         <ContentFile>
           <Name>grass_float_left.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -60,7 +60,7 @@
         <ContentFile>
           <Name>grass_float_right.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -70,7 +70,7 @@
         <ContentFile>
           <Name>grass_float_single.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -80,7 +80,7 @@
         <ContentFile>
           <Name>grass_left.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -90,7 +90,7 @@
         <ContentFile>
           <Name>grass_right.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -100,7 +100,7 @@
         <ContentFile>
           <Name>grass_single.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -109,5 +109,120 @@
         </ContentFile>
       </Contents>
     </ContentFolder>
+    <ContentFolder>
+      <Name>ui</Name>
+      <Contents>
+        <ContentFile>
+          <Name>buttonLong_beige.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFile>
+          <Name>buttonLong_beige_pressed.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFile>
+          <Name>buttonLong_brown.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFile>
+          <Name>buttonLong_brown_pressed.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFile>
+          <Name>buttonLong_grey.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFile>
+          <Name>buttonLong_grey_pressed.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFile>
+          <Name>iconCheck_brown.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFile>
+          <Name>progress_background.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFile>
+          <Name>progress_red.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+      </Contents>
+    </ContentFolder>
+    <ContentFile>
+      <Name>BoldFont.fnt</Name>
+      <Processor>FontProcessor</Processor>
+      <Importer />
+    </ContentFile>
+    <ContentFile>
+      <Name>GameFont.fnt</Name>
+      <Processor>FontProcessor</Processor>
+      <Importer />
+    </ContentFile>
+    <ContentFile>
+      <Name>HeadlineFont.fnt</Name>
+      <Processor>FontProcessor</Processor>
+      <Importer />
+    </ContentFile>
+    <ContentFile>
+      <Name>Hud.fnt</Name>
+      <Processor>FontProcessor</Processor>
+      <Importer />
+    </ContentFile>
   </Contents>
 </Content>
