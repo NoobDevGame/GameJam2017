@@ -11,5 +11,7 @@ namespace NoobFight.Contract.Simulation
         IEnumerable<IWorld> Worlds { get; }
 
         IWorld CreateNewWorld();
+
+        void Update();
     }
 }

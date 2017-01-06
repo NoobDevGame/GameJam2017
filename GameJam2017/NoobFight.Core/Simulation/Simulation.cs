@@ -16,5 +16,13 @@ namespace NoobFight.Core.Simulation
             return newworld;
 
         }
+
+        public void Update()
+        {
+            foreach (var world in _worlds)
+            {
+
+            }
+        }
     }
 }
