@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26020.0
+VisualStudioVersion = 15.0.26014.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobFight", "GameJam2017\NoobFight.csproj", "{D28EA86C-15A1-4C00-AD5D-B25C5DC551B5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobFight.Contract", "NoobFight.Contract\NoobFight.Contract.csproj", "{936E2BAA-E31F-4A38-8DE9-A078AEA02A12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobFight.Server", "NoobFight.Server\NoobFight.Server.csproj", "{ACEB1596-1716-470E-8E16-3F7D0C940961}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobFight.Core", "NoobFight.Core\NoobFight.Core.csproj", "{26B9DCA1-6F5C-4488-9F2D-24E8C9B3B88A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoobFight", "NoobFight\NoobFight.csproj", "{BD15FB8F-A5BD-42B1-8344-97B839B4219B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D28EA86C-15A1-4C00-AD5D-B25C5DC551B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D28EA86C-15A1-4C00-AD5D-B25C5DC551B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D28EA86C-15A1-4C00-AD5D-B25C5DC551B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D28EA86C-15A1-4C00-AD5D-B25C5DC551B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{936E2BAA-E31F-4A38-8DE9-A078AEA02A12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{936E2BAA-E31F-4A38-8DE9-A078AEA02A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{936E2BAA-E31F-4A38-8DE9-A078AEA02A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{26B9DCA1-6F5C-4488-9F2D-24E8C9B3B88A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26B9DCA1-6F5C-4488-9F2D-24E8C9B3B88A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26B9DCA1-6F5C-4488-9F2D-24E8C9B3B88A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD15FB8F-A5BD-42B1-8344-97B839B4219B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD15FB8F-A5BD-42B1-8344-97B839B4219B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD15FB8F-A5BD-42B1-8344-97B839B4219B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD15FB8F-A5BD-42B1-8344-97B839B4219B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
