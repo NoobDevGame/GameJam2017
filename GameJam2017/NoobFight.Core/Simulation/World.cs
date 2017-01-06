@@ -10,9 +10,8 @@ namespace NoobFight.Core.Simulation
     {
         public IMap Map { get; }
 
-        private List<Entity> _entities = new List<Entity>();
-        public IEnumerable<IEntity> Entities => _entities;
-
+        private List<Player> _players = new List<Player>();
+        public IEnumerable<IPlayer> Players => _players;
 
     }
 }
