@@ -22,7 +22,7 @@ namespace NoobFight.Screens
             startButton.Margin = new Border(0, 0, 0, 10);
             startButton.LeftMouseClick += (s, e) =>
             {
-                //manager.NavigateToScreen(new LoadScreen(manager));
+                manager.NavigateToScreen(new PlayScreen(manager));
             };
             stack.Controls.Add(startButton);
 
