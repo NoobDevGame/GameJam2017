@@ -18,6 +18,10 @@ namespace NoobFight.Contract.Simulation
 
         WorldState State { get; }
 
+        void Start();
+
+        void Pause();
+
 
     }
 }

@@ -20,8 +20,17 @@ namespace NoobFight.Core.Simulation
         public IEnumerable<IPlayer> Players => _players;
 
         public GameMode Mode { get; }
-        public WorldState State { get; }
+        public WorldState State { get; private set; }
 
+        public void Start()
+        {
 
+            State = WorldState.Running;
+        }
+
+        public void Pause()
+        {
+            State = WorldState.Paused;
+        }
     }
 }
