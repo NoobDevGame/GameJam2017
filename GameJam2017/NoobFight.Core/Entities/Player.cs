@@ -2,7 +2,7 @@
 
 namespace NoobFight.Core.Entities
 {
-    public class Player : Entity, IPlayer
+    public class Player : Entity , IPlayer
     {
         public Player(string name, string textureName) : base(name, textureName)
         {

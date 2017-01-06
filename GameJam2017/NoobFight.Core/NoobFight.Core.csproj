@@ -46,6 +46,7 @@
     <Compile Include="Entities\Character.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ItemEntity.cs" />
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Map\Area.cs" />
     <Compile Include="Map\Layer.cs" />
     <Compile Include="Map\Loader.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="Network\Client.cs" />
     <Compile Include="Network\NetworkMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simulation\Events\PlayerEvent.cs" />
+    <Compile Include="Simulation\Events\WorldEvent.cs" />
     <Compile Include="Simulation\Simulation.cs" />
     <Compile Include="Simulation\World.cs" />
   </ItemGroup>
