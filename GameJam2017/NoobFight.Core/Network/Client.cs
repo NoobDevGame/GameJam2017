@@ -14,14 +14,23 @@ namespace NoobFight.Core.Network
     {
         public NetworkStream Stream { get { return tcpClient.GetStream(); } }
         public int ID { get; private set; }
+        public bool Connected => tcpClient.Connected;
 
         public delegate void MessageEventHandler(object sender, NetworkMessage message);
         public event MessageEventHandler OnMessageReceived;
 
+        public delegate void ConnectionEventHandler(object sender, EventArgs args);
+        public event ConnectionEventHandler OnConnected;
+        public event ConnectionEventHandler OnDisconnected;
+
         private TcpClient tcpClient;
         private CancellationToken mainToken;
 
-        public Client(TcpClient tcpClient)
+        public Client()
+        {
+            tcpClient = new TcpClient();
+        }
+        public Client(TcpClient tcpClient) : this()
         {
             this.tcpClient = tcpClient;
             mainToken = new CancellationToken();
@@ -29,6 +38,30 @@ namespace NoobFight.Core.Network
         public Client(TcpClient tcpClient, int id) : this(tcpClient)
         {
             ID = id;
+        }
+
+        public void Connect(string host, int port)
+        {
+            tcpClient.Connect(host, port);
+
+            if (!Connected)
+                throw new SocketException(500);
+
+            OnConnected?.Invoke(this, new EventArgs());
+
+            Task.Run(() =>
+            {
+                while (tcpClient.Connected)
+                {
+                    Thread.Sleep(1);
+                }
+                OnDisconnected?.Invoke(this, new EventArgs());
+            });
+        }
+
+        public void Disconnect()
+        {
+            tcpClient.Close();
         }
 
         public async void BeginReceived()
