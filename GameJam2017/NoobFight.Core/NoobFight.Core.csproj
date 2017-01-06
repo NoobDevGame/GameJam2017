@@ -54,6 +54,8 @@
     <Compile Include="Network\Client.cs" />
     <Compile Include="Network\NetworkMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simulation\Simulation.cs" />
+    <Compile Include="Simulation\World.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Items\" />

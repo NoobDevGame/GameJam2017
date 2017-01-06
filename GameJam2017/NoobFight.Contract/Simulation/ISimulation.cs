@@ -10,6 +10,8 @@ namespace NoobFight.Contract.Simulation
     {
         IEnumerable<IWorld> Worlds { get; }
 
-        IWorld CreateNewWorld();
+        IWorld CreateNewWorld(GameMode mode);
+
+        void Update(GameTime gameTime);
     }
 }
