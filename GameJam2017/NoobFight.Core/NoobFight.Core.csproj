@@ -49,9 +49,8 @@
     <Compile Include="Map\Map.cs" />
     <Compile Include="Map\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Simulation" />
+    <Compile Include="Simulation\Simulation.cs" />
+    <Compile Include="Simulation\World.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NoobFight.Contract\NoobFight.Contract.csproj">
