@@ -10,6 +10,6 @@ namespace NoobFight.Contract.Map
     {
         int Width { get; }
         int Height { get; }
-        ICollection<ILayer> Layers { get; }
+        IEnumerable<ILayer> Layers { get; }
     }
 }

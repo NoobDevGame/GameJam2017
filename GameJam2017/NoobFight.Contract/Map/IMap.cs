@@ -8,6 +8,6 @@ namespace NoobFight.Contract.Map
 {
     public interface IMap
     {
-        ICollection<IArea> Areas { get; }
+        IEnumerable<IArea> Areas { get; }
     }
 }

@@ -44,10 +44,13 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ItemEntity.cs" />
     <Compile Include="Items\Item.cs" />
+    <Compile Include="Map\Area.cs" />
+    <Compile Include="Map\Layer.cs" />
+    <Compile Include="Map\Map.cs" />
+    <Compile Include="Map\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Map" />
     <Folder Include="Simulation" />
   </ItemGroup>
   <ItemGroup>
