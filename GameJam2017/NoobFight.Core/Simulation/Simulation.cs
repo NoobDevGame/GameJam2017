@@ -28,19 +28,13 @@ namespace NoobFight.Core.Simulation
 
         private void Update(IWorld world,GameTime gameTime)
         {
-            switch (world.State)
+            if (world.State == WorldState.Running)
+                world.UpdateState(gameTime);
+
+            if (world.State == WorldState.Ended)
             {
-                case WorldState.Running:
-                    world.UpdateWorld(gameTime);
-                    break;
-                case WorldState.Ended:
-                    break;
-                default:
-                    break;
+                return;
             }
-
-
-
         }
     }
 }

@@ -10,7 +10,7 @@ namespace NoobFight.Contract.Simulation
 {
     public interface IWorld
     {
-        IMap Map { get; }
+        IMap CurrentMap { get; }
 
         IEnumerable<IPlayer> Players { get; }
 
@@ -20,11 +20,11 @@ namespace NoobFight.Contract.Simulation
 
         TimeSpan WorldTime { get; }
 
-        void Start();
+        void Start(IMap map);
 
         void Pause();
 
-        void UpdateWorld(GameTime gameTime);
+        void UpdateState(GameTime gameTime);
 
         void AddPlayer(IPlayer player);
 

@@ -16,7 +16,7 @@ namespace NoobFight.Core.Simulation
             State = WorldState.Loaded;
         }
 
-        public IMap Map { get; }
+        public IMap CurrentMap { get; private set; }
 
         private List<IPlayer> _players = new List<IPlayer>();
         public IEnumerable<IPlayer> Players => _players;
@@ -26,9 +26,9 @@ namespace NoobFight.Core.Simulation
 
         public TimeSpan WorldTime { get; private set; }
 
-        public void Start()
+        public void Start(IMap map)
         {
-
+            CurrentMap = map;
             State = WorldState.Running;
         }
 
@@ -37,7 +37,7 @@ namespace NoobFight.Core.Simulation
             State = WorldState.Paused;
         }
 
-        public void UpdateWorld(GameTime gameTime)
+        public void UpdateState(GameTime gameTime)
         {
             WorldTime += gameTime.ElapsedTime;
         }
