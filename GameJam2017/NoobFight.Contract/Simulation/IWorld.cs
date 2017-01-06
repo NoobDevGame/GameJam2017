@@ -13,5 +13,11 @@ namespace NoobFight.Contract.Simulation
         IMap Map { get; }
 
         IEnumerable<IPlayer> Players { get; }
+
+        GameMode Mode { get;  }
+
+        WorldState State { get; }
+
+
     }
 }

@@ -8,9 +8,9 @@ namespace NoobFight.Core.Simulation
         private List<World> _worlds = new List<World>();
         public IEnumerable<IWorld> Worlds => _worlds;
 
-        public IWorld CreateNewWorld()
+        public IWorld CreateNewWorld(GameMode mode)
         {
-            World newworld = new World();
+            World newworld = new World(mode);
             _worlds.Add(newworld);
 
             return newworld;
