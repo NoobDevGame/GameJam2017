@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Items\" />
-    <Folder Include="Simulation\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NoobFight.Contract\NoobFight.Contract.csproj">

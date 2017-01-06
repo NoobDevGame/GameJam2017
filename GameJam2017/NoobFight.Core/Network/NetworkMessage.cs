@@ -5,6 +5,9 @@ namespace NoobFight.Core.Network
 {
     public class NetworkMessage
     {
+        public int DataType { get; set; }
+        public byte[] Bytes { get; set; }
+
         public NetworkMessage() { }
         public NetworkMessage(byte[] data)
         {
@@ -17,7 +20,9 @@ namespace NoobFight.Core.Network
             {
                 using (var writer = new BinaryWriter(stream))
                 {
-                    
+                    writer.Write(DataType);
+                    writer.Write(Bytes.Length);
+                    writer.Write(Bytes);
                 }
                 return stream.ToArray();
             }
@@ -29,7 +34,8 @@ namespace NoobFight.Core.Network
             {
                 using (var reader = new BinaryReader(stream))
                 {
-
+                    DataType = reader.ReadInt32();
+                    Bytes = reader.ReadBytes(reader.ReadInt32());
                 }
             }
         }
