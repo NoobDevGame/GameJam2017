@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NoobFight.Contract.Entities;
 
 namespace NoobFight.Contract.Map
 {
@@ -10,6 +11,8 @@ namespace NoobFight.Contract.Map
     {
         int Width { get; }
         int Height { get; }
-        ICollection<ILayer> Layers { get; }
+
+        IEnumerable<ILayer> Layers { get; }
+        IEnumerable<IEntity> Entities { get; }
     }
 }

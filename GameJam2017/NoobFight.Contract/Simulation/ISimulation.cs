@@ -8,6 +8,8 @@ namespace NoobFight.Contract.Simulation
 {
     public interface ISimulation
     {
-        void CreateNewWorld();
+        IEnumerable<IWorld> Worlds { get; }
+
+        IWorld CreateNewWorld();
     }
 }
