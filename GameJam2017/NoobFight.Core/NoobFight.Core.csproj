@@ -40,7 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Character.cs" />
+    <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\ItemEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Items" />
+    <Folder Include="Map" />
+    <Folder Include="Simulation" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NoobFight.Contract\NoobFight.Contract.csproj">
+      <Project>{936E2BAA-E31F-4A38-8DE9-A078AEA02A12}</Project>
+      <Name>NoobFight.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
