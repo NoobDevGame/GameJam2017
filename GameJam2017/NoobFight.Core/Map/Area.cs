@@ -29,7 +29,7 @@ namespace NoobFight.Core.Map
 
         public Dictionary<string,MapTexture> MapTextures { get; private set; }
 
-        public Vector2 SpawnPoint => throw new NotImplementedException();
+        public Vector2 SpawnPoint{get;set;}
 
         public void SetLayers(Layer[] layers)
         {

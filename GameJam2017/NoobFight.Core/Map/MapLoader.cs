@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using NoobFight.Contract;
 using NoobFight.Contract.Map;
 
 namespace NoobFight.Core.Map
@@ -126,9 +127,13 @@ namespace NoobFight.Core.Map
                 {
                     foreach (FileObject fileObject in fl.objects)
                     {
+                        Vector2 position = new Vector2(fileObject.x/fa.tilewidth,fileObject.y/fa.tileheight);
+                        Vector2 size = new Vector2(fileObject.width/fa.tilewidth,fileObject.height/fa.tileheight);
+
                         if (fileObject.type == "spawn")
                         {
-
+                            var startposition = new Vector2(position.X +size.X/2,position.Y + size.Y);
+                            area.SpawnPoint = startposition;
                         }
                     }
                 }
