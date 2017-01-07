@@ -14,5 +14,10 @@ namespace NoobFight.Contract.Map
 
         IEnumerable<ILayer> Layers { get; }
         IEnumerable<IEntity> Entities { get; }
+
+        void AddEntity(IEntity entity);
+        void RemoveEntity(IEntity entity);
+
+        MapTexture GetMapTextures(int id);
     }
 }

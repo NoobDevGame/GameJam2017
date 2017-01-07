@@ -53,8 +53,6 @@
     <Compile Include="Map\MapGenerator.cs" />
     <Compile Include="Map\MapLoader.cs" />
     <Compile Include="Map\Map.cs" />
-    <Compile Include="Map\MapTexture.cs" />
-    <Compile Include="Map\TileProperty.cs" />
     <Compile Include="Network\Client.cs" />
     <Compile Include="Network\NetworkMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

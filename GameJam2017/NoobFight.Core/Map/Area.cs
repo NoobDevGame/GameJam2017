@@ -22,7 +22,7 @@ namespace NoobFight.Core.Map
         private Layer[] _layers;
         public IEnumerable<ILayer> Layers => _layers;
 
-        private List<Entity> _entities = new List<Entity>();
+        private List<IEntity> _entities = new List<IEntity>();
         public IEnumerable<IEntity> Entities => _entities;
 
         public Dictionary<string,MapTexture> MapTextures { get; private set; }
@@ -36,6 +36,18 @@ namespace NoobFight.Core.Map
         public MapTexture GetMapTextures(int id)
         {
             return MapTextures.First(i => i.Value.Firstgid <= id && id <= i.Value.Firstgid + i.Value.Tilecount).Value;
+        }
+
+        public void AddEntity(IEntity entity)
+        {
+            entity.CurrentArea = this;
+            _entities.Add(entity);
+        }
+
+        public void RemoveEntity(IEntity entity)
+        {
+            entity.CurrentArea = null;
+            _entities.Remove(entity);
         }
     }
 }

@@ -14,7 +14,6 @@ namespace NoobFight.Controls
     public class RenderControl : Control
     {
         ScreenComponent manager;
-        private Area area;
 
         private Texture2D _pixel;
 
@@ -22,14 +21,19 @@ namespace NoobFight.Controls
         {
             this.manager = manager;
             _pixel = new Texture2D(manager.GraphicsDevice,1,1);
-            _pixel.SetData(new Color[] {Color.White });
-
-            area = MapLoader.LoadArea("test");
         }
 
         protected override void OnDraw(SpriteBatch batch, Rectangle controlArea, GameTime gameTime)
         {
             base.OnDraw(batch, controlArea, gameTime);
+
+            var player = manager.Game.SimulationComponent.Player;
+            var area = player.CurrentArea;
+
+            if (area == null)
+                return;
+
+
             foreach (var layer in area.Layers)
             {
                 for (int x = 0; x < area.Width; x++)

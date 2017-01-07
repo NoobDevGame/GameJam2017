@@ -36,6 +36,11 @@ namespace NoobFight.Core.Simulation
         {
             CurrentMap = map;
             State = WorldState.Running;
+
+            foreach (var player in Players)
+            {
+                CurrentMap.StartArea.AddEntity(player);
+            }
         }
 
         public void Pause()

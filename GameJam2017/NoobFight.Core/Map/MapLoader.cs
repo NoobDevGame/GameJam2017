@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using NoobFight.Contract.Map;
 
 namespace NoobFight.Core.Map
 {

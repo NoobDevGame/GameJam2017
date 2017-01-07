@@ -1,5 +1,6 @@
 ﻿using NoobFight.Contract;
 using NoobFight.Contract.Entities;
+using NoobFight.Contract.Map;
 
 namespace NoobFight.Core.Entities
 {
@@ -14,5 +15,6 @@ namespace NoobFight.Core.Entities
         public string Name { get; private set; }
         public string TextureName { get; private set;}
         public Position Position { get; set; }
+        public IArea CurrentArea { get; set; }
     }
 }
