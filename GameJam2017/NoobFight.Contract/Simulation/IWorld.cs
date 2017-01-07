@@ -27,5 +27,6 @@ namespace NoobFight.Contract.Simulation
         void Start(IMap map);
 
         void Pause();
+
     }
 }

@@ -6,6 +6,7 @@ using NoobFight.Contract;
 using NoobFight.Contract.Map;
 using NoobFight.Core.Entities;
 using NoobFight.Contract.Entities;
+using NoobFight.Core.Map.Tiles;
 
 namespace NoobFight.Core.Map
 {
@@ -46,6 +47,7 @@ namespace NoobFight.Core.Map
 
         private class FileTileProperty
         {
+            public bool collisionevent { get; set; }
             public bool blocked { get; set; }
             public int entitytype { get; set; }
 
@@ -53,6 +55,7 @@ namespace NoobFight.Core.Map
             {
                 TileProperty property = new TileProperty();
                 property.blocked = blocked;
+                property.collisionevent = collisionevent;
 
                 return property;
             }
@@ -93,6 +96,7 @@ namespace NoobFight.Core.Map
 
         private class FileObjectProperty
         {
+            public bool collisionevent { get; set; }
             public int entitytype { get; set; }
             public string @class { get; set; }
         }
@@ -117,9 +121,16 @@ namespace NoobFight.Core.Map
             return null;
         }
 
+        static Dictionary<string, Type> ActiveTiles = new Dictionary<string, Type>();
+
+
         private static Area Convert(FileArea fa)
         {
+
+            ActiveTiles.Add("Lava", typeof(LavaTile));
+
             Area area = new Area(fa.width, fa.height);
+            area.ActiveTiles = new List<IActiveTile>();
 
             List<Layer> layers = new List<Layer>();
 
@@ -129,10 +140,31 @@ namespace NoobFight.Core.Map
 
                 if (fl.type == "objectgroup")
                 {
+                    //fl.name == "EventLayer";
+                    //fl.name == "EntityLayer";
+
                     foreach (FileObject fileObject in fl.objects)
                     {
                         Vector2 position = new Vector2(fileObject.x / fa.tilewidth, fileObject.y / fa.tileheight);
                         Vector2 size = new Vector2(fileObject.width / fa.tilewidth, fileObject.height / fa.tileheight);
+
+                        if (fl.name == "EventLayer")
+                        {
+                            if (ActiveTiles.TryGetValue(fileObject.type, out var tileType))
+                            {
+                                for (var x = position.X; x < position.X + size.X; x++)
+                                {
+                                    for (var y = position.Y; y < position.Y + size.Y; y++)
+                                    {
+                                        var obj = (ActiveTile)Activator.CreateInstance(tileType, position);
+                                        area.ActiveTiles.Add(obj);
+                                    }
+                                }
+
+
+                            }
+                        }
+
 
                         if (fileObject.type == "spawn")
                         {
@@ -145,7 +177,7 @@ namespace NoobFight.Core.Map
                             {
                                 Height = size.Y,
                                 Radius = size.X / 2,
-                                Position = position + new Vector2(size.X / 2,size.Y)
+                                Position = position + new Vector2(size.X / 2, size.Y)
                             });
                         }
                     }

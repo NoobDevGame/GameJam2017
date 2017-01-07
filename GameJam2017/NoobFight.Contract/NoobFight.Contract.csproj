@@ -49,6 +49,7 @@
     <Compile Include="Input.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Map\IArea.cs" />
+    <Compile Include="Map\IActiveTile.cs" />
     <Compile Include="Map\ILayer.cs" />
     <Compile Include="Map\IMap.cs" />
     <Compile Include="Map\MapTexture.cs" />

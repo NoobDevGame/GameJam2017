@@ -6,7 +6,7 @@ namespace NoobFight.Core.Simulation.Components
 {
     public class InputSimulationComponent : SimulationComponent
     {
-        public override void SimulateWorld(IWorld world, GameTime gameTime)
+        public override void SimulateWorld(World world, GameTime gameTime)
         {
             foreach (var area in world.CurrentMap.Areas)
             {

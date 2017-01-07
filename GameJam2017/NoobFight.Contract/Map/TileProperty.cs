@@ -2,6 +2,7 @@
 {
     public struct TileProperty
     {
+        public bool collisionevent;
         public bool blocked;
         public int entitytype;
     }

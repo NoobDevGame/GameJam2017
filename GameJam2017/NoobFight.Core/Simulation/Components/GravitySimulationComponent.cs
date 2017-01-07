@@ -7,7 +7,7 @@ namespace NoobFight.Core.Simulation.Components
     {
         public const float FallAcceleration = 9.81f;
 
-        public override void SimulateWorld(IWorld world, GameTime gameTime)
+        public override void SimulateWorld(World world, GameTime gameTime)
         {
             var velocitychange = new Vector2(0,(float)(FallAcceleration * gameTime.ElapsedTime.TotalSeconds));
 

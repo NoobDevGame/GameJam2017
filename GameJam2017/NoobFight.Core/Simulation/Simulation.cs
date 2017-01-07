@@ -5,6 +5,7 @@ using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
 using NoobFight.Core.Entities;
 using NoobFight.Core.Simulation.Components;
+using NoobFight.Core.Simulation.Events;
 
 namespace NoobFight.Core.Simulation
 {

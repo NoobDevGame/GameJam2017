@@ -48,11 +48,14 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ItemEntity.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Map\Tiles\ActiveTile.cs" />
     <Compile Include="Map\Area.cs" />
     <Compile Include="Map\Layer.cs" />
     <Compile Include="Map\MapGenerator.cs" />
     <Compile Include="Map\MapLoader.cs" />
     <Compile Include="Map\Map.cs" />
+    <Compile Include="Map\Tiles\LavaTile.cs" />
+    <Compile Include="Map\Tiles\PortalTile.cs" />
     <Compile Include="Network\Client.cs" />
     <Compile Include="Network\ConnectionMessageType.cs" />
     <Compile Include="Network\MessageHandler.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Simulation\Components\InputSimulationComponent.cs" />
     <Compile Include="Simulation\Components\MoveSimulationComponent.cs" />
     <Compile Include="Simulation\Components\SimulationComponent.cs" />
+    <Compile Include="Simulation\Events\CollisionEvent.cs" />
     <Compile Include="Simulation\Events\PlayerWorldEvent.cs" />
     <Compile Include="Simulation\Events\PlayerEventMethod.cs" />
     <Compile Include="Simulation\Events\WorldEvent.cs" />

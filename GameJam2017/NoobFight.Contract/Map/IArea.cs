@@ -16,6 +16,8 @@ namespace NoobFight.Contract.Map
         IEnumerable<ILayer> Layers { get; }
         IEnumerable<IEntity> Entities { get; }
 
+        List<IActiveTile> ActiveTiles { get; }
+
         void AddEntity(IEntity entity);
         void RemoveEntity(IEntity entity);
 

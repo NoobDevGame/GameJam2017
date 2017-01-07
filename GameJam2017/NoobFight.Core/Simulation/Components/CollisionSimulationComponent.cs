@@ -1,6 +1,10 @@
 ﻿using System;
 using NoobFight.Contract;
 using NoobFight.Contract.Simulation;
+using System.Linq;
+using System.Collections.Generic;
+using NoobFight.Contract.Map;
+using NoobFight.Core.Simulation.Events;
 
 namespace NoobFight.Core.Simulation.Components
 {
@@ -8,7 +12,7 @@ namespace NoobFight.Core.Simulation.Components
     {
         private float gap = 0.00005f;
 
-        public override void SimulateWorld(IWorld world, GameTime gameTime)
+        public override void SimulateWorld(World world, GameTime gameTime)
         {
             foreach (var area in world.CurrentMap.Areas)
             {
@@ -26,29 +30,40 @@ namespace NoobFight.Core.Simulation.Components
                         int minCellX = (int)Math.Floor(position.X - entity.Radius);
                         int maxCellX = (int)Math.Ceiling(position.X + entity.Radius);
                         int minCellY = (int)Math.Floor(position.Y - entity.Height);
-                        int maxCellY = (int)Math.Ceiling(position.Y );
+                        int maxCellY = (int)Math.Ceiling(position.Y);
 
                         collision = false;
                         float minImpact = 2f;
                         int minAxis = 0;
+
+                        List<IActiveTile> collidingTiles = new List<IActiveTile>();
 
                         // Schleife über alle betroffenen Zellen zur Ermittlung der ersten Kollision
                         for (int x = minCellX; x <= maxCellX; x++)
                         {
                             for (int y = minCellY; y <= maxCellY; y++)
                             {
-                                // Zellen ignorieren die den Spieler nicht blockieren
-                                if (!area.IsCellBlocked(x, y))
-                                    continue;
+                                var activeTile = area.ActiveTiles.FirstOrDefault(tile => tile.Position.X == x && tile.Position.Y == y);
 
                                 // Zellen ignorieren die vom Spieler nicht berührt werden
                                 if (position.X - entity.Radius > x + 1 ||
                                     position.X + entity.Radius < x ||
-                                    position.Y -entity.Height > y + 1 ||
-                                    position.Y  < y )
+                                    position.Y - entity.Height > y + 1 ||
+                                    position.Y < y)
+                                    continue;
+
+                                if (activeTile != null)
+                                {
+                                    collidingTiles.Add(activeTile);
+                                }
+
+
+                                // Zellen ignorieren die den Spieler nicht blockieren
+                                if (!area.IsCellBlocked(x, y))
                                     continue;
 
                                 collision = true;
+
 
                                 // Kollisionszeitpunkt auf X-Achse ermitteln
                                 float diffX = float.MaxValue;
@@ -66,7 +81,7 @@ namespace NoobFight.Core.Simulation.Components
                                 if (entity.Move.Y > 0)
                                     diffY = position.Y /*+ entity.Height*/ - y + gap;
                                 if (entity.Move.Y < 0)
-                                    diffY = position.Y - entity.Height  - (y + 1) - gap;
+                                    diffY = position.Y - entity.Height - (y + 1) - gap;
 
                                 float impactY = 1f - (diffY / entity.Move.Y);
 
@@ -92,6 +107,12 @@ namespace NoobFight.Core.Simulation.Components
                                     minAxis = axis;
                                 }
                             }
+                        }
+
+                        if (collidingTiles.Count > 0)
+                        {
+                            foreach (var tile in collidingTiles)
+                                world.AddEvent(new CollisionEvent(tile, entity));
                         }
 
                         // Im Falle einer Kollision in diesem Schleifendurchlauf...
