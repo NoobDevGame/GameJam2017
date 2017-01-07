@@ -1,4 +1,5 @@
-﻿using NoobFight.Contract.Entities;
+﻿using System;
+using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
 using NoobFight.Core.Simulation.Events;
 
@@ -32,6 +33,16 @@ namespace NoobFight.Core.Simulation
                 Method = PlayerEventMethod.Remove,
             };
             _world.AddEvent(@event);
+        }
+
+        public void AddEvent(IWorldEvent worldEvent)
+        {
+            this._world.AddEvent(worldEvent);
+        }
+
+        public void ChangeArea(IPlayer player, string destinationArea)
+        {
+            AddEvent(new AreaChangedEvent(player, destinationArea));
         }
     }
 }

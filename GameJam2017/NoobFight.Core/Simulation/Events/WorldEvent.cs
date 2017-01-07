@@ -3,8 +3,8 @@ using System;
 
 namespace NoobFight.Core.Simulation.Events
 {
-    public abstract class WorldEvent
+    public abstract class WorldEvent : IWorldEvent
     {
-        public abstract void Dispatch(World world,Simulation simulation);
+        public abstract void Dispatch(IWorld world, ISimulation simulation);
     }
 }

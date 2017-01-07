@@ -10,7 +10,7 @@ namespace NoobFight.Core.Simulation.Events
 
         public PlayerEventMethod Method { get; set; }
 
-        public override void Dispatch(World world, Simulation simulation)
+        public override void Dispatch(IWorld world, ISimulation simulation)
         {
             var player = simulation.Players.First(i => i.ID == PlayerID);
 

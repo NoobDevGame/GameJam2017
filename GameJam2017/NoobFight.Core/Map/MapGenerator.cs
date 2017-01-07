@@ -10,6 +10,7 @@ namespace NoobFight.Core.Map
         {
             Map map = new Map();
             map.AddArea(LoadArea("test"));
+            map.AddArea(LoadArea("1test"));
 
             return map;
         }

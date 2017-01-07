@@ -103,6 +103,12 @@ namespace NoobFight.Core.Map
 
         #endregion
 
+        static MapLoader()
+        {
+            ActiveTiles.Add("Lava", typeof(LavaTile));
+            ActiveTiles.Add("Portal", typeof(PortalTile));
+        }
+
         public static Area LoadArea(string name)
         {
             var path = Path.Combine("Content", "Maps", $"{name}.json");
@@ -113,7 +119,7 @@ namespace NoobFight.Core.Map
                 {
                     var mapjson = sr.ReadToEnd();
                     var mapobject = JsonConvert.DeserializeObject<FileArea>(mapjson);
-                    var map = Convert(mapobject);
+                    var map = Convert(mapobject, name);
                     return map;
                 }
             }
@@ -124,12 +130,9 @@ namespace NoobFight.Core.Map
         static Dictionary<string, Type> ActiveTiles = new Dictionary<string, Type>();
 
 
-        private static Area Convert(FileArea fa)
+        private static Area Convert(FileArea fa, string name)
         {
-
-            ActiveTiles.Add("Lava", typeof(LavaTile));
-
-            Area area = new Area(fa.width, fa.height);
+            Area area = new Area(name, fa.width, fa.height);
             area.ActiveTiles = new List<IActiveTile>();
 
             List<Layer> layers = new List<Layer>();

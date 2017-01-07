@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NoobFight.Contract;
 using NoobFight.Contract.Entities;
+using NoobFight.Contract.Simulation;
 
 namespace NoobFight.Core.Map.Tiles
 {
@@ -14,9 +15,12 @@ namespace NoobFight.Core.Map.Tiles
         {
         }
 
-        public override void OnCollision(IEntity entity)
+        public override void OnCollision(IWorldManipulator manipulator, IEntity entity)
         {
-
+            if (entity is IPlayer)
+            {
+                manipulator.ChangeArea(((IPlayer)entity), "1test");
+            }
         }
     }
 }

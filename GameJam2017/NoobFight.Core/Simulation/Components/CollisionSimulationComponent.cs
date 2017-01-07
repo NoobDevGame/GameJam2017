@@ -11,9 +11,12 @@ namespace NoobFight.Core.Simulation.Components
     public class CollisionSimulationComponent : SimulationComponent
     {
         private float gap = 0.00005f;
+        IWorldManipulator manipulator;
 
-        public override void SimulateWorld(World world, GameTime gameTime)
+        public override void SimulateWorld(IWorld world, GameTime gameTime)
         {
+            manipulator = world.CreateNewManipulator();
+
             foreach (var area in world.CurrentMap.Areas)
             {
                 foreach (var entity in area.Entities)
@@ -112,7 +115,9 @@ namespace NoobFight.Core.Simulation.Components
                         if (collidingTiles.Count > 0)
                         {
                             foreach (var tile in collidingTiles)
-                                world.AddEvent(new CollisionEvent(tile, entity));
+                            {
+                                manipulator.AddEvent(new CollisionEvent(tile, entity));
+                            }
                         }
 
                         // Im Falle einer Kollision in diesem Schleifendurchlauf...

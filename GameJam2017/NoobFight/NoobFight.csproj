@@ -85,6 +85,9 @@
     <None Include="App.config" />
     <EngeniousContentReference Include="Content\Content.ecp" />
     <None Include="Content\bigFont.spritefont" />
+    <None Include="Content\Maps\1test.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Maps\test.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

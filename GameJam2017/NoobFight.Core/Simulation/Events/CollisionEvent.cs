@@ -1,5 +1,6 @@
 ﻿using NoobFight.Contract.Entities;
 using NoobFight.Contract.Map;
+using NoobFight.Contract.Simulation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,9 @@ namespace NoobFight.Core.Simulation.Events
         private IEntity entity;
         private IActiveTile tile;
 
-        public override void Dispatch(World world, Simulation simulation)
+        public override void Dispatch(IWorld world, ISimulation simulation)
         {
-            tile.OnCollision(entity);
+            tile.OnCollision(world.CreateNewManipulator() ,entity);
         }
 
         public CollisionEvent(IActiveTile BlockType, IEntity entity)

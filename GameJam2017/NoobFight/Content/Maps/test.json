@@ -139,6 +139,17 @@
                  "width":350,
                  "x":3220,
                  "y":6790
+                }, 
+                {
+                 "height":140,
+                 "id":32,
+                 "name":"",
+                 "rotation":0,
+                 "type":"Portal",
+                 "visible":true,
+                 "width":70,
+                 "x":3710,
+                 "y":6650
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -147,7 +158,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":32,
+ "nextobjectid":33,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":70,

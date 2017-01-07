@@ -11,7 +11,7 @@ namespace NoobFight.Core.Simulation
 {
     public class World : IWorld
     {
-        private Queue<WorldEvent> _events = new Queue<WorldEvent>();
+        private Queue<IWorldEvent> _events = new Queue<IWorldEvent>();
 
         private Simulation _simulation;
 
@@ -69,7 +69,7 @@ namespace NoobFight.Core.Simulation
             }
         }
 
-        public void AddEvent(WorldEvent @event)
+        public void AddEvent(IWorldEvent @event)
         {
             lock (_events)
             {

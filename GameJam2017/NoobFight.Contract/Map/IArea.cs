@@ -9,6 +9,7 @@ namespace NoobFight.Contract.Map
 {
     public interface IArea
     {
+        string Name { get; }
         int Width { get; }
         int Height { get; }
         Vector2 SpawnPoint { get; }

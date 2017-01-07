@@ -28,5 +28,9 @@ namespace NoobFight.Contract.Simulation
 
         void Pause();
 
+        void AddPlayer(IPlayer player);
+
+        void RemovePlayer(IPlayer player);
+
     }
 }
