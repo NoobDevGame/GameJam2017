@@ -64,11 +64,11 @@ namespace NoobFight.Core.Network
             tcpClient.Close();
         }
 
-        public async void BeginReceived()
+        public async void BeginReceive()
         {
             var data = await readStream();
-            var message = new NetworkMessage(data);
-            BeginReceived();
+            var message = MessageManager.Deserialize(data);
+            BeginReceive();
             OnMessageReceived?.Invoke(this, message);
         }
 
@@ -77,16 +77,16 @@ namespace NoobFight.Core.Network
             using (var reader = new BinaryReader(Stream, Encoding.UTF8, true))
                 return reader.ReadBytes(reader.ReadInt32());
         }, mainToken);
-
-        private Task writeStream(NetworkMessage message) => new Task(() =>
+        //TODO:
+        public Task writeStream(NetworkMessage message) => new Task(() =>
         {
             using (var writer = new BinaryWriter(Stream, Encoding.UTF8, true))
             {
                 var data = message.GetBytes();
-                writer.Write(data.Count());
+                writer.Write(data.Length);
                 writer.Write(data);
             }
         }, mainToken);
-
+        
     }
 }
