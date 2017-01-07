@@ -67,9 +67,8 @@ namespace NoobFight.Controls
 
             foreach (var entity in area.Entities)
             {
-                Vector2 position = new Vector2((entity.Position.X - entity.Radius) * 70, (entity.Position.Y - entity.Height) * 70 );
+                Vector2 position = new Vector2((entity.Position.X) * 70 + cOffset.X, (entity.Position.Y) * 70 + cOffset.Y  );
 
-                Vector2 offset = Vector2.Zero;
                 if (entity == manager.Game.SimulationComponent.Player)
                 {
                     position = manager.Game.CameraComponent.HalfViewport - new Vector2(entity.Radius, entity.Height);

@@ -145,7 +145,7 @@ namespace NoobFight.Core.Map
                             {
                                 Height = size.Y,
                                 Radius = size.X / 2,
-                                Position = position
+                                Position = position + new Vector2(size.X / 2,size.Y)
                             });
                         }
                     }
