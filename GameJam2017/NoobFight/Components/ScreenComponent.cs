@@ -54,7 +54,7 @@ namespace NoobFight.Components
                     Content.Load<Texture2D>("ui/progress_background"),
                     10, 8);
 
-            Frame.Background = new BorderBrush(Color.WhiteSmoke);
+            Frame.Background = new BorderBrush(Color.CornflowerBlue);
 
             NavigateFromTransition = new AlphaTransition(Frame, Transition.Linear, TimeSpan.FromMilliseconds(200), 0f);
             NavigateToTransition = new AlphaTransition(Frame, Transition.Linear, TimeSpan.FromMilliseconds(200), 1f);
