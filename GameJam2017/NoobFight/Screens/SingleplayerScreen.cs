@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NoobFight.Core.Map;
 
 namespace NoobFight.Screens
 {
@@ -64,6 +65,7 @@ namespace NoobFight.Screens
             {
                 manager.Game.SimulationComponent.World = manager.Game.SimulationComponent.Simulation.CreateNewWorld((GameMode)Enum.Parse(typeof(GameMode), (string)gamemodeSelect.SelectedItem));
                 manager.Game.SimulationComponent.World.AddPlayer(manager.Game.SimulationComponent.Player);
+                manager.Game.SimulationComponent.World.Start(MapGenerator.CreateMap());
                 manager.NavigateToScreen(new GameScreen(manager));
             };
             grid.AddControl(playButton, 0, 2);
