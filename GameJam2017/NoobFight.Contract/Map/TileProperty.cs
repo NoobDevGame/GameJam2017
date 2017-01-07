@@ -3,5 +3,6 @@
     public struct TileProperty
     {
         public bool blocked;
+        public int entitytype;
     }
 }
