@@ -12,23 +12,29 @@ namespace NoobFight.Core.Network
     class MessageManager
     {
         private static Dictionary<byte, Type> messageTypes = new Dictionary<byte, Type>();
-        private static Dictionary<byte, Func<byte[], NetworkMessage>> messageConstructors = new Dictionary<byte, Func<byte[], NetworkMessage>>();
+        private static Dictionary<byte, Func<NetworkMessage>> messageConstructors = new Dictionary<byte, Func<NetworkMessage>>();
         static MessageManager()
         {
-            RegisterMessage(1, typeof(PingMessage));
-            RegisterMessage(2, typeof(PongMessage));
-            RegisterMessage(3, typeof(ConnectedPlayersRequestMessage));
-            RegisterMessage(4, typeof(ConnectedPlayersResponseMessage));
+            RegisterMessage<PingMessage>();
+            RegisterMessage<PongMessage>();
+            RegisterMessage<ConnectedPlayersRequestMessage>();
+            RegisterMessage<ConnectedPlayersResponseMessage>();
         }
-        public static void RegisterMessage(byte id, Type type)
+        public static void RegisterMessage<T>()
+               where T : NetworkMessage, new ()
         {
+            var type = typeof(T);
+            var lambda = Expression.Lambda<Func<NetworkMessage>>(Expression.New(type)).Compile();
+            byte id = new T().DataType;
+            messageConstructors.Add(id, lambda);
             messageTypes.Add(id, type);
-            var payloadParam = Expression.Parameter(typeof(byte[]), "payload");
-            var constructor = type.GetConstructor(new Type[] { typeof(byte[]) });
-            if (constructor == null)
-                throw new ArgumentException("Not a valid network message type");
-            var lambda = Expression.Lambda<Func<byte[], NetworkMessage>>(Expression.New(constructor, payloadParam), payloadParam);
-            messageConstructors.Add(id, lambda.Compile());
+        }
+        private static void RegisterMessage(Type type)
+        {
+            var lambda = Expression.Lambda<Func<NetworkMessage>>(Expression.New(type)).Compile();
+            byte id = lambda().DataType;
+            messageConstructors.Add(id, lambda);
+            messageTypes.Add(id, type);
         }
         public static NetworkMessage Deserialize(byte[] data)
         {
@@ -41,11 +47,12 @@ namespace NoobFight.Core.Network
         }
         public static NetworkMessage Deserialize(byte dataType, byte[] payload)
         {
-            Func<byte[], NetworkMessage> factory;
+            Func<NetworkMessage> factory;
             if (!messageConstructors.TryGetValue(dataType, out factory))
                 return null;
 
-            var res = factory(payload);
+            var res = factory();
+            res.Deserialize(payload);
             return res;
         }
     }
