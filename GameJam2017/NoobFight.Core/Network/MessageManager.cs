@@ -1,5 +1,4 @@
 ﻿using NoobFight.Core.Network.Messages;
-using NoobFight.Server.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;
