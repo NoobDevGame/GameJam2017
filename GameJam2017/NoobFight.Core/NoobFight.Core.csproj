@@ -55,6 +55,7 @@
     <Compile Include="Map\Map.cs" />
     <Compile Include="Network\Client.cs" />
     <Compile Include="Network\ConnectionMessageType.cs" />
+    <Compile Include="Network\MessageHandler.cs" />
     <Compile Include="Network\MessageManager.cs" />
     <Compile Include="Network\Messages\ConnectedPlayersMessage.cs" />
     <Compile Include="Network\Messages\PingPongMessage.cs" />

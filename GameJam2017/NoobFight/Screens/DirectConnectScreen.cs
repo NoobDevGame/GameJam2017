@@ -1,7 +1,7 @@
 ﻿using engenious;
 using MonoGameUi;
 using NoobFight.Components;
-using NoobFight.Server.Message;
+using NoobFight.Core.Network.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;

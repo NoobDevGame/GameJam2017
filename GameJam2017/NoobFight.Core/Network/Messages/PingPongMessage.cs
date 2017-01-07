@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoobFight.Server.Message
+namespace NoobFight.Core.Network.Messages
 {
     public class PingMessage : NetworkMessage
     {
