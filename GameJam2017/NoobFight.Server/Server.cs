@@ -11,6 +11,7 @@ using NoobFight.Core.Simulation;
 using NoobFight.Contract.Simulation;
 using NoobFight.Core.Map;
 using NoobFight.Server.Message;
+using NoobFight.Core.Network.Messages;
 
 namespace NoobFight.Server
 {
@@ -18,7 +19,6 @@ namespace NoobFight.Server
     {
         TcpListener listener;
         ConcurrentDictionary<int, Client> clients;
-        Simulation simulation;
 
         IWorld world;
 
@@ -28,17 +28,16 @@ namespace NoobFight.Server
         {
             listener = new TcpListener(IPAddress.Any, 667);
             clients = new ConcurrentDictionary<int, Client>();
-            simulation = new Simulation();
         }
-        private void RegisterMessageHandler<T>(byte id,Action<Client,T> handler) where T : NetworkMessage
+
+        public void RegisterMessageHandler<T>(byte id,Action<Client,T> handler) where T : NetworkMessage
         {
             messageHandlers.Add(id, (Client c,NetworkMessage msg) => handler(c,(T)msg));
         }
+
         public void Start()
         {
             RegisterMessageHandler<PingMessage>(1, PingMessage_Received);
-            world = simulation.CreateNewWorld(GameMode.Timed);
-            world.Start(MapGenerator.CreateMap());
             listener.Start();
             listener.BeginAcceptTcpClient(HandShake, null);
         }
@@ -59,18 +58,17 @@ namespace NoobFight.Server
                 client.OnMessageReceived += client_OnMessageReceived;
             });
         }
+
         private void PingMessage_Received(Client client,PingMessage message)
         {
             client.writeStream(new PongMessage());
-            throw new NotSupportedException("blub I did it again >:" + message.ToString());
         }
+
         private void client_OnMessageReceived(object sender, NetworkMessage message)
         {
             Action<Client,NetworkMessage> handler;
             if (messageHandlers.TryGetValue(message.DataType, out handler))
                 handler((Client)sender,message);
-
-            throw new NotSupportedException("Uuups I did it again >:" + message.ToString());
         }
 
     }

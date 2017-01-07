@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NoobFight.Core.Network.Messages;
+using NoobFight.Core.Simulation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +13,18 @@ namespace NoobFight.Server
     {
         static Server server;
         static EventWaitHandle eventWait;
+        static Simulation simulation;
 
         static void Main(string[] args)
         {
             eventWait = new EventWaitHandle(false, EventResetMode.ManualReset);
             server = new Server();
             server.Start();
+
+            simulation = new Simulation();
+
+            server.RegisterMessageHandler<ConnectedPlayersRequestMessage>(3, (c, m) => new ConnectedPlayersResponseMessage(1));
+
             eventWait.WaitOne();
         }
     }
