@@ -144,7 +144,7 @@ namespace NoobFight.Core.Map
 
                 foreach (var tile in ft.tileproperties)
                 {
-                    contenttexture.SetTileProperty(tile.Key + 1, tile.Value.GetTileProperty());
+                    contenttexture.SetTileProperty(tile.Key, tile.Value.GetTileProperty());
                 }
 
                 area.MapTextures.Add(key, contenttexture);
