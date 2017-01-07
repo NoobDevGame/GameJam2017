@@ -1,6 +1,7 @@
 ﻿using NoobFight.Core.Network.Messages;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
@@ -13,6 +14,7 @@ namespace NoobFight.Core.Network
 {
     public class Client
     {
+        private object writeLock = new object();
         public NetworkStream Stream { get { return tcpClient.GetStream(); } }
         public int ID { get; private set; }
         public bool Connected => tcpClient.Connected;
@@ -68,6 +70,8 @@ namespace NoobFight.Core.Network
         public async void BeginReceive()
         {
             var data = await readStream();
+            if (data == null)
+                return;
             var message = MessageManager.Deserialize(data);
             BeginReceive();
             OnMessageReceived?.Invoke(this, message);
@@ -86,13 +90,17 @@ namespace NoobFight.Core.Network
             }
         }, mainToken);
 
-        public Task writeStream(NetworkMessage message) => Task.Run(() =>
+        
+        public Task writeStreamAsync(NetworkMessage message) => Task.Run(() =>
         {
             using (var writer = new BinaryWriter(Stream, Encoding.UTF8, true))
             {
-                var data = message.GetBytes();
-                writer.Write(data.Length);
-                writer.Write(data);
+                lock (writeLock)
+                {
+                    var data = message.GetBytes();
+                    writer.Write(data.Length);
+                    writer.Write(data);
+                }
             }
         }, mainToken);
         

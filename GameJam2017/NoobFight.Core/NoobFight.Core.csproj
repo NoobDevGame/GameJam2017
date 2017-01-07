@@ -48,6 +48,7 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\ItemEntity.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Entities\RemotePlayer.cs" />
     <Compile Include="Map\Area.cs" />
     <Compile Include="Map\Layer.cs" />
     <Compile Include="Map\MapGenerator.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Network\MessageManager.cs" />
     <Compile Include="Network\Messages\ConnectedPlayersMessage.cs" />
     <Compile Include="Network\Messages\ConnectedPlayersResponseMessage.cs" />
+    <Compile Include="Network\Messages\CreateWorldMessage.cs" />
     <Compile Include="Network\Messages\MessageType.cs" />
     <Compile Include="Network\Messages\NetworkMessage.cs" />
     <Compile Include="Network\Messages\PingMessage.cs" />

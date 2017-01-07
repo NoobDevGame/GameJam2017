@@ -17,7 +17,7 @@ namespace NoobFight.Contract.Simulation
 
         void Update(GameTime gameTime);
 
-        IPlayer CreateLocalPlayer(string name, string textureName);
+        IPlayer CreateLocalPlayer(long id, string name, string textureName);
 
         void InsertPlayer(IPlayer player);
 

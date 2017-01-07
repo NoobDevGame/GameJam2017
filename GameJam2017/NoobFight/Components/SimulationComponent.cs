@@ -14,14 +14,14 @@ namespace NoobFight.Components
     {
         public new NoobFight Game { get; private set; }
         public ISimulation Simulation { get; private set; }
-        public IPlayer Player { get; private set; }
+        public IPlayer Player { get; set; }
         public IWorld World { get; set; }
 
         public SimulationComponent(NoobFight game) : base(game)
         {
             Game = game;
             Simulation = new Simulation();
-            Player = Simulation.CreateLocalPlayer("Local Player", "monkey");
+            //Player = Simulation.CreateLocalPlayer("Local Player", "monkey");
         }
 
         public override void Update(GameTime gameTime)

@@ -6,7 +6,7 @@ namespace NoobFight.Core.Simulation.Events
 {
     public class PlayerWorldEvent : WorldEvent
     {
-        public Guid PlayerID { get; set; }
+        public long PlayerID { get; set; }
 
         public PlayerEventMethod Method { get; set; }
 

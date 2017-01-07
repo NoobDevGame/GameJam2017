@@ -16,10 +16,13 @@ namespace NoobFight.Core.Network
         {
             messageConstructors = new Dictionary<MessageType, Func<NetworkMessage>>();
             messageTypes = new Dictionary<MessageType, Type>();
-            RegisterMessage<PingMessage>();
-            RegisterMessage<PongMessage>();
-            RegisterMessage<ConnectedPlayersRequestMessage>();
-            RegisterMessage<ConnectedPlayersResponseMessage>();
+            foreach(var type in System.Reflection.Assembly.GetCallingAssembly().GetTypes())
+            {
+                if (!type.IsAbstract && typeof(NetworkMessage).IsAssignableFrom(type))
+                {
+                    RegisterMessage(type);
+                }
+            }
         }
 
         public static void RegisterMessage<T>()

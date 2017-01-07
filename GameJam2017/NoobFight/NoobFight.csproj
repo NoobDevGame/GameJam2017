@@ -35,7 +35,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>NoobFight.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="engenious, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
