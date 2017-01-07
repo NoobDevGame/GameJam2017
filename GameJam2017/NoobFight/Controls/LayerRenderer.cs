@@ -13,9 +13,9 @@ namespace NoobFight.Controls
     {
         private VertexBuffer vb;
         private IndexBuffer ib;
-        public LayerRenderer(ScreenComponent screen,int width,int height,ILayer layer)
+
+        public LayerRenderer(ScreenComponent screen, int width, int height, ILayer layer)
         {
-            
             //vb = new VertexBuffer(screen.GraphicsDevice,)
         }
     }

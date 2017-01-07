@@ -72,12 +72,12 @@ namespace NoobFight.Core.Network
             OnMessageReceived?.Invoke(this, message);
         }
 
-        private Task<byte[]> readStream() => Task.Run<byte[]>(() =>
+        private Task<byte[]> readStream() => Task.Run(() =>
         {
             using (var reader = new BinaryReader(Stream, Encoding.UTF8, true))
                 return reader.ReadBytes(reader.ReadInt32());
         }, mainToken);
-        //TODO:
+
         public Task writeStream(NetworkMessage message) => Task.Run(() =>
         {
             using (var writer = new BinaryWriter(Stream, Encoding.UTF8, true))

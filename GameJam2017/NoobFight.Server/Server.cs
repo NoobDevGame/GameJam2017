@@ -10,7 +10,7 @@ using NoobFight.Core.Network;
 using NoobFight.Core.Simulation;
 using NoobFight.Contract.Simulation;
 using NoobFight.Core.Map;
-using NoobFight.Server.Message;
+using NoobFight.Core.Message;
 using NoobFight.Core.Network.Messages;
 
 namespace NoobFight.Server
@@ -22,12 +22,13 @@ namespace NoobFight.Server
 
         IWorld world;
 
-        private Dictionary<byte, Action<Client,NetworkMessage>> messageHandlers = new Dictionary<byte, Action<Client,NetworkMessage>>();
+        private Dictionary<byte, Action<Client,NetworkMessage>> messageHandlers;
 
         public Server()
         {
             listener = new TcpListener(IPAddress.Any, 667);
             clients = new ConcurrentDictionary<int, Client>();
+            messageHandlers = new Dictionary<byte, Action<Client, NetworkMessage>>();
         }
 
         public void RegisterMessageHandler<T>(byte id,Action<Client,T> handler) where T : NetworkMessage

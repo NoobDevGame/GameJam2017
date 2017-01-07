@@ -13,7 +13,6 @@ namespace NoobFight.Components
     public class SimulationComponent : GameComponent
     {
         public new NoobFight Game { get; private set; }
-
         public ISimulation Simulation { get; private set; }
         public IPlayer Player { get; private set; }
         public IWorld World { get; set; }

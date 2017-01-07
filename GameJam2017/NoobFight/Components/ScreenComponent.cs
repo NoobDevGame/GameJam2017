@@ -20,6 +20,11 @@ namespace NoobFight.Components
             TitlePrefix = "NoobFight";
         }
 
+        public void Exit()
+        {
+            Game.Exit();
+        }
+
         protected override void LoadContent()
         {
             base.LoadContent();
@@ -36,17 +41,17 @@ namespace NoobFight.Components
 
             Skin.Current.ButtonPressedBrush =
                 NineTileBrush.FromSingleTexture(
-                    Content.Load<Texture2D>("ui/buttonLong_beige_pressed"), 
+                    Content.Load<Texture2D>("ui/buttonLong_beige_pressed"),
                     15, 15);
 
             Skin.Current.ProgressBarBrush =
                 NineTileBrush.FromSingleTexture(
-                    Content.Load<Texture2D>("ui/progress_red"), 
+                    Content.Load<Texture2D>("ui/progress_red"),
                     10, 8);
 
             Skin.Current.HorizontalScrollBackgroundBrush =
                 NineTileBrush.FromSingleTexture(
-                    Content.Load<Texture2D>("ui/progress_background"), 
+                    Content.Load<Texture2D>("ui/progress_background"),
                     10, 8);
 
             Frame.Background = new BorderBrush(Color.WhiteSmoke);
@@ -55,11 +60,6 @@ namespace NoobFight.Components
             NavigateToTransition = new AlphaTransition(Frame, Transition.Linear, TimeSpan.FromMilliseconds(200), 1f);
 
             NavigateToScreen(new MainScreen(this));
-        }
-
-        public void Exit()
-        {
-            Game.Exit();
         }
     }
 }

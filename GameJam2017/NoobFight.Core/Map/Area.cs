@@ -10,27 +10,25 @@ namespace NoobFight.Core.Map
 {
     public class Area : IArea
     {
+        public IEnumerable<ILayer> Layers => _layers;
+        public IEnumerable<IEntity> Entities => _entities;
+        public Dictionary<string, MapTexture> MapTextures { get; private set; }
+        public Vector2 SpawnPoint { get; set; }
+        public int Width { get; }
+        public int Height { get; }
+
+        private Layer[] _layers;
+        private List<IEntity> _entities;
+
         public Area(int width, int height)
         {
             Width = width;
             Height = height;
 
             MapTextures = new Dictionary<string, MapTexture>();
+            _entities = new List<IEntity>();
         }
-
-        public int Width { get; }
-        public int Height { get; }
-
-        private Layer[] _layers;
-        public IEnumerable<ILayer> Layers => _layers;
-
-        private List<IEntity> _entities = new List<IEntity>();
-        public IEnumerable<IEntity> Entities => _entities;
-
-        public Dictionary<string,MapTexture> MapTextures { get; private set; }
-
-        public Vector2 SpawnPoint{get;set;}
-
+        
         public void SetLayers(Layer[] layers)
         {
             _layers = layers;

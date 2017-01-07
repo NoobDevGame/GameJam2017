@@ -1,5 +1,5 @@
 ﻿using NoobFight.Core.Network.Messages;
-using NoobFight.Server.Message;
+using NoobFight.Core.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +13,7 @@ namespace NoobFight.Core.Network
     {
         private static Dictionary<byte, Type> messageTypes = new Dictionary<byte, Type>();
         private static Dictionary<byte, Func<byte[], NetworkMessage>> messageConstructors = new Dictionary<byte, Func<byte[], NetworkMessage>>();
+
         static MessageManager()
         {
             RegisterMessage(1, typeof(PingMessage));
@@ -20,6 +21,7 @@ namespace NoobFight.Core.Network
             RegisterMessage(3, typeof(ConnectedPlayersRequestMessage));
             RegisterMessage(4, typeof(ConnectedPlayersResponseMessage));
         }
+
         public static void RegisterMessage(byte id, Type type)
         {
             messageTypes.Add(id, type);
@@ -30,6 +32,7 @@ namespace NoobFight.Core.Network
             var lambda = Expression.Lambda<Func<byte[], NetworkMessage>>(Expression.New(constructor, payloadParam), payloadParam);
             messageConstructors.Add(id, lambda.Compile());
         }
+
         public static NetworkMessage Deserialize(byte[] data)
         {
             if (data.Length == 1)

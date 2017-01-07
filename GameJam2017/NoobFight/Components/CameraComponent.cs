@@ -9,23 +9,15 @@ namespace NoobFight.Components
 {
     public class CameraComponent : GameComponent
     {
-
         public new NoobFight Game { get; private set; }
-
         public Vector2 Offset { get; private set; }
-
         public Vector2 HalfViewport { get; private set; }
 
         public CameraComponent(NoobFight game) : base(game)
         {
             Game = game;
         }
-
-        protected override void LoadContent()
-        {
-            base.LoadContent();
-        }
-
+        
         public override void Update(GameTime gameTime)
         {
             var player = Game.SimulationComponent.Player;
@@ -39,6 +31,11 @@ namespace NoobFight.Components
             HalfViewport = viewport;
 
             base.Update(gameTime);
+        }
+
+        protected override void LoadContent()
+        {
+            base.LoadContent();
         }
     }
 }

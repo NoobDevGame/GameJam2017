@@ -13,12 +13,14 @@ namespace NoobFight.Controls
         private LayerRenderer[] _layerRenderer;
         private IArea _area;
         private ScreenComponent _screen;
-        public AreaRenderer(ScreenComponent screen,IArea area)
+
+        public AreaRenderer(ScreenComponent screen, IArea area)
         {
             _area = area;
             _screen = screen;
             RebuildRenderer();
         }
+
         private void RebuildRenderer()
         {
             var layers = _area.Layers.ToArray();
