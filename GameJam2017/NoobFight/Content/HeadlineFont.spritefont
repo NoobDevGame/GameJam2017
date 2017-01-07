@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <EngeniousFont>
-	<!--<FontName>Arial</FontName>-->
+	<FontName>Arial</FontName>
 	<Size>40</Size>
 	<Spacing>0</Spacing>
 	<UseKerning>true</UseKerning>
-	<Style>Bold Italic</Style>
+	<Style>Bold</Style>
 	<DefaultCharacter>*</DefaultCharacter>
 	<CharacterRegions>
 		<CharacterRegion>
