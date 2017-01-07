@@ -64,7 +64,12 @@ namespace NoobFight.Controls
                 }
             }
 
-            batch.Draw(playerTexture, new Vector2(player.Position.X * 35, player.Position.Y * 35), Color.White);
+            foreach (var entity in area.Entities)
+            {
+                Rectangle destination = new Rectangle((int)((entity.Position.X - entity.Radius) * 70), (int)((entity.Position.Y - entity.Height) * 70),(int)(entity.Radius* 2* 70), (int)(entity.Height*70));
+                batch.Draw(playerTexture, destination, Color.White);
+            }
+
         }
     }
 }

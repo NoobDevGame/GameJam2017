@@ -13,6 +13,7 @@ namespace NoobFight.Core.Entities
             Mass = 50f;
             Radius = 0.5f;
             Height = 1f;
+            Position = new Vector2(1, 1);
         }
 
         public string Name { get; private set; }

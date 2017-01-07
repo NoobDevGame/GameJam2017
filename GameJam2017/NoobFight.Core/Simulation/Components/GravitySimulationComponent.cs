@@ -16,6 +16,7 @@ namespace NoobFight.Core.Simulation.Components
                 foreach (var entity in area.Entities)
                 {
                     Vector2 velocity = entity.Velocity + velocitychange;
+                    entity.Velocity = velocity;
                 }
             }
         }
