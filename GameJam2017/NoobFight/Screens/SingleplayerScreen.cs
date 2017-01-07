@@ -62,7 +62,8 @@ namespace NoobFight.Screens
             playButton.Height = 50;
             playButton.LeftMouseClick += (s, e) =>
             {
-                manager.Game.SimulationComponent.Simulation.CreateNewWorld((GameMode)Enum.Parse(typeof(GameMode), (string)gamemodeSelect.SelectedItem));
+                manager.Game.SimulationComponent.World = manager.Game.SimulationComponent.Simulation.CreateNewWorld((GameMode)Enum.Parse(typeof(GameMode), (string)gamemodeSelect.SelectedItem));
+                manager.Game.SimulationComponent.World.AddPlayer(manager.Game.SimulationComponent.Player);
                 manager.NavigateToScreen(new GameScreen(manager));
             };
             grid.AddControl(playButton, 0, 2);
