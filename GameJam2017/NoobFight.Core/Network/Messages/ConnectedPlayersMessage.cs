@@ -8,26 +8,30 @@ namespace NoobFight.Core.Network.Messages
 {
     public class ConnectedPlayersRequestMessage : NetworkMessage
     {
-        public ConnectedPlayersRequestMessage() : base(3,null)
-        {
-        }
-        public ConnectedPlayersRequestMessage(byte[] data) : base(3,data) 
-        {
-        }
+        public override byte DataType => 3;
     }
 
     public class ConnectedPlayersResponseMessage : NetworkMessage
     {
-        public ConnectedPlayersResponseMessage(int count) : base(4,null)
+        public override byte DataType => 4;
+
+        public int Count { get; private set; }
+        public ConnectedPlayersResponseMessage()
         {
-            byte[] payload = new byte[4];
-            payload = BitConverter.GetBytes(count);
-            Payload = payload;
+
+        }
+        public ConnectedPlayersResponseMessage(int count)
+        {
+            Count = count;
         }
 
-        public ConnectedPlayersResponseMessage(byte [] data) : base(4,data) 
+        public override void Deserialize(byte[] payload)
         {
-
+            Count = BitConverter.ToInt32(payload, 0);
+        }
+        public override byte[] Serialize()
+        {
+            return BitConverter.GetBytes(Count);
         }
     }
 }

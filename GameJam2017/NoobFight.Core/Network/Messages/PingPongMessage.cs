@@ -9,12 +9,8 @@ namespace NoobFight.Server.Message
 {
     public class PingMessage : NetworkMessage
     {
-        public PingMessage() : base(1, null)
-        {
-        }
-        public PingMessage(byte[] data) : base(1,data)
-        {
-        }
+        public override byte DataType => 1;
+
         public override string ToString()
         {
             return "Ping";
@@ -22,12 +18,8 @@ namespace NoobFight.Server.Message
     }
     public class PongMessage : NetworkMessage
     {
-        public PongMessage() : base(2, null)
-        {
-        }
-        public PongMessage(byte[] data) : base(2,data)
-        {
-        }
+        public override byte DataType => 2;
+
         public override string ToString()
         {
             return "Pong";
