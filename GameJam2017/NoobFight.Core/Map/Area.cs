@@ -49,5 +49,15 @@ namespace NoobFight.Core.Map
             entity.CurrentArea = null;
             _entities.Remove(entity);
         }
+
+        public bool IsCellBlocked(int x, int y)
+        {
+            if (x < 0 || y < 0)
+                return true;
+            if (x > Width || y > Height)
+                return true;
+
+            return false;
+        }
     }
 }

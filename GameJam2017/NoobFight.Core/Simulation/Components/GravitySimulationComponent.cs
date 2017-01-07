@@ -5,7 +5,7 @@ namespace NoobFight.Core.Simulation.Components
 {
     public class GravitySimulationComponent : SimulationComponent
     {
-        public const float FallAcceleration = -9.81f;
+        public const float FallAcceleration = 9.81f;
 
         public override void SimulateWorld(IWorld world, GameTime gameTime)
         {

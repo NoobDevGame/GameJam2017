@@ -23,6 +23,7 @@ namespace NoobFight.Core.Simulation
             _components.Add(new GravitySimulationComponent());
             _components.Add(new MoveSimulationComponent());
             _components.Add(new MoveSimulationComponent());
+            _components.Add(new CollisionSimulationComponent());
         }
 
         public IWorld CreateNewWorld(GameMode mode)

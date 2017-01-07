@@ -19,5 +19,6 @@ namespace NoobFight.Contract.Map
         void RemoveEntity(IEntity entity);
 
         MapTexture GetMapTextures(int id);
+        bool IsCellBlocked(int x, int y);
     }
 }

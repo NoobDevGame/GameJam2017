@@ -11,6 +11,8 @@ namespace NoobFight.Core.Entities
             Name = name;
             TextureName = textureName;
             Mass = 50f;
+            Radius = 0.5f;
+            Height = 1f;
         }
 
         public string Name { get; private set; }
@@ -24,5 +26,8 @@ namespace NoobFight.Core.Entities
         public Vector2 Position { get; set; }
         public Vector2 Move { get; set; }
         public Vector2 Velocity { get; set; }
+
+        public float Radius { get; set; }
+        public float Height { get; set; }
     }
 }
