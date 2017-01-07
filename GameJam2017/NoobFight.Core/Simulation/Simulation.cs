@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
@@ -46,7 +47,7 @@ namespace NoobFight.Core.Simulation
 
         public IPlayer CreateLocalPlayer(string name)
         {
-            Player player = new Player(name,"test");
+            Player player = new Player(Guid.NewGuid(), name,"test");
             InsertPlayer(player);
 
             return player;

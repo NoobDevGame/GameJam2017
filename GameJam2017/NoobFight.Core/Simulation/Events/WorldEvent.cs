@@ -4,8 +4,6 @@ namespace NoobFight.Core.Simulation.Events
 {
     public abstract class WorldEvent
     {
-        public void Dispatch(World world, Simulation simulation)
-        {
-        }
+        public abstract void Dispatch(World world, Simulation simulation);
     }
 }

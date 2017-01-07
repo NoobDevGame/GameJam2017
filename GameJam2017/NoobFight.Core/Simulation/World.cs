@@ -64,7 +64,12 @@ namespace NoobFight.Core.Simulation
         {
             lock (_events)
             {
-
+                _events.Enqueue(new PlayerWorldEvent()
+                    {
+                        PlayerID = player.ID,
+                        Method =PlayerEventMethod.Insert,
+                    }
+                );
             }
         }
 
@@ -72,7 +77,12 @@ namespace NoobFight.Core.Simulation
         {
             lock (_events)
             {
-
+                _events.Enqueue(new PlayerWorldEvent()
+                    {
+                        PlayerID = player.ID,
+                        Method =PlayerEventMethod.Remove,
+                    }
+                );
             }
 
         }
