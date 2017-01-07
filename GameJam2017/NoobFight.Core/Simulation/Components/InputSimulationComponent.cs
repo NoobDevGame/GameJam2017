@@ -12,9 +12,19 @@ namespace NoobFight.Core.Simulation.Components
             {
                 foreach (var entity in area.Entities)
                 {
-                    if (entity is ICharacter)
+                    if (entity is IPlayer)
                     {
-                        var character = (ICharacter) entity;
+                        var player = (IPlayer) entity;
+
+                        Vector2 velocity = new Vector2(0,player.Velocity.Y);
+
+                        if (player.Input.MoveRight)
+                            velocity += new Vector2(1,0);
+
+                        if (player.Input.MoveLeft)
+                            velocity += new Vector2(-1,0);
+
+                        player.Velocity = velocity;
                     }
                 }
             }
