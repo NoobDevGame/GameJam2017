@@ -153,7 +153,8 @@ namespace NoobFight.Core.Map
 
                         if (fl.name == "EventLayer")
                         {
-                            if (ActiveTiles.TryGetValue(fileObject.type, out var tileType))
+                            Type tileType;
+                            if (ActiveTiles.TryGetValue(fileObject.type, out tileType))
                             {
                                 for (var x = position.X; x < position.X + size.X; x++)
                                 {
