@@ -21,7 +21,7 @@ namespace NoobFight.Components
         {
             Game = game;
             Simulation = new Simulation();
-            Player = Simulation.CreateLocalPlayer("Local Player");
+            Player = Simulation.CreateLocalPlayer("Local Player", "monkey");
         }
 
         public override void Update(GameTime gameTime)

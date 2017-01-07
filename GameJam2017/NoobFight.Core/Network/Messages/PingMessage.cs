@@ -5,20 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoobFight.Core.Network.Message
+namespace NoobFight.Core.Network.Messages
 {
     public class PingMessage : NetworkMessage
     {
-        public PingMessage() : base(1, null)
-        {
-        }
-        public PingMessage(byte[] data) : base(1,data)
-        {
-        }
+        public override byte DataType => 1;
 
         public override string ToString()
         {
             return "Ping";
+        }
+    }
+    public class PongMessage : NetworkMessage
+    {
+        public override byte DataType => 2;
+
+        public override string ToString()
+        {
+            return "Pong";
         }
     }
 }

@@ -49,14 +49,14 @@ namespace NoobFight.Core.Network
 
             OnConnected?.Invoke(this, new EventArgs());
 
-            Task.Run(() =>
+            /*Task.Run(() =>
             {
                 while (tcpClient.Connected)
                 {
                     Thread.Sleep(1);
                 }
                 OnDisconnected?.Invoke(this, new EventArgs());
-            });
+            });*/
         }
 
         public void Disconnect()
@@ -74,8 +74,15 @@ namespace NoobFight.Core.Network
 
         private Task<byte[]> readStream() => Task.Run(() =>
         {
-            using (var reader = new BinaryReader(Stream, Encoding.UTF8, true))
-                return reader.ReadBytes(reader.ReadInt32());
+            try
+            {
+                using (var reader = new BinaryReader(Stream, Encoding.UTF8, true))
+                    return reader.ReadBytes(reader.ReadInt32());
+            }catch(Exception)
+            {
+                OnDisconnected?.Invoke(this, new EventArgs());
+                return null;
+            }
         }, mainToken);
 
         public Task writeStream(NetworkMessage message) => Task.Run(() =>

@@ -23,7 +23,7 @@ namespace NoobFight.Server
 
             simulation = new Simulation();
 
-            server.RegisterMessageHandler<ConnectedPlayersRequestMessage>(3, (c, m) => new ConnectedPlayersResponseMessage(1));
+            server.MessageHandler.RegisterMessageHandler<ConnectedPlayersRequestMessage>((c, m) => new ConnectedPlayersResponseMessage(1));
 
             eventWait.WaitOne();
         }

@@ -4,6 +4,8 @@ using System.IO;
 using Newtonsoft.Json;
 using NoobFight.Contract;
 using NoobFight.Contract.Map;
+using NoobFight.Core.Entities;
+using NoobFight.Contract.Entities;
 
 namespace NoobFight.Core.Map
 {
@@ -45,6 +47,7 @@ namespace NoobFight.Core.Map
         private class FileTileProperty
         {
             public bool blocked { get; set; }
+            public int entitytype { get; set; }
 
             public TileProperty GetTileProperty()
             {
@@ -90,6 +93,7 @@ namespace NoobFight.Core.Map
 
         private class FileObjectProperty
         {
+            public int entitytype { get; set; }
             public string @class { get; set; }
         }
 
@@ -127,13 +131,22 @@ namespace NoobFight.Core.Map
                 {
                     foreach (FileObject fileObject in fl.objects)
                     {
-                        Vector2 position = new Vector2(fileObject.x/fa.tilewidth,fileObject.y/fa.tileheight);
-                        Vector2 size = new Vector2(fileObject.width/fa.tilewidth,fileObject.height/fa.tileheight);
+                        Vector2 position = new Vector2(fileObject.x / fa.tilewidth, fileObject.y / fa.tileheight);
+                        Vector2 size = new Vector2(fileObject.width / fa.tilewidth, fileObject.height / fa.tileheight);
 
                         if (fileObject.type == "spawn")
                         {
-                            var startposition = new Vector2(position.X +size.X/2,position.Y + size.Y);
+                            var startposition = new Vector2(position.X + size.X / 2, position.Y + size.Y);
                             area.SpawnPoint = startposition;
+                        }
+                        else if (fileObject.type == "entity")
+                        {
+                            area.AddEntity(new Entity(fileObject.name, EntityType.Item)
+                            {
+                                Height = size.Y,
+                                Radius = size.X / 2,
+                                Position = position
+                            });
                         }
                     }
                 }

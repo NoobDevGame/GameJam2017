@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BD15FB8F-A5BD-42B1-8344-97B839B4219B}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>NoobFight</RootNamespace>
     <AssemblyName>NoobFight</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="engenious, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -91,7 +94,10 @@
     <Content Include="Content\credits.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\elephant.png" />
     <Content Include="Content\monkey.png" />
+    <Content Include="Content\coin.png" />
+    <Content Include="Content\pig.png" />
     <Content Include="Content\ui\buttonLong_beige.png" />
     <Content Include="Content\ui\buttonLong_beige_pressed.png" />
     <Content Include="Content\ui\buttonLong_brown.png" />
