@@ -49,6 +49,8 @@
     <Compile Include="Map\IArea.cs" />
     <Compile Include="Map\ILayer.cs" />
     <Compile Include="Map\IMap.cs" />
+    <Compile Include="Map\MapTexture.cs" />
+    <Compile Include="Map\TileProperty.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simulation\GameMode.cs" />

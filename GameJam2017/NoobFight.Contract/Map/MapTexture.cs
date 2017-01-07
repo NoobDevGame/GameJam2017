@@ -1,17 +1,19 @@
 ﻿
 
-namespace NoobFight.Core.Map
-{
-    public class MapTexture
-    {
-        public int Tilecount { get; }
-        public string Key { get; }
-        public int Firstgid { get; }
-        public int Spacing { get; }
-        public int Tileheight { get; }
-        public int Tilewidth { get; }
+using NoobFight.Core.Map;
 
-        public int Columns { get; }
+namespace NoobFight.Contract.Map
+{
+    public struct MapTexture
+    {
+        public int Tilecount;
+        public string Key;
+        public int Firstgid;
+        public int Spacing;
+        public int Tileheight;
+        public int Tilewidth;
+
+        public int Columns;
 
         private TileProperty[] _properties;
 

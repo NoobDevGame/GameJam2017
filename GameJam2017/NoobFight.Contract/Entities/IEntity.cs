@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NoobFight.Contract.Map;
 
 namespace NoobFight.Contract.Entities
 {
@@ -10,6 +11,8 @@ namespace NoobFight.Contract.Entities
     {
         string Name { get; }
         string TextureName { get; }
+
         Position Position { get; set; }
+        IArea CurrentArea { get; set; }
     }
 }
