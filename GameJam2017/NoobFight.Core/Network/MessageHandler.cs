@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoobFight.Core.Network.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace NoobFight.Core.Network
 {
     public class MessageHandler
     {
-        private Dictionary<byte, Action<Client, NetworkMessage>> messageHandlers;
+        private Dictionary<MessageType, Action<Client, NetworkMessage>> messageHandlers = new Dictionary<MessageType, Action<Client, NetworkMessage>>();
 
         public MessageHandler()
         {

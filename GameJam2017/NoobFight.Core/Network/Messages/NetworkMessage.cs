@@ -1,11 +1,12 @@
-﻿using System;
+﻿using NoobFight.Core.Network.Messages;
+using System;
 using System.IO;
 
-namespace NoobFight.Core.Network
+namespace NoobFight.Core.Network.Messages
 {
     public abstract class NetworkMessage
     {
-        public abstract byte DataType { get; }
+        public abstract MessageType DataType { get; }
 
         public virtual byte[] Serialize()
         {
@@ -21,9 +22,9 @@ namespace NoobFight.Core.Network
         {
             var payload = Serialize();
             if (payload == null)
-                return new byte[] { DataType };
+                return new byte[] { (byte)DataType };
             byte[] data = new byte[payload.Length +sizeof(byte)];
-            data[0] = DataType;
+            data[0] = (byte)DataType;
             Array.Copy(payload, 0, data, sizeof(byte), payload.Length);
             return data;
         }
