@@ -12,6 +12,8 @@ namespace NoobFight.Contract.Entities
         string Name { get; }
         string TextureName { get; }
 
+        float Mass { get; set; }
+
         Position Position { get; set; }
         IArea CurrentArea { get; set; }
     }

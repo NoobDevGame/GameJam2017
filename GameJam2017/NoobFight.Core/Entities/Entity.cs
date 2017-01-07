@@ -10,10 +10,14 @@ namespace NoobFight.Core.Entities
         {
             Name = name;
             TextureName = textureName;
+            Mass = 50f;
         }
 
         public string Name { get; private set; }
         public string TextureName { get; private set;}
+
+        public float Mass { get; set; }
+
         public Position Position { get; set; }
         public IArea CurrentArea { get; set; }
     }

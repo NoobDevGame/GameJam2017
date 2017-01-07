@@ -4,6 +4,7 @@ using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
 using NoobFight.Core.Entities;
+using NoobFight.Core.Simulation.Components;
 
 namespace NoobFight.Core.Simulation
 {
@@ -15,13 +16,19 @@ namespace NoobFight.Core.Simulation
         private List<IPlayer> _players = new List<IPlayer>();
         public IEnumerable<IPlayer> Players => _players;
 
+        private List<SimulationComponents> _components= new List<SimulationComponents>();
+
+        public Simulation()
+        {
+            _components.Add(new GravitySimulationComponent());
+        }
+
         public IWorld CreateNewWorld(GameMode mode)
         {
             World newworld = new World(mode,this    );
             _worlds.Add(newworld);
 
             return newworld;
-
         }
 
         public void Update(GameTime gameTime)
@@ -40,6 +47,11 @@ namespace NoobFight.Core.Simulation
             if (world.State == WorldState.Ended)
             {
                 return;
+            }
+
+            foreach (var component in _components)
+            {
+                component.SimulateWorld(world, gameTime);
             }
 
             world.UpdateEvents();
