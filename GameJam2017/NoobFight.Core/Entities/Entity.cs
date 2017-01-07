@@ -9,8 +9,7 @@ namespace NoobFight.Core.Entities
     {
         public string Name { get; private set; }
         public EntityType Type { get; private set; }
-        public string TextureName { get; set;}
-
+        public string TextureName { get; set; }
 
         public IArea CurrentArea { get; set; }
 
@@ -27,7 +26,7 @@ namespace NoobFight.Core.Entities
             Name = name;
             Type = type;
             TextureName = name;
-            Radius = 0.5f;
+            Radius = 0.495f;
             Height = 1f;
             Position = new Vector2(1, 1);
         }
