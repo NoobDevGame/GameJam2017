@@ -34,11 +34,11 @@ namespace NoobFight.Screens
                 try
                 {
                     manager.Game.NetworkComponent.Connect(ipInput.Text, 667);
-                    manager.Game.NetworkComponent.SendMessage(new PingMessage());
+                    manager.NavigateToScreen(new ConnectingScreen(manager));
                 }
                 catch(Exception ex)
                 {
-                    throw new Exception("Connection unsuccessful", ex);
+                    manager.NavigateToScreen(new ConnectingScreen(manager, true));
                 }
             };
             stack.Controls.Add(connectButton);

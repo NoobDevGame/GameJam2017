@@ -74,6 +74,7 @@
     <Compile Include="NoobFight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\ConnectingScreen.cs" />
     <Compile Include="Screens\CreditsScreen.cs" />
     <Compile Include="Screens\DirectConnectScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
