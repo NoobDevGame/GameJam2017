@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using NoobFight.Contract.Simulation;
 
 namespace NoobFight.Core.Simulation.Events
 {
@@ -16,6 +17,7 @@ namespace NoobFight.Core.Simulation.Events
             if (Method == PlayerEventMethod.Insert)
             {
                 world.AddPlayer(player);
+
             }
             else if (Method == PlayerEventMethod.Remove)
             {

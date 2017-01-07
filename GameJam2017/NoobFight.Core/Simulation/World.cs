@@ -20,17 +20,20 @@ namespace NoobFight.Core.Simulation
             Mode = mode;
             _simulation = simulation;
             State = WorldState.Loaded;
+            Manipulator = CreateNewManipulator();
         }
 
         public IMap CurrentMap { get; private set; }
 
-        private List<IPlayer> _players = new List<IPlayer>();
+        private readonly List<IPlayer> _players = new List<IPlayer>();
         public IEnumerable<IPlayer> Players => _players;
 
         public GameMode Mode { get; private set; }
         public WorldState State { get; private set; }
 
         public TimeSpan WorldTime { get; private set; }
+
+        public IWorldManipulator Manipulator { get; }
 
         public void Start(IMap map)
         {
@@ -65,31 +68,38 @@ namespace NoobFight.Core.Simulation
             }
         }
 
-        public void AddPlayer(IPlayer player)
+        public void AddEvent(WorldEvent @event)
         {
             lock (_events)
             {
-                _events.Enqueue(new PlayerWorldEvent()
-                    {
-                        PlayerID = player.ID,
-                        Method =PlayerEventMethod.Insert,
-                    }
-                );
+                _events.Enqueue(@event);
+            }
+        }
+
+        public void AddPlayer(IPlayer player)
+        {
+            _players.Add(player);
+
+            if (State == WorldState.Running || State == WorldState.Paused)
+            {
+                CurrentMap.StartArea.AddEntity(player);
             }
         }
 
         public void RemovePlayer(IPlayer player)
         {
-            lock (_events)
+            if (State == WorldState.Running || State == WorldState.Paused)
             {
-                _events.Enqueue(new PlayerWorldEvent()
-                    {
-                        PlayerID = player.ID,
-                        Method =PlayerEventMethod.Remove,
-                    }
-                );
+                player.CurrentArea?.RemoveEntity(player);
             }
 
+            _players.Remove(player);
+        }
+
+
+        public IWorldManipulator CreateNewManipulator()
+        {
+            return new WorldManipulator(this);
         }
     }
 }
