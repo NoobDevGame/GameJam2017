@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Map;
 using NoobFight.Core.Entities;
@@ -11,6 +12,8 @@ namespace NoobFight.Core.Map
         {
             Width = width;
             Height = height;
+
+            MapTextures = new Dictionary<string, MapTexture>();
         }
 
         public int Width { get; }
@@ -27,7 +30,12 @@ namespace NoobFight.Core.Map
         public void SetLayers(Layer[] layers)
         {
             _layers = layers;
-            MapTextures = new Dictionary<string, MapTexture>();
+
+        }
+
+        public MapTexture GetMapTextures(int id)
+        {
+            return MapTextures.First(i => i.Value.Firstgid <= id && id <= i.Value.Firstgid + i.Value.Tilecount).Value;
         }
     }
 }

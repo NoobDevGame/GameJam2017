@@ -35,6 +35,8 @@ namespace NoobFight.Core.Map
             public int tileheight { get; set; }
             public int tilewidth { get; set; }
 
+            public int columns { get; set; }
+
             public Dictionary<int, FileTileProperty> tileproperties { get; set; }
         }
 
@@ -123,6 +125,7 @@ namespace NoobFight.Core.Map
 
             }
 
+            area.SetLayers(layers);
 
 
             for (int t = 0; t < fa.tilesets.Length; t++)
@@ -136,7 +139,7 @@ namespace NoobFight.Core.Map
                 if (index != -1)
                     key = key.Remove(index);
 
-                var contenttexture = new MapTexture(key, ft.firstgid, ft.tilecount, ft.spacing, ft.tileheight, ft.tilewidth);
+                var contenttexture = new MapTexture(key, ft.firstgid, ft.tilecount, ft.spacing, ft.tileheight, ft.tilewidth,ft.columns);
 
                 foreach (var tile in ft.tileproperties)
                 {

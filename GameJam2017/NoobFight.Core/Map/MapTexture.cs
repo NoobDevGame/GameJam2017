@@ -1,30 +1,38 @@
-﻿namespace NoobFight.Core.Map
+﻿
+
+namespace NoobFight.Core.Map
 {
     public class MapTexture
     {
-        private readonly string _key;
-        private readonly int _firstgid;
-        private readonly int _spacing;
-        private readonly int _tileheight;
-        private readonly int _tilewidth;
+        public int Tilecount { get; }
+        public string Key { get; }
+        public int Firstgid { get; }
+        public int Spacing { get; }
+        public int Tileheight { get; }
+        public int Tilewidth { get; }
+
+        public int Columns { get; }
 
         private TileProperty[] _properties;
 
-        public MapTexture(string key, int firstgid, int tilecount, int spacing, int tileheight, int tilewidth)
+        public MapTexture(string key, int firstgid, int tilecount, int spacing, int tileheight, int tilewidth,int columns)
         {
-            _key = key;
-            _firstgid = firstgid;
-            _spacing = spacing;
-            _tileheight = tileheight;
-            _tilewidth = tilewidth;
+            Tilecount = tilecount;
+            Key = key;
+            Firstgid = firstgid;
+            Spacing = spacing;
+            Tileheight = tileheight;
+            Tilewidth = tilewidth;
+            Columns = columns;
+
 
             _properties = new TileProperty[tilecount];
         }
 
         public void SetTileProperty(int id, TileProperty tileProperty)
         {
-            id -= _firstgid;
             _properties[id] = tileProperty;
         }
+
     }
 }

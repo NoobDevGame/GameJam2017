@@ -79,16 +79,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Tiles\grass_float_single.png" />
-    <Content Include="Content\Tiles\grass_float_left.png" />
-    <Content Include="Content\Tiles\grass_float_center.png" />
-    <Content Include="Content\Tiles\grass_float_right.png" />
-    <Content Include="Content\Tiles\grass_single.png" />
-    <Content Include="Content\Tiles\grass_corner_left.png" />
-    <Content Include="Content\Tiles\grass_corner_right.png" />
-    <Content Include="Content\Tiles\grass_left.png" />
-    <Content Include="Content\Tiles\grass_right.png" />
-    <Content Include="Content\Tiles\dirt.png" />
     <Content Include="Content\ui\buttonLong_beige.png" />
     <Content Include="Content\ui\buttonLong_beige_pressed.png" />
     <Content Include="Content\ui\buttonLong_brown.png" />
@@ -109,6 +99,9 @@
       <Project>{26B9DCA1-6F5C-4488-9F2D-24E8C9B3B88A}</Project>
       <Name>NoobFight.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Tiles" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\engenious.0.1.1\build\engenious.targets" Condition="Exists('..\packages\engenious.0.1.1\build\engenious.targets')" />
