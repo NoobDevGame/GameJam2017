@@ -41,7 +41,7 @@ namespace NoobFight.Screens
             creditsButton.Margin = new Border(0, 0, 0, 10);
             creditsButton.LeftMouseClick += (s, e) =>
             {
-                //manager.NavigateToScreen(new CreditsScreen(manager));
+                manager.NavigateToScreen(new CreditsScreen(manager));
             };
             stack.Controls.Add(creditsButton);
 
