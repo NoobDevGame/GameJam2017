@@ -27,9 +27,9 @@ namespace NoobFight.Core.Map
         private List<IEntity> _entities = new List<IEntity>();
         public IEnumerable<IEntity> Entities => _entities;
 
-        public Dictionary<string,MapTexture> MapTextures { get; private set; }
+        public Dictionary<string, MapTexture> MapTextures { get; private set; }
 
-        public Vector2 SpawnPoint{get;set;}
+        public Vector2 SpawnPoint { get; set; }
 
         public void SetLayers(Layer[] layers)
         {

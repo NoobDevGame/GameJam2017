@@ -6,7 +6,7 @@ namespace NoobFight.Core.Entities
 {
     public class ItemEntity : Entity , IItemEntity
     {
-        public ItemEntity(string name, string textureName, IItem item) : base(name, textureName)
+        public ItemEntity(string name, IItem item) : base(name, EntityType.Player)
         {
             Item = item;
         }

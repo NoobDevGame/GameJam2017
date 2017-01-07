@@ -10,12 +10,13 @@ namespace NoobFight.Contract.Entities
     public interface IEntity
     {
         string Name { get; }
+        EntityType Type { get; }
+
         string TextureName { get; }
 
         float Radius { get; set; }
         float Height { get; set; }
-
-
+        
         IArea CurrentArea { get; set; }
 
         bool OnGround { get; set; }
