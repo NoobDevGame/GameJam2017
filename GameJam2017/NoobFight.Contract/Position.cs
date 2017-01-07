@@ -8,7 +8,7 @@ namespace NoobFight.Contract
 {
     public struct Position
     {
-        int X;
-        int Y;
+        public int X;
+        public int Y;
     }
 }

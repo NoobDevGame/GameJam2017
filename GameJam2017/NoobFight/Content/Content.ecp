@@ -102,22 +102,32 @@
     <ContentFile>
       <Name>BoldFont.fnt</Name>
       <Processor>FontProcessor</Processor>
-      <Importer />
+      <Importer>FontImporter</Importer>
     </ContentFile>
     <ContentFile>
       <Name>GameFont.fnt</Name>
       <Processor>FontProcessor</Processor>
-      <Importer />
+      <Importer>FontImporter</Importer>
     </ContentFile>
     <ContentFile>
       <Name>HeadlineFont.fnt</Name>
       <Processor>FontProcessor</Processor>
-      <Importer />
+      <Importer>FontImporter</Importer>
     </ContentFile>
     <ContentFile>
       <Name>Hud.fnt</Name>
       <Processor>FontProcessor</Processor>
+      <Importer>FontImporter</Importer>
+    </ContentFile>
+    <ContentFile>
+      <Name>tiles_spritesheet.png</Name>
+      <Processor>BitmapProcessor</Processor>
       <Importer />
+      <Settings>
+        <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+        <MipMapCount>1</MipMapCount>
+        <Format>0</Format>
+      </Settings>
     </ContentFile>
   </Contents>
 </Content>
