@@ -14,7 +14,11 @@ namespace NoobFight.Contract.Entities
 
         float Mass { get; set; }
 
-        Position Position { get; set; }
+
         IArea CurrentArea { get; set; }
+
+        Vector2 Position { get; set; }
+        Vector2 Move { get; set; }
+        Vector2 Velocity { get; set; }
     }
 }
