@@ -23,6 +23,8 @@ namespace NoobFight.Components
         private MessageHandler messageHandler;
         private AutoResetEvent worldLoaded, playerLoaded;
 
+        int frame = 0;
+
         public NetworkComponent(NoobFight game) : base(game)
         {
             Game = game;
@@ -36,6 +38,22 @@ namespace NoobFight.Components
             messageHandler.RegisterMessageHandler<PlayerLoginResponseMessage>(PlayerLoginResponse);
             messageHandler.RegisterMessageHandler<PlayerJoinMessage>(PlayerJoin);
             messageHandler.RegisterMessageHandler<CreateWorldMessage>(CreateWorld);
+            messageHandler.RegisterMessageHandler<EntityDataUpdateMessage>(UpdateEntity);
+        }
+
+        private void UpdateEntity(Client client, EntityDataUpdateMessage entitydata)
+        {
+            var player = Game.SimulationComponent.Simulation.Players.First(i => i.ID == entitydata.ID);
+            entitydata.UpdateEntity(player);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (Game.SimulationComponent.World != null && frame++ % 2 == 0)
+            {
+
+                client.writeStream(new EntityDataUpdateMessage(Game.SimulationComponent.Player));
+            }
         }
 
         private void CreateWorld(Client client, CreateWorldMessage message)
@@ -56,7 +74,7 @@ namespace NoobFight.Components
                 Game.ScreenManager.NavigateToScreen(new Screens.GameScreen(Game.ScreenManager));
                 return;
             }
-            var player = new RemotePlayer(client,message.Id,message.Nick,"monkey");//TODO: texturename
+            var player = new RemotePlayer(client, message.Id, message.Nick, "monkey");//TODO: texturename
             Game.SimulationComponent.Simulation.InsertPlayer(player);
 
             Game.SimulationComponent.World.Manipulator.AddPlayer(player);
@@ -77,7 +95,7 @@ namespace NoobFight.Components
             playerLoaded.Set();
         }
 
-        public void Connect(string host, int port,string nick,string textureName)
+        public void Connect(string host, int port, string nick, string textureName)
         {
             client.Connect(host, port);
             client.OnMessageReceived += messageHandler.OnMessageReceived;

@@ -25,7 +25,7 @@ namespace NoobFight.Server
 
         public Server()
         {
-            listener = new TcpListener(IPAddress.Any, 667);
+            listener = new TcpListener(IPAddress.Any, 4344);
             clients = new ConcurrentDictionary<int, Client>();
             MessageHandler = new MessageHandler();
         }

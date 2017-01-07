@@ -15,6 +15,7 @@ namespace NoobFight.Core.Network.Messages
         PlayerLoginRequest,
         PlayerLoginResponse,
         PlayerJoin,
-        CreateWorldMessage
+        CreateWorldMessage,
+        EntityDataUpdateMessage
     }
 }

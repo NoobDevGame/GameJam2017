@@ -40,17 +40,46 @@ namespace NoobFight.Server
 
             server.RegisterMessageHandler<ConnectedPlayersRequestMessage>((c, m) => new ConnectedPlayersResponseMessage(1));
             server.RegisterMessageHandler<PlayerLoginRequestMessage>(PlayerLoginRequest);
+            server.RegisterMessageHandler<EntityDataUpdateMessage>(EntityUpdated);
             eventWait.WaitOne();
 
             canceltoken.Cancel();
         }
 
+        private static void EntityUpdated(Client client, EntityDataUpdateMessage entitydata)
+        {
+            var entity = simulation.Players.First(i => i.ID == entitydata.ID);
+            entitydata.UpdateEntity(entity);
+        }
+
         private static void UpdateSimulation()
         {
+            int frame = 0;
+
             var token = canceltoken.Token;
             while (!token.IsCancellationRequested)
             {
                 simulation.Update(new Contract.GameTime(TimeSpan.FromMilliseconds(13)));
+                
+
+                if (frame++ % 2 == 0)
+                {
+                    List<EntityDataUpdateMessage> updates = new List<EntityDataUpdateMessage>();
+                    foreach (var player in simulation.Players.OfType<RemotePlayer>())
+                        updates.Add(new EntityDataUpdateMessage(player));
+
+                    foreach (var player in simulation.Players.OfType<RemotePlayer>())
+                    {
+                        foreach (var update in updates)
+                        {
+                            if (update.ID == player.ID)
+                                continue;
+
+                            player.Client.writeStream(update);
+                        }
+                    }
+                }
+
                 Thread.Sleep(13);
             }
         }

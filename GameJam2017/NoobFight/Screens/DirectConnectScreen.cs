@@ -34,10 +34,10 @@ namespace NoobFight.Screens
                 try
                 {
                     //TODO:Nickname ändern
-                    manager.Game.NetworkComponent.Connect(ipInput.Text, 667,"TestPlayer","monkey");
+                    manager.Game.NetworkComponent.Connect(ipInput.Text, 4344, "TestPlayer", "monkey");
                     manager.NavigateToScreen(new ConnectingScreen(manager));
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     manager.NavigateToScreen(new ConnectingScreen(manager, true));
                 }
