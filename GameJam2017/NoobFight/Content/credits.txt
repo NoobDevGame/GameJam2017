@@ -1,0 +1,29 @@
+﻿This game was created by these "people"
+
+* Csharplassi
+* susch19
+* TheBlubb14
+* Marcus_Aurelius
+* rave1000
+
+using the game-engine
+
+* engenious from jvbsl
+
+and assets from
+
+* kenney.nl
+
+with help from
+
+* tomwendel 
+
+special thanks to
+
+* all viewers of the livestreams
+
+special hate to
+
+* livecoding / liveedu bugs
+
+THANKS FOR PLAYING!
