@@ -11,7 +11,7 @@ namespace NoobFight.Core.Entities
         {
             Name = name;
 			Type = type;
-            TextureName = textureName;
+            TextureName = name;
             Radius = 0.495f;
             Height = 1f;
             Position = new Vector2(1, 1);
