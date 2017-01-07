@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageHandlers\MessageHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
@@ -50,6 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NoobFight.Contract\NoobFight.Contract.csproj">
+      <Project>{936E2BAA-E31F-4A38-8DE9-A078AEA02A12}</Project>
+      <Name>NoobFight.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NoobFight.Core\NoobFight.Core.csproj">
       <Project>{26b9dca1-6f5c-4488-9f2d-24e8c9b3b88a}</Project>
       <Name>NoobFight.Core</Name>

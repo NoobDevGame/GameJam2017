@@ -5,39 +5,46 @@ namespace NoobFight.Core.Network
 {
     public class NetworkMessage
     {
-        public int DataType { get; set; }
-        public byte[] Bytes { get; set; }
+        public byte DataType { get; set; }
+        public byte[] Payload { get; set; }
 
-        public NetworkMessage() { }
         public NetworkMessage(byte[] data)
         {
             fromBytes(data);
         }
+        public NetworkMessage(byte dataType,byte[] payLoad)
+        {
+            DataType = dataType;
+            Payload = payLoad;
+        }
 
         internal byte[] GetBytes()
         {
-            using (var stream = new MemoryStream())
+            if (Payload == null)
+                return new byte[] { DataType };
+            byte[] data = new byte[Payload.Length +sizeof(byte)];
+            data[0] = DataType;
+            Array.Copy(Payload, 0, data, sizeof(byte), Payload.Length);
+            return data;
+            /*using (var stream = new MemoryStream())
             {
                 using (var writer = new BinaryWriter(stream))
                 {
                     writer.Write(DataType);
-                    writer.Write(Bytes.Length);
-                    writer.Write(Bytes);
+                    writer.Write(Payload.Length);
+                    writer.Write(Payload);
                 }
                 return stream.ToArray();
-            }
+            }*/
         }
 
         private void fromBytes(byte[] data)
         {
-            using (var stream = new MemoryStream(data))
-            {
-                using (var reader = new BinaryReader(stream))
-                {
-                    DataType = reader.ReadInt32();
-                    Bytes = reader.ReadBytes(reader.ReadInt32());
-                }
-            }
+            DataType = data[0];
+            if (data.Length == 1)
+                return;
+            Payload = new byte[data.Length-1];
+            Array.Copy(data, sizeof(byte), Payload, 0,Payload.Length);
         }
 
         public override string ToString()

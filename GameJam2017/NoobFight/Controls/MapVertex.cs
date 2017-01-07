@@ -19,6 +19,10 @@ namespace NoobFight.Controls
         }
         VertexDeclaration IVertexType.VertexDeclaration => VertexDeclaration;
 
-        public Vector2 Position { get; private set; }
+        public MapVertex(Vector2 position, Vector2 texturePosition, byte textureId)
+        {
+
+        }
+        public uint PackedData { get; private set; }
     }
 }
