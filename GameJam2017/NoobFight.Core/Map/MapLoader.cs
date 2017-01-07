@@ -116,17 +116,29 @@ namespace NoobFight.Core.Map
         {
             Area area = new Area(fa.width, fa.height);
 
-            Layer[] layers = new Layer[fa.layers.Length];
+            List<Layer> layers = new List<Layer>();
 
             for (int l = 0; l < fa.layers.Length; l++)
             {
                 var fl = fa.layers[l];
 
-                layers[l] = new Layer(l, fl.data);
+                if (fl.type == "objectgroup")
+                {
+                    foreach (FileObject fileObject in fl.objects)
+                    {
+                        if (fileObject.type == "spawn")
+                        {
 
+                        }
+                    }
+                }
+                else
+                {
+                    layers.Add(new Layer(l, fl.data));
+                }
             }
 
-            area.SetLayers(layers);
+            area.SetLayers(layers.ToArray());
 
 
             for (int t = 0; t < fa.tilesets.Length; t++)
@@ -140,7 +152,7 @@ namespace NoobFight.Core.Map
                 if (index != -1)
                     key = key.Remove(index);
 
-                var contenttexture = new MapTexture(key, ft.firstgid, ft.tilecount, ft.spacing, ft.tileheight, ft.tilewidth,ft.columns);
+                var contenttexture = new MapTexture(key, ft.firstgid, ft.tilecount, ft.spacing, ft.tileheight, ft.tilewidth, ft.columns);
 
                 foreach (var tile in ft.tileproperties)
                 {

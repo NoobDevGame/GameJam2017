@@ -11,6 +11,7 @@ namespace NoobFight.Contract.Map
     {
         int Width { get; }
         int Height { get; }
+        Vector2 SpawnPoint { get; }
 
         IEnumerable<ILayer> Layers { get; }
         IEnumerable<IEntity> Entities { get; }

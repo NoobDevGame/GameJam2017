@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Map;
 using NoobFight.Core.Entities;
@@ -26,6 +28,8 @@ namespace NoobFight.Core.Map
         public IEnumerable<IEntity> Entities => _entities;
 
         public Dictionary<string,MapTexture> MapTextures { get; private set; }
+
+        public Vector2 SpawnPoint => throw new NotImplementedException();
 
         public void SetLayers(Layer[] layers)
         {
