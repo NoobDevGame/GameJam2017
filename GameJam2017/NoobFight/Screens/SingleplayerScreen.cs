@@ -63,6 +63,7 @@ namespace NoobFight.Screens
             playButton.LeftMouseClick += (s, e) =>
             {
                 manager.Game.SimulationComponent.Simulation.CreateNewWorld((GameMode)Enum.Parse(typeof(GameMode), (string)gamemodeSelect.SelectedItem));
+                manager.NavigateToScreen(new GameScreen(manager));
             };
             grid.AddControl(playButton, 0, 2);
 

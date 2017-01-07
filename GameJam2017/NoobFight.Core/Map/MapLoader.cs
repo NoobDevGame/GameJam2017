@@ -35,7 +35,7 @@ namespace NoobFight.Core.Map
             public int tileheight { get; set; }
             public int tilewidth { get; set; }
 
-            public Dictionary<int,FileTileProperty> tileproperties { get; set; }
+            public Dictionary<int, FileTileProperty> tileproperties { get; set; }
         }
 
         private class FileTileProperty
@@ -101,7 +101,7 @@ namespace NoobFight.Core.Map
                 {
                     var mapjson = sr.ReadToEnd();
                     var mapobject = JsonConvert.DeserializeObject<FileArea>(mapjson);
-                    var map =  Convert(mapobject);
+                    var map = Convert(mapobject);
                     return map;
                 }
             }
@@ -111,7 +111,7 @@ namespace NoobFight.Core.Map
 
         private static Area Convert(FileArea fa)
         {
-            Area area = new Area(fa.width,fa.height);
+            Area area = new Area(fa.width, fa.height);
 
             Layer[] layers = new Layer[fa.layers.Length];
 
@@ -119,7 +119,7 @@ namespace NoobFight.Core.Map
             {
                 var fl = fa.layers[l];
 
-                layers[l] = new Layer(l,fl.data);
+                layers[l] = new Layer(l, fl.data);
 
             }
 
@@ -136,14 +136,14 @@ namespace NoobFight.Core.Map
                 if (index != -1)
                     key = key.Remove(index);
 
-                var contenttexture = new MapTexture(key,ft.firstgid,ft.tilecount, ft.spacing,ft.tileheight,ft.tilewidth);
+                var contenttexture = new MapTexture(key, ft.firstgid, ft.tilecount, ft.spacing, ft.tileheight, ft.tilewidth);
 
                 foreach (var tile in ft.tileproperties)
                 {
-                    contenttexture.SetTileProperty(tile.Key+1,tile.Value.GetTileProperty());
+                    contenttexture.SetTileProperty(tile.Key + 1, tile.Value.GetTileProperty());
                 }
 
-                area.MapTextures.Add(key,contenttexture);
+                area.MapTextures.Add(key, contenttexture);
 
 
             }
@@ -151,4 +151,5 @@ namespace NoobFight.Core.Map
             return area;
         }
 
+    }
 }

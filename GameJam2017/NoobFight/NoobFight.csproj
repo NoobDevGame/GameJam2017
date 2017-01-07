@@ -60,10 +60,12 @@
     <Compile Include="Components\NetworkComponent.cs" />
     <Compile Include="Components\ScreenComponent.cs" />
     <Compile Include="Components\SimulationComponent.cs" />
+    <Compile Include="Controls\RenderControl.cs" />
     <Compile Include="NoobFight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\DirectConnectScreen.cs" />
+    <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\MainScreen.cs" />
     <Compile Include="Screens\PlayScreen.cs" />
     <Compile Include="Screens\SingleplayerScreen.cs" />
@@ -71,12 +73,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <EngeniousContentReference Include="Content\Content.ecp" />
+    <None Include="Content\Maps\test.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\..\..\..\Schreibtisch\test.json">
-      <Link>Content/Maps/test.json</Link>
-    </Content>
     <Content Include="Content\Tiles\grass_float_single.png" />
     <Content Include="Content\Tiles\grass_float_left.png" />
     <Content Include="Content\Tiles\grass_float_center.png" />
