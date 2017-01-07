@@ -30,7 +30,7 @@ namespace NoobFight.Server
             server.Start();
 
             simulation = new Simulation();
-            world = simulation.CreateNewWorld(GameMode.Timed);
+            world = simulation.CreateNewWorld(GameMode.Timed,"Tolle Welt");
             world.Start(MapGenerator.CreateMap());
 
             canceltoken = new CancellationTokenSource();
@@ -41,6 +41,10 @@ namespace NoobFight.Server
             server.RegisterMessageHandler<ConnectedPlayersRequestMessage>((c, m) => new ConnectedPlayersResponseMessage(1));
             server.RegisterMessageHandler<PlayerLoginRequestMessage>(PlayerLoginRequest);
             server.RegisterMessageHandler<EntityDataUpdateMessage>(EntityUpdated);
+            server.RegisterMessageHandler<WorldListMessage>((c, m) =>
+            {
+                c.writeStream(new WorldListResponseMessage(simulation.Worlds.Select(t=>t.Name).ToArray()));
+            });
             eventWait.WaitOne();
 
             canceltoken.Cancel();

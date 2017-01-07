@@ -24,6 +24,8 @@ namespace NoobFight.Contract.Simulation
 
         IWorldManipulator CreateNewManipulator();
 
+        string Name { get; }
+
         void Start(IMap map);
 
         void Pause();

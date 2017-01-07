@@ -4,6 +4,7 @@ using NoobFight.Core.Entities;
 using NoobFight.Core.Map;
 using NoobFight.Core.Network;
 using NoobFight.Core.Network.Messages;
+using NoobFight.Screens;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -39,6 +40,10 @@ namespace NoobFight.Components
             messageHandler.RegisterMessageHandler<PlayerJoinMessage>(PlayerJoin);
             messageHandler.RegisterMessageHandler<CreateWorldMessage>(CreateWorld);
             messageHandler.RegisterMessageHandler<EntityDataUpdateMessage>(UpdateEntity);
+            messageHandler.RegisterMessageHandler<WorldListResponseMessage>((c, e) =>
+            {
+                Game.ScreenManager.NavigateToScreen(new WorldSelectScreen(Game.ScreenManager,e.Worlds));
+            });
         }
 
         private void UpdateEntity(Client client, EntityDataUpdateMessage entitydata)
@@ -58,7 +63,7 @@ namespace NoobFight.Components
 
         private void CreateWorld(Client client, CreateWorldMessage message)
         {
-            Game.SimulationComponent.World = Game.SimulationComponent.Simulation.CreateNewWorld(GameMode.Timed);
+            Game.SimulationComponent.World = Game.SimulationComponent.Simulation.CreateNewWorld(GameMode.Timed,"Default Wörld");
             Game.SimulationComponent.World.Start(MapGenerator.CreateMap());
             worldLoaded.Set();
         }
@@ -104,7 +109,14 @@ namespace NoobFight.Components
             Nick = nick;
             TextureName = textureName;
 
-            client.writeStream(new PlayerLoginRequestMessage(nick));
+            client.writeStream(new WorldListMessage());
+        }
+
+        public void JoinWorld(string worldName)
+        {
+            if (client.Connected == false)
+                throw new NotSupportedException();
+            client.writeStream(new PlayerLoginRequestMessage(Nick));
         }
 
         public void Disconnect()

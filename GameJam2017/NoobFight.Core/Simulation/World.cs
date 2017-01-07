@@ -17,13 +17,13 @@ namespace NoobFight.Core.Simulation
         public TimeSpan WorldTime { get; private set; }
         public IWorldManipulator Manipulator { get; }
         public IEnumerable<IPlayer> Players => _players;
-
+        public String Name { get; private set; } = "Default";
 
         private Queue<WorldEvent> _events;
         private Simulation _simulation;
         private readonly List<IPlayer> _players;
 
-        public World(GameMode mode, Simulation simulation)
+        public World(GameMode mode, Simulation simulation, string name)
         {
             Mode = mode;
             _simulation = simulation;
@@ -31,6 +31,7 @@ namespace NoobFight.Core.Simulation
             Manipulator = CreateNewManipulator();
             _events = new Queue<WorldEvent>();
             _players = new List<IPlayer>();
+            Name = name;
         }
 
         public void Start(IMap map)

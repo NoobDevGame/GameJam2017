@@ -29,9 +29,9 @@ namespace NoobFight.Core.Simulation
             _components.Add(new CollisionSimulationComponent());            
         }
 
-        public IWorld CreateNewWorld(GameMode mode)
+        public IWorld CreateNewWorld(GameMode mode, string name)
         {
-            World newworld = new World(mode,this    );
+            World newworld = new World(mode,this,name);
             _worlds.Add(newworld);
 
             return newworld;

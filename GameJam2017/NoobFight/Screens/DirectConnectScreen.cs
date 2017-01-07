@@ -48,7 +48,11 @@ namespace NoobFight.Screens
                 try
                 {
                     //TODO:Nickname ändern
-                    manager.Game.NetworkComponent.Connect(ipInput.Text, 667,nameInput.Text,"monkey");
+                    var splt = ipInput.Text.Split(':');
+                    int port = 667;
+                    if (splt.Length > 0)
+                        int.TryParse(splt[1], out port);
+                    manager.Game.NetworkComponent.Connect(splt[0], port,nameInput.Text,"monkey");
                     manager.NavigateToScreen(new ConnectingScreen(manager));
                 }
                 catch (Exception ex)

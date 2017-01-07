@@ -36,7 +36,7 @@ namespace NoobFight.Screens
             };
             stack.Controls.Add(directMultiplayerButton);
 
-            Button lobbyBrowserButton = Button.TextButton(manager, "Lobby Browser");
+            Button lobbyBrowserButton = Button.TextButton(manager, "Saved Servers");
             lobbyBrowserButton.HorizontalAlignment = HorizontalAlignment.Stretch;
             lobbyBrowserButton.Margin = new Border(0, 0, 0, 10);
             lobbyBrowserButton.LeftMouseClick += (s, e) =>
