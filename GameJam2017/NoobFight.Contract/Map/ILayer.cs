@@ -3,6 +3,6 @@
     public interface ILayer
     {
         int Id { get; }
-        ITile[] Tiles { get; }
+        int[] Tiles { get; }
     }
 }

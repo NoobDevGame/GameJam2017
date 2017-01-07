@@ -16,10 +16,18 @@ namespace NoobFight.Core.Map
         public int Width { get; }
         public int Height { get; }
 
-        private List<Layer> _layers = new List<Layer>();
+        private Layer[] _layers;
         public IEnumerable<ILayer> Layers => _layers;
 
         private List<Entity> _entities = new List<Entity>();
         public IEnumerable<IEntity> Entities => _entities;
+
+        public Dictionary<string,MapTexture> MapTextures { get; private set; }
+
+        public void SetLayers(Layer[] layers)
+        {
+            _layers = layers;
+            MapTextures = new Dictionary<string, MapTexture>();
+        }
     }
 }

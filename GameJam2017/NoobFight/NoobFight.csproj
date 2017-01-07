@@ -72,6 +72,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\..\..\..\..\Schreibtisch\test.json">
+      <Link>Content/Maps/test.json</Link>
+    </Content>
     <Content Include="Content\Tiles\grass_float_single.png" />
     <Content Include="Content\Tiles\grass_float_left.png" />
     <Content Include="Content\Tiles\grass_float_center.png" />
@@ -98,7 +101,6 @@
       <Project>{26B9DCA1-6F5C-4488-9F2D-24E8C9B3B88A}</Project>
       <Name>NoobFight.Core</Name>
     </ProjectReference>
-    <Folder Include="Content\Maps\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\engenious.0.1.1\build\engenious.targets" Condition="Exists('..\packages\engenious.0.1.1\build\engenious.targets')" />

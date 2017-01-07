@@ -6,14 +6,9 @@ namespace NoobFight.Core.Map
     {
         public int Id { get; set; }
 
-        public ITile[] Tiles { get; }
+        public int[] Tiles { get; }
 
-        internal Layer()
-        {
-
-        }
-
-        public Layer(int id, ITile[] tiles)
+        public Layer(int id, int[] tiles)
         {
             this.Id = id;
             this.Tiles = tiles;
