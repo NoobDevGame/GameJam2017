@@ -33,7 +33,7 @@ namespace NoobFight.Components
             if (player == null)
                 return;
 
-            var viewport = new Vector2(Game.GraphicsDevice.Viewport.Width/2, Game.GraphicsDevice.Viewport.Height/2);
+            var viewport = new Vector2(Game.GraphicsDevice.Viewport.Width/2f, Game.GraphicsDevice.Viewport.Height/2f);
 
             Offset = viewport - new Vector2(player.Position.X * 70, player.Position.Y * 70);
             HalfViewport = viewport;
