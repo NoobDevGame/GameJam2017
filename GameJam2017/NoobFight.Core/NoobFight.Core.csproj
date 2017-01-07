@@ -61,6 +61,7 @@
     <Compile Include="Simulation\Events\WorldEvent.cs" />
     <Compile Include="Simulation\Simulation.cs" />
     <Compile Include="Simulation\World.cs" />
+    <Compile Include="Simulation\WorldManipulator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Items\" />

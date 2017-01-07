@@ -56,6 +56,7 @@
     <Compile Include="Simulation\GameMode.cs" />
     <Compile Include="Simulation\ISimulation.cs" />
     <Compile Include="Simulation\IWorld.cs" />
+    <Compile Include="Simulation\IWorldManipulator.cs" />
     <Compile Include="Simulation\WorldState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

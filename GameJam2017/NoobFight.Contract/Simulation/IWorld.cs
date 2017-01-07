@@ -20,13 +20,12 @@ namespace NoobFight.Contract.Simulation
 
         TimeSpan WorldTime { get; }
 
+        IWorldManipulator Manipulator { get; }
+
+        IWorldManipulator CreateNewManipulator();
+
         void Start(IMap map);
 
         void Pause();
-
-
-        void AddPlayer(IPlayer player);
-
-        void RemovePlayer(IPlayer player);
     }
 }
