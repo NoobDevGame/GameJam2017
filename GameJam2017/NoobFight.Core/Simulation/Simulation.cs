@@ -16,11 +16,13 @@ namespace NoobFight.Core.Simulation
         private List<IPlayer> _players = new List<IPlayer>();
         public IEnumerable<IPlayer> Players => _players;
 
-        private List<SimulationComponents> _components= new List<SimulationComponents>();
+        private List<SimulationComponent> _components= new List<SimulationComponent>();
 
         public Simulation()
         {
             _components.Add(new GravitySimulationComponent());
+            _components.Add(new MoveSimulationComponent());
+            _components.Add(new MoveSimulationComponent());
         }
 
         public IWorld CreateNewWorld(GameMode mode)

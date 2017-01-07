@@ -3,7 +3,7 @@ using NoobFight.Contract.Entities;
 
 namespace NoobFight.Core.Entities
 {
-    public class Player : Entity , IPlayer
+    public class Player : Character , IPlayer
     {
         public Guid ID { get; private set; }
 

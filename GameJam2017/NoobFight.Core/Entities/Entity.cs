@@ -18,7 +18,11 @@ namespace NoobFight.Core.Entities
 
         public float Mass { get; set; }
 
-        public Vector2 Vector2 { get; set; }
+
         public IArea CurrentArea { get; set; }
+
+        public Vector2 Position { get; set; }
+        public Vector2 Move { get; set; }
+        public Vector2 Velocity { get; set; }
     }
 }
