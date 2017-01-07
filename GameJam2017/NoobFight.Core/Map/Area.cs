@@ -57,6 +57,20 @@ namespace NoobFight.Core.Map
             if (x > Width || y > Height)
                 return true;
 
+            for (int i = 0; i < _layers.Length; i++)
+            {
+                var layer = _layers[i];
+                var tilenumber = x + y * Width;
+                var tileid = layer.Tiles[tilenumber];
+
+                var maptexture = GetMapTextures(tileid);
+                var property = maptexture.GetTileProperty(tileid - maptexture.Firstgid);
+
+                if (property.blocked)
+                    return true;
+
+            }
+
             return false;
         }
     }

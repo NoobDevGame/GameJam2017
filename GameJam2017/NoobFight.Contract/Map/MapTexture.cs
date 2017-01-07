@@ -36,5 +36,9 @@ namespace NoobFight.Contract.Map
             _properties[id] = tileProperty;
         }
 
+        public TileProperty GetTileProperty(int id)
+        {
+            return _properties[id];
+        }
     }
 }
