@@ -31,8 +31,6 @@ namespace NoobFight.Core.Map
 
         public Vector2 SpawnPoint { get; set; }
 
-        public Vector2 SpawnPoint{get;set;}
-
         public void SetLayers(Layer[] layers)
         {
             _layers = layers;
