@@ -9,12 +9,12 @@ namespace NoobFight.Core.Entities
     {
         public Entity(string name, EntityType type)
         {
-            this.Name = name;
-            this.Type = type;
-            this.TextureName = name;
-            this.Radius = 0.5f;
-            this.Height = 1f;
-            this.Position = new Vector2(1, 1);
+            Name = name;
+			Type = type;
+            TextureName = textureName;
+            Radius = 0.495f;
+            Height = 1f;
+            Position = new Vector2(1, 1);
         }
 
         public string Name { get; private set; }
