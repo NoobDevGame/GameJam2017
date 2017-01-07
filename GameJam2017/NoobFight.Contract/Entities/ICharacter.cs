@@ -8,5 +8,6 @@ namespace NoobFight.Contract.Entities
 {
     public interface ICharacter : IEntity
     {
+        int Health { get; set; }
     }
 }

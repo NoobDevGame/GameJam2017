@@ -16,6 +16,11 @@ namespace NoobFight.Screens
     {
         ScreenComponent Manager;
 
+        HealthBarControl HealthBar;
+        TimeControl TimeControl;
+
+        TimeSpan TimeOffset;
+
         public GameScreen(ScreenComponent manager) : base(manager)
         {
             Manager = manager;
@@ -26,11 +31,31 @@ namespace NoobFight.Screens
             renderControl.VerticalAlignment = VerticalAlignment.Stretch;
             renderControl.HorizontalAlignment = HorizontalAlignment.Stretch;
             Controls.Add(renderControl);
+
+            HealthBar = new HealthBarControl(manager);
+            HealthBar.VerticalAlignment = VerticalAlignment.Top;
+            HealthBar.Width = 500;
+            HealthBar.Maximum = 100;
+            HealthBar.Value = 100;
+            HealthBar.Height = 30;
+            HealthBar.Margin = new Border(0, 10, 0, 0);
+            Controls.Add(HealthBar);
+
+            TimeControl = new TimeControl(manager);
+            TimeControl.VerticalAlignment = VerticalAlignment.Top;
+            TimeControl.HorizontalAlignment = HorizontalAlignment.Left;
+            Controls.Add(TimeControl);
         }
 
         protected override void OnUpdate(engenious.GameTime gameTime)
         {
             base.OnUpdate(gameTime);
+
+            if (TimeOffset.Milliseconds == 0)
+                TimeOffset = gameTime.TotalGameTime;
+
+            TimeControl.Time = gameTime.TotalGameTime - TimeOffset;
+
             var key = Keyboard.GetState();
 
             Input input = new Input();
@@ -56,6 +81,8 @@ namespace NoobFight.Screens
                 input.RightClick = true;
 
             Manager.Game.SimulationComponent.Player.Input = input;
+
+            HealthBar.Value = Manager.Game.SimulationComponent.Player.Health;
         }
     }
 }

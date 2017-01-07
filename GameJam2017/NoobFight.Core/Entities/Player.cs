@@ -12,6 +12,7 @@ namespace NoobFight.Core.Entities
         public Player(Guid id,string name, string textureName) : base(name, textureName)
         {
             ID = id;
+            Health = 100;
         }
 
 
