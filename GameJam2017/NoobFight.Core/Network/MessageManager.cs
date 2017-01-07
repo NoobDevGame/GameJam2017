@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NoobFight.Core.Network.Messages;
+using NoobFight.Server.Message;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,7 +15,10 @@ namespace NoobFight.Core.Network
         private static Dictionary<byte, Func<byte[], NetworkMessage>> messageConstructors = new Dictionary<byte, Func<byte[], NetworkMessage>>();
         static MessageManager()
         {
-
+            RegisterMessage(1, typeof(PingMessage));
+            RegisterMessage(2, typeof(PongMessage));
+            RegisterMessage(3, typeof(ConnectedPlayersRequestMessage));
+            RegisterMessage(4, typeof(ConnectedPlayersResponseMessage));
         }
         public static void RegisterMessage(byte id, Type type)
         {

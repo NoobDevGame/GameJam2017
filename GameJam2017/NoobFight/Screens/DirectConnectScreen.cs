@@ -1,6 +1,7 @@
 ﻿using engenious;
 using MonoGameUi;
 using NoobFight.Components;
+using NoobFight.Server.Message;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace NoobFight.Screens
                 try
                 {
                     manager.Game.NetworkComponent.Connect(ipInput.Text, 667);
+                    manager.Game.NetworkComponent.SendMessage(new PingMessage());
                 }
                 catch(Exception ex)
                 {

@@ -8,10 +8,6 @@ namespace NoobFight.Core.Network
         public byte DataType { get; set; }
         public byte[] Payload { get; set; }
 
-        public NetworkMessage(byte[] data)
-        {
-            fromBytes(data);
-        }
         public NetworkMessage(byte dataType,byte[] payLoad)
         {
             DataType = dataType;
@@ -36,15 +32,6 @@ namespace NoobFight.Core.Network
                 }
                 return stream.ToArray();
             }*/
-        }
-
-        private void fromBytes(byte[] data)
-        {
-            DataType = data[0];
-            if (data.Length == 1)
-                return;
-            Payload = new byte[data.Length-1];
-            Array.Copy(data, sizeof(byte), Payload, 0,Payload.Length);
         }
 
         public override string ToString()
