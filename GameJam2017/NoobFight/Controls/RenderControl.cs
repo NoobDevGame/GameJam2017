@@ -31,12 +31,15 @@ namespace NoobFight.Controls
         {
             base.OnDraw(batch, controlArea, gameTime);
 
+
+
             var player = manager.Game.SimulationComponent.Player;
             var area = player.CurrentArea;
 
             if (area == null)
                 return;
 
+            var cOffset = manager.Game.CameraComponent.Offset;
 
             foreach (var layer in area.Layers)
             {
@@ -58,7 +61,7 @@ namespace NoobFight.Controls
                         var ty = (id / texturemap.Columns) * (texturemap.Tileheight + texturemap.Spacing);
 
                         Rectangle source = new Rectangle(tx, ty, texturemap.Tilewidth, texturemap.Tileheight);
-                        Rectangle destination = new Rectangle(x * 70, y * 70, 70, 70);
+                        Rectangle destination = new Rectangle((int)((x + player.Radius) * 70 + cOffset.X ), (int)((y+player.Height) * 70 +cOffset.Y), 70, 70);
                         batch.Draw(texture, destination, source, Color.White);
                     }
                 }
@@ -66,7 +69,15 @@ namespace NoobFight.Controls
 
             foreach (var entity in area.Entities)
             {
-                Rectangle destination = new Rectangle((int)((entity.Position.X - entity.Radius) * 70), (int)((entity.Position.Y - entity.Height) * 70), (int)(entity.Radius * 2 * 70), (int)(entity.Height * 70));
+                Vector2 position = new Vector2((entity.Position.X - entity.Radius) * 70, (entity.Position.Y - entity.Height) * 70 );
+
+                Vector2 offset = Vector2.Zero;
+                if (entity == manager.Game.SimulationComponent.Player)
+                {
+                    position = manager.Game.CameraComponent.HalfViewport - new Vector2(entity.Radius, entity.Height);
+                }
+
+                Rectangle destination = new Rectangle((int)(position.X), (int)(position.Y), (int)(entity.Radius * 2 * 70), (int)(entity.Height * 70));
                 batch.Draw(playerTexture, destination, Color.White);
             }
 
