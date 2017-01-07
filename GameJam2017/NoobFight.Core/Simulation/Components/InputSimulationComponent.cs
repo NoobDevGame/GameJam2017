@@ -19,10 +19,14 @@ namespace NoobFight.Core.Simulation.Components
                         Vector2 velocity = new Vector2(0,player.Velocity.Y);
 
                         if (player.Input.MoveRight)
-                            velocity += new Vector2(1,0);
+                            velocity += new Vector2(3,0);
 
                         if (player.Input.MoveLeft)
-                            velocity += new Vector2(-1,0);
+                            velocity += new Vector2(-3,0);
+
+
+                        if(player.Input.Jump && player.OnGround)
+                            velocity -= new Vector2(0,7.5f);
 
                         player.Velocity = velocity;
                     }

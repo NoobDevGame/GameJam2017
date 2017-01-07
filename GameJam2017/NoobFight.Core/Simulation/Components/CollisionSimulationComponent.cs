@@ -17,6 +17,8 @@ namespace NoobFight.Core.Simulation.Components
                     bool collision = false;
                     int loops = 0;
 
+                    entity.OnGround = false;
+
                     do
                     {
                         // Grenzbereiche für die zu überprüfenden Zellen ermitteln
@@ -107,6 +109,10 @@ namespace NoobFight.Core.Simulation.Components
                             {
                                 entity.Move *= new Vector2(1f, minImpact);
                                 entity.Velocity = new Vector2(entity.Velocity.X,0);
+                                if (minImpact > 0)
+                                {
+                                    entity.OnGround = true;
+                                }
                             }
                         }
                         loops++;

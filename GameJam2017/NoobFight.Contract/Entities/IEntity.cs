@@ -12,12 +12,13 @@ namespace NoobFight.Contract.Entities
         string Name { get; }
         string TextureName { get; }
 
-        float Mass { get; set; }
         float Radius { get; set; }
         float Height { get; set; }
 
 
         IArea CurrentArea { get; set; }
+
+        bool OnGround { get; set; }
 
         Vector2 Position { get; set; }
         Vector2 Move { get; set; }

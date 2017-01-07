@@ -21,7 +21,7 @@ namespace NoobFight.Core.Simulation
         public Simulation()
         {
             _components.Add(new GravitySimulationComponent());
-            _components.Add(new MoveSimulationComponent());
+            _components.Add(new InputSimulationComponent());
             _components.Add(new MoveSimulationComponent());
             _components.Add(new CollisionSimulationComponent());
         }
