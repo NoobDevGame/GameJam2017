@@ -5,14 +5,20 @@ using NoobFight.Contract.Entities;
 using NoobFight.Contract.Map;
 using NoobFight.Contract.Simulation;
 using NoobFight.Core.Entities;
+using NoobFight.Core.Simulation.Events;
 
 namespace NoobFight.Core.Simulation
 {
     public class World : IWorld
     {
-        public World(GameMode mode)
+        private Queue<WorldEvent> _events = new Queue<WorldEvent>();
+
+        private Simulation _simulation;
+
+        public World(GameMode mode, Simulation simulation)
         {
             Mode = mode;
+            _simulation = simulation;
             State = WorldState.Loaded;
         }
 
@@ -42,14 +48,43 @@ namespace NoobFight.Core.Simulation
             WorldTime += gameTime.ElapsedTime;
         }
 
+        public void UpdateEvents()
+        {
+            lock (_events)
+            {
+                while (_events.Count > 0)
+                {
+                    var @event = _events.Dequeue();
+                    @event.Dispatch(this,_simulation);
+                }
+            }
+        }
+
         public void AddPlayer(IPlayer player)
         {
-            _players.Add(player);
+            lock (_events)
+            {
+                _events.Enqueue(new PlayerWorldEvent()
+                    {
+                        PlayerID = player.ID,
+                        Method =PlayerEventMethod.Insert,
+                    }
+                );
+            }
         }
 
         public void RemovePlayer(IPlayer player)
         {
-            _players.Remove(player);
+            lock (_events)
+            {
+                _events.Enqueue(new PlayerWorldEvent()
+                    {
+                        PlayerID = player.ID,
+                        Method =PlayerEventMethod.Remove,
+                    }
+                );
+            }
+
         }
     }
 }
