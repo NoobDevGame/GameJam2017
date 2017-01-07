@@ -16,13 +16,5 @@ namespace NoobFight.Core.Network.Messages
             return "Ping";
         }
     }
-    public class PongMessage : NetworkMessage
-    {
-        public override byte DataType => 2;
-
-        public override string ToString()
-        {
-            return "Pong";
-        }
-    }
+    
 }

@@ -21,13 +21,13 @@ namespace NoobFight.Server
 
         IWorld world;
 
-        public MessageHandler MessageHandler { get; set; };
+        public MessageHandler MessageHandler { get; set; }
 
         public Server()
         {
             listener = new TcpListener(IPAddress.Any, 667);
             clients = new ConcurrentDictionary<int, Client>();
-            MessageHandler { get; set; } = new MessageHandler();
+            MessageHandler = new MessageHandler();
         }
        
         public void Start()
