@@ -32,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="engenious, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -60,10 +61,16 @@
     <Compile Include="Components\NetworkComponent.cs" />
     <Compile Include="Components\ScreenComponent.cs" />
     <Compile Include="Components\SimulationComponent.cs" />
+    <Compile Include="Controls\AreaRenderer.cs" />
+    <Compile Include="Controls\HealthBarControl.cs" />
+    <Compile Include="Controls\LayerRenderer.cs" />
+    <Compile Include="Controls\MapVertex.cs" />
     <Compile Include="Controls\RenderControl.cs" />
+    <Compile Include="Controls\TimeControl.cs" />
     <Compile Include="NoobFight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\CreditsScreen.cs" />
     <Compile Include="Screens\DirectConnectScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\MainScreen.cs" />
@@ -73,13 +80,20 @@
   <ItemGroup>
     <None Include="App.config" />
     <EngeniousContentReference Include="Content\Content.ecp" />
+    <None Include="Content\bigFont.spritefont" />
     <None Include="Content\Maps\test.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\credits.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\elephant.png" />
     <Content Include="Content\monkey.png" />
+    <Content Include="Content\coin.png" />
+    <Content Include="Content\pig.png" />
     <Content Include="Content\ui\buttonLong_beige.png" />
     <Content Include="Content\ui\buttonLong_beige_pressed.png" />
     <Content Include="Content\ui\buttonLong_brown.png" />

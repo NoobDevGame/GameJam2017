@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace NoobFight.Contract.Entities
 {
-    public interface ICharacter : IEntity
+    public enum EntityType
     {
-        int Health { get; set; }
+        Item,
+        Player,
+        Character
     }
 }

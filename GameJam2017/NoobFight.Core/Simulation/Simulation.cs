@@ -60,9 +60,9 @@ namespace NoobFight.Core.Simulation
             world.UpdateEvents();
         }
 
-        public IPlayer CreateLocalPlayer(string name)
+        public IPlayer CreateLocalPlayer(string name, string textureName)
         {
-            Player player = new Player(Guid.NewGuid(), name,"test");
+            Player player = new Player(Guid.NewGuid(), name, textureName);
             InsertPlayer(player);
 
             return player;

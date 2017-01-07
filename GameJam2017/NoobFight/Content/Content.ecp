@@ -132,6 +132,41 @@
     <ContentFile>
       <Name>monkey.png</Name>
       <Processor>BitmapProcessor</Processor>
+      <Importer>Bitmap Importer</Importer>
+      <Settings>
+        <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+        <MipMapCount>1</MipMapCount>
+        <Format>0</Format>
+      </Settings>
+    </ContentFile>
+    <ContentFile>
+      <Name>bigFont.spritefont</Name>
+      <Processor>SpriteFontProcessor</Processor>
+      <Importer>SpriteFontImporter</Importer>
+    </ContentFile>
+    <ContentFile>
+      <Name>elephant.png</Name>
+      <Processor>BitmapProcessor</Processor>
+      <Importer>Bitmap Importer</Importer>
+      <Settings>
+        <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+        <MipMapCount>1</MipMapCount>
+        <Format>0</Format>
+      </Settings>
+    </ContentFile>
+    <ContentFile>
+      <Name>coin.png</Name>
+      <Processor>BitmapProcessor</Processor>
+      <Importer />
+      <Settings>
+        <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+        <MipMapCount>1</MipMapCount>
+        <Format>0</Format>
+      </Settings>
+    </ContentFile>
+    <ContentFile>
+      <Name>pig.png</Name>
+      <Processor>BitmapProcessor</Processor>
       <Importer />
       <Settings>
         <AutoGenerateMipMaps>False</AutoGenerateMipMaps>

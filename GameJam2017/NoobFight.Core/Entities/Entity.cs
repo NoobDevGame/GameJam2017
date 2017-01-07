@@ -1,4 +1,5 @@
-﻿using NoobFight.Contract;
+﻿using System;
+using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Map;
 
@@ -6,18 +7,19 @@ namespace NoobFight.Core.Entities
 {
     public class Entity : IEntity
     {
-        public Entity(string name, string textureName)
+        public Entity(string name, EntityType type)
         {
-            Name = name;
-            TextureName = textureName;
-            Radius = 0.5f;
-            Height = 1f;
-            Position = new Vector2(1, 1);
+            this.Name = name;
+            this.Type = type;
+            this.TextureName = name;
+            this.Radius = 0.5f;
+            this.Height = 1f;
+            this.Position = new Vector2(1, 1);
         }
 
         public string Name { get; private set; }
-        public string TextureName { get; private set;}
-
+        public EntityType Type { get; private set; }
+        public string TextureName { get; set; }
 
         public IArea CurrentArea { get; set; }
 
