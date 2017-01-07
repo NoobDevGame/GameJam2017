@@ -17,10 +17,14 @@ namespace NoobFight.Controls
 
         private Texture2D _pixel;
 
+        private Texture2D playerTexture;
+
         public RenderControl(ScreenComponent manager, string style = "") : base(manager, style)
         {
             this.manager = manager;
             _pixel = new Texture2D(manager.GraphicsDevice,1,1);
+
+            playerTexture = manager.Content.Load<Texture2D>("monkey");
         }
 
         protected override void OnDraw(SpriteBatch batch, Rectangle controlArea, GameTime gameTime)
@@ -59,6 +63,8 @@ namespace NoobFight.Controls
                     }
                 }
             }
+
+            batch.Draw(playerTexture, new Vector2(player.Position.X * 35, player.Position.Y * 35), Color.White);
         }
     }
 }

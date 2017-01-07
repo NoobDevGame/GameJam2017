@@ -122,6 +122,16 @@
     <ContentFile>
       <Name>tiles_spritesheet.png</Name>
       <Processor>BitmapProcessor</Processor>
+      <Importer>Bitmap Importer</Importer>
+      <Settings>
+        <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+        <MipMapCount>1</MipMapCount>
+        <Format>0</Format>
+      </Settings>
+    </ContentFile>
+    <ContentFile>
+      <Name>monkey.png</Name>
+      <Processor>BitmapProcessor</Processor>
       <Importer />
       <Settings>
         <AutoGenerateMipMaps>False</AutoGenerateMipMaps>

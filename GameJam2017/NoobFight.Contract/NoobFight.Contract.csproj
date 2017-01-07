@@ -45,6 +45,7 @@
     <Compile Include="Entities\IItemEntity.cs" />
     <Compile Include="Entities\IPlayer.cs" />
     <Compile Include="GameTime.cs" />
+    <Compile Include="Input.cs" />
     <Compile Include="Items\IItem.cs" />
     <Compile Include="Map\IArea.cs" />
     <Compile Include="Map\ILayer.cs" />
