@@ -59,13 +59,13 @@ namespace NoobFight.Server
         }
         private void PingMessage_Received(Client client,PingMessage message)
         {
-            client.writeStreamAsync(new PongMessage());
+            client.writeStream(new PongMessage());
         }
         public void SendBroadcast(NetworkMessage message)
         {
             foreach(var client in clients)
             {
-                client.Value.writeStreamAsync(message);
+                client.Value.writeStream(message);
             }
         }
 

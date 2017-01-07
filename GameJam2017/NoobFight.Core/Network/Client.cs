@@ -91,7 +91,7 @@ namespace NoobFight.Core.Network
         }, mainToken);
 
         
-        public Task writeStreamAsync(NetworkMessage message) => Task.Run(() =>
+        public void writeStream(NetworkMessage message)
         {
             using (var writer = new BinaryWriter(Stream, Encoding.UTF8, true))
             {
@@ -102,7 +102,7 @@ namespace NoobFight.Core.Network
                     writer.Write(data);
                 }
             }
-        }, mainToken);
+        }
         
     }
 }

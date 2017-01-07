@@ -86,7 +86,7 @@ namespace NoobFight.Components
             Nick = nick;
             TextureName = textureName;
 
-            client.writeStreamAsync(new PlayerLoginRequestMessage(nick));
+            client.writeStream(new PlayerLoginRequestMessage(nick));
         }
 
         public void Disconnect()

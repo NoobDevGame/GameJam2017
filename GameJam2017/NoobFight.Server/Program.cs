@@ -61,19 +61,20 @@ namespace NoobFight.Server
             {
                 IPlayer player = new RemotePlayer(client,BitConverter.ToInt64(Guid.NewGuid().ToByteArray(),0), message.Nick, "");
                 simulation.InsertPlayer(player);
-                client.writeStreamAsync(new PlayerLoginResponseMessage(player.ID));
+                client.writeStream(new PlayerLoginResponseMessage(player.ID));
                 Console.WriteLine($"New player {message.Nick} joined");
                 server.SendBroadcast(new ConnectedPlayersResponseMessage(simulation.Players.Count()));
-                //Thread.Sleep(1000);
-                client.writeStreamAsync(new CreateWorldMessage());
+
+                client.writeStream(new CreateWorldMessage());
                 world.Manipulator.AddPlayer(player);
-                //Thread.Sleep(1000);
+                
                 var joinMessage = new PlayerJoinMessage(player.ID, player.Name);
-                client.writeStreamAsync(joinMessage);
-                //Thread.Sleep(1000);
+                client.writeStream(joinMessage);
+                
                 foreach (var remotePlayer in world.Players.OfType<RemotePlayer>())
                 {
-                    remotePlayer.Client.writeStreamAsync(joinMessage);
+                    remotePlayer.Client.writeStream(joinMessage);
+                    client.writeStream(new PlayerJoinMessage(remotePlayer.ID,remotePlayer.Name));
                 }
                 
             }
