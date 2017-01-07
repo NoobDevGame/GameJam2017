@@ -8,6 +8,6 @@ namespace NoobFight.Core.Network.Messages
 {
     public class ConnectedPlayersRequestMessage : NetworkMessage
     {
-        public override byte DataType => 3;
+        public override MessageType DataType => MessageType.ConnectedPlayersRequest;
     }
 }

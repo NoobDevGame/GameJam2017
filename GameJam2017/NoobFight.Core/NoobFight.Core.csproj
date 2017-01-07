@@ -58,9 +58,12 @@
     <Compile Include="Network\MessageManager.cs" />
     <Compile Include="Network\Messages\ConnectedPlayersMessage.cs" />
     <Compile Include="Network\Messages\ConnectedPlayersResponseMessage.cs" />
+    <Compile Include="Network\Messages\MessageType.cs" />
+    <Compile Include="Network\Messages\NetworkMessage.cs" />
     <Compile Include="Network\Messages\PingMessage.cs" />
+    <Compile Include="Network\Messages\PlayerJoinMessage.cs" />
+    <Compile Include="Network\Messages\PlayerLoginMessage.cs" />
     <Compile Include="Network\Messages\PongMessage.cs" />
-    <Compile Include="Network\NetworkMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simulation\Components\CollisionSimulationComponent.cs" />
     <Compile Include="Simulation\Components\GravitySimulationComponent.cs" />

@@ -8,7 +8,7 @@ namespace NoobFight.Core.Network.Messages
 {
     public class PongMessage : NetworkMessage
     {
-        public override byte DataType => 2;
+        public override MessageType DataType => MessageType.Pong;
 
         public override string ToString()
         {

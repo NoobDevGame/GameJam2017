@@ -9,7 +9,7 @@ namespace NoobFight.Core.Network.Messages
     public class ConnectedPlayersResponseMessage : NetworkMessage
     {
         public int Count { get; private set; }
-        public override byte DataType => 4;
+        public override MessageType DataType => MessageType.ConnectedPlayersResponse;
 
         public ConnectedPlayersResponseMessage()
         {

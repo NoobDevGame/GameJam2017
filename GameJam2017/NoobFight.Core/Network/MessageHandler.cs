@@ -13,7 +13,7 @@ namespace NoobFight.Core.Network
 
         public MessageHandler()
         {
-            messageHandlers = new Dictionary<byte, Action<Client, NetworkMessage>>();
+            messageHandlers = new Dictionary<MessageType, Action<Client, NetworkMessage>>();
         }
 
         public void RegisterMessageHandler<T>(Action<Client, T> handler) where T : NetworkMessage, new()
