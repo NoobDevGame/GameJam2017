@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NoobFight.Contract.Entities;
 
 namespace NoobFight.Components
 {
@@ -14,11 +15,14 @@ namespace NoobFight.Components
         public new NoobFight Game { get; private set; }
 
         public ISimulation Simulation { get; private set; }
+        public IPlayer Player { get; private set; }
+        public IWorld World { get; set; }
 
         public SimulationComponent(NoobFight game) : base(game)
         {
             Game = game;
             Simulation = new Simulation();
+            Player = Simulation.CreateLocalPlayer("Local Player");
         }
 
         public override void Update(GameTime gameTime)
