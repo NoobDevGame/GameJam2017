@@ -42,6 +42,7 @@ namespace NoobFight.Core.Simulation
 
             foreach (var player in Players)
             {
+                player.Position = CurrentMap.StartArea.SpawnPoint;
                 CurrentMap.StartArea.AddEntity(player);
             }
         }
@@ -82,6 +83,7 @@ namespace NoobFight.Core.Simulation
 
             if (State == WorldState.Running || State == WorldState.Paused)
             {
+                player.Position = CurrentMap.StartArea.SpawnPoint;
                 CurrentMap.StartArea.AddEntity(player);
             }
         }
