@@ -16,15 +16,13 @@ namespace NoobFight.Controls
         ScreenComponent manager;
 
         private Texture2D _pixel;
-
-        private Texture2D playerTexture;
+        
 
         public RenderControl(ScreenComponent manager, string style = "") : base(manager, style)
         {
             this.manager = manager;
             _pixel = new Texture2D(manager.GraphicsDevice, 1, 1);
-
-            playerTexture = manager.Content.Load<Texture2D>("monkey");
+            
         }
 
         protected override void OnDraw(SpriteBatch batch, Rectangle controlArea, GameTime gameTime)
@@ -67,7 +65,7 @@ namespace NoobFight.Controls
             foreach (var entity in area.Entities)
             {
                 Rectangle destination = new Rectangle((int)((entity.Position.X - entity.Radius) * 70), (int)((entity.Position.Y - entity.Height) * 70), (int)(entity.Radius * 2 * 70), (int)(entity.Height * 70));
-                batch.Draw(playerTexture, destination, Color.White);
+                batch.Draw(manager.Content.Load<Texture2D>(entity.TextureName), destination, Color.White);
             }
 
         }
