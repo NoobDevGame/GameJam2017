@@ -23,10 +23,10 @@ namespace NoobFight.Core.Simulation.Components
                     {
                         // Grenzbereiche für die zu überprüfenden Zellen ermitteln
                         Vector2 position = entity.Position + entity.Move;
-                        int minCellX = (int) Math.Floor(position.X - entity.Radius);
-                        int maxCellX = (int) Math.Ceiling(position.X + entity.Radius);
-                        int minCellY = (int) Math.Floor(position.Y);
-                        int maxCellY = (int) Math.Ceiling(position.Y + entity.Height);
+                        int minCellX = (int)Math.Floor(position.X - entity.Radius);
+                        int maxCellX = (int)Math.Ceiling(position.X + entity.Radius);
+                        int minCellY = (int)Math.Floor(position.Y);
+                        int maxCellY = (int)Math.Ceiling(position.Y + entity.Height);
 
                         collision = false;
                         float minImpact = 2f;
@@ -44,8 +44,8 @@ namespace NoobFight.Core.Simulation.Components
                                 // Zellen ignorieren die vom Spieler nicht berührt werden
                                 if (position.X - entity.Radius > x + 1 ||
                                     position.X + entity.Radius < x ||
-                                    position.Y > y + 1 ||
-                                    position.Y + entity.Height < y)
+                                    position.Y - entity.Height > y + 1 ||
+                                    position.Y/* + entity.Height*/ < y)
                                     continue;
 
                                 collision = true;
@@ -101,14 +101,14 @@ namespace NoobFight.Core.Simulation.Components
                             if (minAxis == 1)
                             {
                                 entity.Move *= new Vector2(minImpact, 1f);
-                                entity.Velocity = new Vector2(0,entity.Velocity.Y);
+                                entity.Velocity = new Vector2(0, entity.Velocity.Y);
                             }
 
                             // Y-Anteil ab dem Kollisionszeitpunkt kürzen
                             if (minAxis == 2)
                             {
                                 entity.Move *= new Vector2(1f, minImpact);
-                                entity.Velocity = new Vector2(entity.Velocity.X,0);
+                                entity.Velocity = new Vector2(entity.Velocity.X, 0);
                                 if (minImpact > 0)
                                 {
                                     entity.OnGround = true;
