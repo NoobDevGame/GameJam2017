@@ -25,8 +25,8 @@ namespace NoobFight.Core.Simulation.Components
                         Vector2 position = entity.Position + entity.Move;
                         int minCellX = (int)Math.Floor(position.X - entity.Radius);
                         int maxCellX = (int)Math.Ceiling(position.X + entity.Radius);
-                        int minCellY = (int)Math.Floor(position.Y);
-                        int maxCellY = (int)Math.Ceiling(position.Y + entity.Height);
+                        int minCellY = (int)Math.Floor(position.Y - entity.Height);
+                        int maxCellY = (int)Math.Ceiling(position.Y );
 
                         collision = false;
                         float minImpact = 2f;
@@ -44,8 +44,8 @@ namespace NoobFight.Core.Simulation.Components
                                 // Zellen ignorieren die vom Spieler nicht berührt werden
                                 if (position.X - entity.Radius > x + 1 ||
                                     position.X + entity.Radius < x ||
-                                    position.Y - entity.Height > y + 1 ||
-                                    position.Y/* + entity.Height*/ < y)
+                                    position.Y -entity.Height > y + 1 ||
+                                    position.Y  < y )
                                     continue;
 
                                 collision = true;
@@ -64,9 +64,9 @@ namespace NoobFight.Core.Simulation.Components
                                 // Kollisionszeitpunkt auf Y-Achse ermitteln
                                 float diffY = float.MaxValue;
                                 if (entity.Move.Y > 0)
-                                    diffY = position.Y + entity.Height - y + gap;
+                                    diffY = position.Y /*+ entity.Height*/ - y + gap;
                                 if (entity.Move.Y < 0)
-                                    diffY = position.Y - (y + 1) - gap;
+                                    diffY = position.Y - entity.Height  - (y + 1) - gap;
 
                                 float impactY = 1f - (diffY / entity.Move.Y);
 

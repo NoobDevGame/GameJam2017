@@ -26,7 +26,7 @@ namespace NoobFight.Core.Simulation.Components
 
 
                         if(player.Input.Jump && player.OnGround)
-                            velocity -= new Vector2(0,7.5f);
+                            velocity -= new Vector2(0,9f);
 
                         player.Velocity = velocity;
                     }
