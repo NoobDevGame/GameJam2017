@@ -8,10 +8,11 @@ namespace NoobFight.Core.Network
 {
     public class MessageHandler
     {
-        private Dictionary<byte, Action<Client, NetworkMessage>> messageHandlers = new Dictionary<byte, Action<Client, NetworkMessage>>();
+        private Dictionary<byte, Action<Client, NetworkMessage>> messageHandlers;
 
         public MessageHandler()
         {
+            messageHandlers = new Dictionary<byte, Action<Client, NetworkMessage>>();
         }
 
         public void RegisterMessageHandler<T>(Action<Client, T> handler) where T : NetworkMessage, new()
