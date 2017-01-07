@@ -23,7 +23,7 @@ namespace NoobFight.Screens
             singlePlayerButton.MinWidth = 300;
             singlePlayerButton.LeftMouseClick += (s, e) =>
             {
-                //manager.NavigateToScreen(new LoadScreen(manager));
+                manager.NavigateToScreen(new SingleplayerScreen(manager));
             };
             stack.Controls.Add(singlePlayerButton);
 

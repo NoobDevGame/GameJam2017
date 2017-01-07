@@ -12,6 +12,7 @@ namespace NoobFight
     {
         public ScreenComponent ScreenManager { get; private set; }
         public NetworkComponent NetworkComponent { get; private set; }
+        public SimulationComponent SimulationComponent { get; private set; }
 
         public NoobFight()
         {
@@ -23,8 +24,12 @@ namespace NoobFight
 
             NetworkComponent = new NetworkComponent(this);
 
+            SimulationComponent = new SimulationComponent(this);
+            SimulationComponent.UpdateOrder = 2;
+
             Components.Add(ScreenManager);
             Components.Add(NetworkComponent);
+            Components.Add(SimulationComponent);
         }
     }
 }
