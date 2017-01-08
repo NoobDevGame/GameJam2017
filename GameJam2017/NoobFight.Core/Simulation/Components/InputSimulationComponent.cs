@@ -1,6 +1,7 @@
 ﻿using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
+using NoobFight.Core.Simulation.Events;
 
 namespace NoobFight.Core.Simulation.Components
 {
@@ -14,19 +15,26 @@ namespace NoobFight.Core.Simulation.Components
                 {
                     if (entity is IPlayer)
                     {
-                        var player = (IPlayer) entity;
+                        var player = (IPlayer)entity;
 
-                        Vector2 velocity = new Vector2(0,player.Velocity.Y);
+                        // TODO: addEvent ClickEvent
+                        if (false /* Wenn gelickt wurde */ )
+                        {
+                            var manipulator = world.CreateNewManipulator();
+                            manipulator.AddEvent(new ClickEvent(null, player, new Vector2(0, 0)));
+                        }
+
+                        Vector2 velocity = new Vector2(0, player.Velocity.Y);
 
                         if (player.Input.MoveRight)
-                            velocity += new Vector2(3,0);
+                            velocity += new Vector2(3, 0);
 
                         if (player.Input.MoveLeft)
-                            velocity += new Vector2(-3,0);
+                            velocity += new Vector2(-3, 0);
 
 
-                        if(player.Input.Jump && player.OnGround)
-                            velocity -= new Vector2(0,9f);
+                        if (player.Input.Jump && player.OnGround)
+                            velocity -= new Vector2(0, 9f);
 
                         player.Velocity = velocity;
                     }

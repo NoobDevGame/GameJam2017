@@ -2,6 +2,8 @@
 using NoobFight.Contract.Map;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
+using NoobFight.Contract;
+using System;
 
 namespace NoobFight.Core.Map.Tiles
 {
@@ -22,12 +24,12 @@ namespace NoobFight.Core.Map.Tiles
 
         }
 
-        public virtual void OnClick(IWorldManipulator manipulator, IEntity entity)
+        public virtual void OnCollision(IWorldManipulator manipulator, IEntity entity)
         {
 
         }
 
-        public virtual void OnCollision(IWorldManipulator manipulator, IEntity entity)
+        public virtual void OnClick(IWorldManipulator manipulator, IEntity entity, Vector2 clickPosition)
         {
 
         }
