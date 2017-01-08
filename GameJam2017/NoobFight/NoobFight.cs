@@ -17,7 +17,7 @@ namespace NoobFight
         public PlayerComponent PlayerComponent { get; private set; }
 
         public NoobFight()
-        {
+        {            
             Content.RootDirectory = "Content";
 
             CameraComponent = new CameraComponent(this);

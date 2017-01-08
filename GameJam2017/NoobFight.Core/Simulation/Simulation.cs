@@ -22,7 +22,7 @@ namespace NoobFight.Core.Simulation
         public Simulation(SimulationMode mode)
         {
             Mode = mode;
-
+            
             _components = new List<SimulationComponent>();
             _worlds = new List<World>();
             _players = new List<IPlayer>();
@@ -57,9 +57,9 @@ namespace NoobFight.Core.Simulation
             }
         }
         
-        public IPlayer CreateLocalPlayer(long id, string name, string textureName)
+        public IPlayer CreateLocalPlayer(string name, string textureName)
         {
-            Player player = new Player(id, name, textureName);
+            Player player = new Player(1,name, textureName);
             InsertPlayer(player);
 
             return player;

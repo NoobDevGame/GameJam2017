@@ -4,7 +4,7 @@ namespace NoobFight.Contract.Entities
 {
     public interface IPlayer : ICharacter
     {
-        long ID { get; }
+        long PlayerID { get;  }
 
         Input Input { get; set; }
     }

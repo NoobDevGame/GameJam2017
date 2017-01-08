@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoobFight.Contract.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace NoobFight.Contract.Map
 
         IEnumerable<IArea> Areas { get; }
 
-        void AddArea(IArea area);
+        void SetId(IEntity entity);
+
+        void Load();
     }
 }

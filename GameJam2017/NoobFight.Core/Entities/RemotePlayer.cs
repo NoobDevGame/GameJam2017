@@ -12,7 +12,7 @@ namespace NoobFight.Core.Entities
     public class RemotePlayer : Player
     {
         public Client Client { get; private set; }
-        public RemotePlayer(Client client,long id, string name, string textureName) : base(id, name, textureName)
+        public RemotePlayer(Client client, string name, string textureName) : base(client.ID, name, textureName)
         {
             Client = client;
         }

@@ -52,7 +52,6 @@
     <Compile Include="Entities\RemotePlayer.cs" />
     <Compile Include="Map\Area.cs" />
     <Compile Include="Map\Layer.cs" />
-    <Compile Include="Map\MapGenerator.cs" />
     <Compile Include="Map\MapLoader.cs" />
     <Compile Include="Map\Map.cs" />
     <Compile Include="Map\Tiles\LavaTile.cs" />
@@ -79,6 +78,7 @@
     <Compile Include="Simulation\Components\CollisionSimulationComponent.cs" />
     <Compile Include="Simulation\Components\EntityCollisionComponent.cs" />
     <Compile Include="Simulation\Components\GravitySimulationComponent.cs" />
+    <Compile Include="Map\IdManager.cs" />
     <Compile Include="Simulation\Components\InputSimulationComponent.cs" />
     <Compile Include="Simulation\Components\MoveSimulationComponent.cs" />
     <Compile Include="Simulation\Components\SimulationComponent.cs" />

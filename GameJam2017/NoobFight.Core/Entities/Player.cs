@@ -7,12 +7,13 @@ namespace NoobFight.Core.Entities
 {
     public class Player : Character, IPlayer
     {
-        public long ID { get; private set; }
         public Input Input { get; set; }
 
-        public Player(long id, string name, string textureName) : base(name)
+        public long PlayerID { get; private set; }
+
+        public Player(long id,string name, string textureName) : base(name)
         {
-            ID = id;
+            PlayerID = id;
             Health = 100;
             TextureName = textureName;
         }

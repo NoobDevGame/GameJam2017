@@ -8,6 +8,8 @@ namespace NoobFight.Core.Entities
 {
     public class Entity : IEntity
     {
+        public int? Id { get; private set; }
+
         public string Name { get; private set; }
         public EntityType Type { get; private set; }
         public string TextureName { get; set; }
@@ -40,6 +42,11 @@ namespace NoobFight.Core.Entities
         public virtual void OnClick(IWorldManipulator manipulator, IEntity entity)
         {
             
+        }
+
+        public void SetId(int id)
+        {
+            Id = id;
         }
     }
 }

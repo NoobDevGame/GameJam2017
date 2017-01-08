@@ -13,6 +13,8 @@ namespace NoobFight.Contract.Entities
         string Name { get; }
         EntityType Type { get; }
 
+        int? Id { get; }
+
         string TextureName { get; }
 
         float Radius { get; set; }
@@ -29,5 +31,7 @@ namespace NoobFight.Contract.Entities
         void OnClick(IWorldManipulator manipulator, IEntity entity);
 
         void OnEntityCollision(IWorldManipulator manipulator, IEntity collidedEntity);
+
+        void SetId(int id);
     }
 }

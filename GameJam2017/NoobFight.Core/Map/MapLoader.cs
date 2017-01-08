@@ -112,7 +112,7 @@ namespace NoobFight.Core.Map
             ActiveTiles.Add("Portal", typeof(PortalTile));
         }
 
-        public static Area LoadArea(string name)
+        public static Area LoadArea(string name, IdManager idManager)
         {
             var path = Path.Combine("Content", "Maps", $"{name}.json");
             if (File.Exists(path))
@@ -122,7 +122,7 @@ namespace NoobFight.Core.Map
                 {
                     var mapjson = sr.ReadToEnd();
                     var mapobject = JsonConvert.DeserializeObject<FileArea>(mapjson);
-                    var map = Convert(mapobject, name);
+                    var map = Convert(mapobject, name, idManager);
                     return map;
                 }
             }
@@ -132,7 +132,8 @@ namespace NoobFight.Core.Map
 
         static Dictionary<string, Type> ActiveTiles = new Dictionary<string, Type>();
 
-        private static Area Convert(FileArea fa, string name)
+
+        private static Area Convert(FileArea fa, string name, IdManager idManager)
         {
             Area area = new Area(name, fa.width, fa.height);
             area.ActiveTiles = new List<IActiveTile>();
@@ -185,12 +186,15 @@ namespace NoobFight.Core.Map
                         }
                         else if (fileObject.type == "entity")
                         {
-                            area.AddEntity(new Entity(fileObject.name, EntityType.Item)
+                            var entity = new Entity(fileObject.name, EntityType.Item)
                             {
                                 Height = size.Y,
                                 Radius = size.X / 2,
                                 Position = position + new Vector2(size.X / 2, size.Y)
-                            });
+                            };
+
+                            idManager.SetId(entity);
+                            area.AddEntity(entity);
                         }
                     }
                 }
