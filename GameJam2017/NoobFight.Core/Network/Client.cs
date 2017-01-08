@@ -93,14 +93,22 @@ namespace NoobFight.Core.Network
         
         public void writeStream(NetworkMessage message)
         {
-            using (var writer = new BinaryWriter(Stream, Encoding.UTF8, true))
+            try
             {
-                lock (writeLock)
+                using (var writer = new BinaryWriter(Stream, Encoding.UTF8, true))
                 {
-                    var data = message.GetBytes();
-                    writer.Write(data.Length);
-                    writer.Write(data);
+                    lock (writeLock)
+                    {
+                        var data = message.GetBytes();
+                        writer.Write(data.Length);
+                        writer.Write(data);
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                OnDisconnected?.Invoke(this, new EventArgs());
+                return null;
             }
         }
         

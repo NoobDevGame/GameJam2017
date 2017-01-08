@@ -31,7 +31,7 @@ namespace NoobFight.Server
             server.Start();
 
             simulation = new Simulation(SimulationMode.Server);
-            world = simulation.CreateNewWorld(GameMode.Timed,"Tolle Welt");
+            world = simulation.CreateNewWorld(GameMode.Timed, "Tolle Welt");
 
             canceltoken = new CancellationTokenSource();
             thread = new Thread(UpdateSimulation);
@@ -51,25 +51,25 @@ namespace NoobFight.Server
         private static void PlayerJoinRequest(Client client, PlayerJoinRequestMessage message)
         {
             var world = simulation.Worlds.FirstOrDefault(i => i.Name == message.WorldName);
-                
-            if (world == null || world.State == (WorldState.Paused | WorldState.Running ))
+
+            if (world == null || world.State == (WorldState.Paused | WorldState.Running))
             {
                 client.writeStream(new PlayerNotJoinResponseMessage());
                 return;
             }
 
-           
+
 
             var player = simulation.Players.First(i => i.ID == client.ID);
             var joinmessage = new PlayerJoinResponseMessage(client.ID, player.Name, player.TextureName);
 
-            
+
 
             client.writeStream(joinmessage);
 
             foreach (var oPlayer in world.Players.OfType<RemotePlayer>())
             {
-                client.writeStream(new PlayerJoinResponseMessage(oPlayer.ID, oPlayer.Name, player.TextureName));
+                client.writeStream(new PlayerJoinResponseMessage(oPlayer.ID, oPlayer.Name, oPlayer.TextureName));
                 oPlayer.Client.writeStream(joinmessage);
             }
 
@@ -101,14 +101,14 @@ namespace NoobFight.Server
             while (!token.IsCancellationRequested)
             {
                 simulation.Update(new Contract.GameTime(TimeSpan.FromMilliseconds(13)));
-                
+
                 if (frame++ % 2 == 0)
                 {
                     foreach (var world in simulation.Worlds)
                     {
-                        
 
-                        if (world.State != WorldState.Running && world.State  != WorldState.Paused)
+
+                        if (world.State != WorldState.Running && world.State != WorldState.Paused)
                         {
                             if (world.Players.Count() == 2)
                             {
@@ -141,7 +141,7 @@ namespace NoobFight.Server
                         }
                     }
 
-                    
+
                 }
 
                 Thread.Sleep(13);
@@ -152,11 +152,11 @@ namespace NoobFight.Server
         {
             //if (simulation.Players.FirstOrDefault(x=>x.Name == message.Nick) == null)
             {
-                IPlayer player = new RemotePlayer(client,client.ID, message.Nick, message.TextureName);
+                IPlayer player = new RemotePlayer(client, client.ID, message.Nick, message.TextureName);
                 simulation.InsertPlayer(player);
                 client.writeStream(new PlayerLoginResponseMessage(player.ID));
                 Console.WriteLine($"New player {message.Nick} joined");
-                server.SendBroadcast(new ConnectedPlayersResponseMessage(simulation.Players.Count()));  
+                server.SendBroadcast(new ConnectedPlayersResponseMessage(simulation.Players.Count()));
             }
         }
     }
