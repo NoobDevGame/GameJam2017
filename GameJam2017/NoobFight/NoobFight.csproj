@@ -79,6 +79,7 @@
     <Compile Include="Screens\CreditsScreen.cs" />
     <Compile Include="Screens\DirectConnectScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
+    <Compile Include="Screens\LobbyScreen.cs" />
     <Compile Include="Screens\MainScreen.cs" />
     <Compile Include="Screens\OptionsScreen.cs" />
     <Compile Include="Screens\PlayScreen.cs" />
