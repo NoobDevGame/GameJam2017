@@ -2,11 +2,14 @@
 using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Map;
+using NoobFight.Core.Simulation;
 
 namespace NoobFight.Core.Entities
 {
     public class Entity : IEntity
     {
+        public int? Id { get; private set; }
+
         public string Name { get; private set; }
         public EntityType Type { get; private set; }
         public string TextureName { get; set; }
@@ -29,6 +32,11 @@ namespace NoobFight.Core.Entities
             Radius = 0.495f;
             Height = 1f;
             Position = new Vector2(1, 1);
+        }
+
+        public void SetId(int id)
+        {
+            Id = id;
         }
     }
 }

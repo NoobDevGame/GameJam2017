@@ -12,6 +12,8 @@ namespace NoobFight.Contract.Entities
         string Name { get; }
         EntityType Type { get; }
 
+        int? Id { get; }
+
         string TextureName { get; }
 
         float Radius { get; set; }
@@ -24,5 +26,7 @@ namespace NoobFight.Contract.Entities
         Vector2 Position { get; set; }
         Vector2 Move { get; set; }
         Vector2 Velocity { get; set; }
+
+        void SetId(int id);
     }
 }

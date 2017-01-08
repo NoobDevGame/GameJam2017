@@ -6,13 +6,13 @@ namespace NoobFight.Core.Simulation.Events
 {
     public class PlayerWorldEvent : WorldEvent
     {
-        public long PlayerID { get; set; }
+        public long PlayerId { get; set; }
 
         public PlayerEventMethod Method { get; set; }
 
         public override void Dispatch(IWorld world, ISimulation simulation)
         {
-            var player = simulation.Players.First(i => i.ID == PlayerID);
+            var player = simulation.Players.First(i => i.PlayerID == 1);
 
             if (Method == PlayerEventMethod.Insert)
             {

@@ -53,12 +53,14 @@ namespace NoobFight.Components
 
         private void StartWorld(Client client, StartWorldMessage message)
         {
-            Game.SimulationComponent.World.Start(MapGenerator.CreateMap(message.MapName));
+            var map = new Map(message.MapName);
+            map.Load();
+            Game.SimulationComponent.World.Start(map);
         }
 
         private void UpdateEntity(Client client, EntityDataUpdateMessage entitydata)
         {
-            var player = Game.SimulationComponent.Simulation.Players.FirstOrDefault(i => i.ID == entitydata.ID);
+            var player = Game.SimulationComponent.Simulation.Players.FirstOrDefault(i => i.Id == entitydata.Id);
             if (player != null)
             {
                 entitydata.UpdateEntity(player);
@@ -82,14 +84,13 @@ namespace NoobFight.Components
             if (Game.SimulationComponent.World == null)
                 worldLoaded.WaitOne();
 
-            if (Game.SimulationComponent.Player.ID == message.Id)
+            if (Game.SimulationComponent.Player.Id == message.Id)
             {
-          
                 Game.SimulationComponent.World.Manipulator.AddPlayer(Game.SimulationComponent.Player);
                 Game.ScreenManager.NavigateToScreen(new LobbyScreen(Game.ScreenManager));
                 return;
             }
-            var player = new RemotePlayer(client, message.Id, message.Nick, message.TextureName);//TODO: texturename
+            var player = new RemotePlayer(client, message.Nick, message.TextureName);//TODO: texturename
             Game.SimulationComponent.Simulation.InsertPlayer(player);
 
             Game.SimulationComponent.World.Manipulator.AddPlayer(player);
@@ -104,7 +105,7 @@ namespace NoobFight.Components
 
         private void PlayerLoginResponse(Client client, PlayerLoginResponseMessage message)
         {
-            Game.SimulationComponent.Player = Game.SimulationComponent.Simulation.CreateLocalPlayer(message.PlayerId, Nick, TextureName);
+            Game.SimulationComponent.Player = Game.SimulationComponent.Simulation.CreateLocalPlayer(Nick, TextureName);
             client.writeStream(new WorldListRequestMessage());
             playerLoaded.Set();
         }

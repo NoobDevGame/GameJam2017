@@ -13,7 +13,7 @@ namespace NoobFight.Core.Network.Messages
     {
         public override MessageType DataType => MessageType.EntityDataUpdate;
 
-        public long ID { get; private set; }
+        public int Id { get; private set; }
         public Vector2 _position;
         public Vector2 _velocity;
 
@@ -25,7 +25,7 @@ namespace NoobFight.Core.Network.Messages
         //TODO: Entity: ID
         public EntityDataUpdateMessage(IPlayer entity)
         {
-            ID = entity.ID;
+            Id = entity.Id.Value;
             _position = entity.Position;
             _velocity = entity.Velocity;
         }
@@ -36,7 +36,7 @@ namespace NoobFight.Core.Network.Messages
             using (MemoryStream stream = new MemoryStream(data))
             using (BinaryWriter bw = new BinaryWriter(stream))
             {
-                bw.Write(ID);
+                bw.Write(Id);
                 bw.Write(_position.X);
                 bw.Write(_position.Y);
                 bw.Write(_velocity.X);
@@ -48,7 +48,7 @@ namespace NoobFight.Core.Network.Messages
 
         public override void Deserialize(byte[] payload)
         {
-            ID = BitConverter.ToInt64(payload, 0);
+            Id = BitConverter.ToInt32(payload, 0);
             var x = BitConverter.ToSingle(payload, 8);
             var y = BitConverter.ToSingle(payload, 12);
             _position = new Vector2(x, y);

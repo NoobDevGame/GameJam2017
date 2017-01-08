@@ -11,8 +11,6 @@ namespace NoobFight.Core.Simulation
 {
     public class World : IWorld
     {
-
-
         public IMap CurrentMap { get; private set; }
         public GameMode Mode { get; private set; }
         public WorldState State { get; private set; }
@@ -44,6 +42,7 @@ namespace NoobFight.Core.Simulation
 
             foreach (var player in Players)
             {
+                CurrentMap.SetId(player);
                 player.Position = CurrentMap.StartArea.SpawnPoint;
                 CurrentMap.StartArea.AddEntity(player);
             }

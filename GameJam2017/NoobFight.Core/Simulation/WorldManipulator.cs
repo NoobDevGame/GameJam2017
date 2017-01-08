@@ -18,7 +18,7 @@ namespace NoobFight.Core.Simulation
         {
             var @event = new PlayerWorldEvent()
             {
-                PlayerID = player.ID,
+                //PlayerId = player.Id.Value,
                 Method = PlayerEventMethod.Insert,
             };
             _world.AddEvent(@event);
@@ -29,7 +29,7 @@ namespace NoobFight.Core.Simulation
         {
             var @event = new PlayerWorldEvent()
             {
-                PlayerID = player.ID,
+                PlayerId = player.Id.Value,
                 Method = PlayerEventMethod.Remove,
             };
             _world.AddEvent(@event);
