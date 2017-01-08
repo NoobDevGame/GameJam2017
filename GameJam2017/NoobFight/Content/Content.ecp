@@ -155,7 +155,7 @@
         <ContentFile>
           <Name>elephant.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -165,7 +165,7 @@
         <ContentFile>
           <Name>monkey.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -175,7 +175,7 @@
         <ContentFile>
           <Name>pig.png</Name>
           <Processor>BitmapProcessor</Processor>
-          <Importer />
+          <Importer>Bitmap Importer</Importer>
           <Settings>
             <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
             <MipMapCount>1</MipMapCount>
@@ -184,5 +184,10 @@
         </ContentFile>
       </Contents>
     </ContentFolder>
+    <ContentFile>
+      <Name>simple.glsl</Name>
+      <Processor>EffectProcessor</Processor>
+      <Importer />
+    </ContentFile>
   </Contents>
 </Content>
