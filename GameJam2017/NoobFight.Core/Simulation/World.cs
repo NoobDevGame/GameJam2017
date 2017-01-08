@@ -106,7 +106,7 @@ namespace NoobFight.Core.Simulation
 
         public IPlayer FindPlayerById(long playerid)
         {
-            return _players.First(i => i.ID == playerid);
+            return _players.First(i => i.PlayerID == playerid);
         }
 
         public void Resume()

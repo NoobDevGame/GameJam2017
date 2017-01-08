@@ -51,12 +51,17 @@ namespace NoobFight.Components
 
         }
 
-        private void StartWorld(Client client, StartWorldMessage message)
+        public void StartWorld(Client client, StartWorldMessage message)
         {
             var map = new Map(message.MapName);
             map.Load();
             Game.SimulationComponent.World.Start(map);
         }
+        public void StartWorld()
+        {
+            client.writeStream(new StartWorldRequest());
+        }
+
 
         private void UpdateEntity(Client client, EntityDataUpdateMessage entitydata)
         {
@@ -86,14 +91,14 @@ namespace NoobFight.Components
 
             if (Game.SimulationComponent.Player.Id == message.Id)
             {
-                Game.SimulationComponent.World.Manipulator.AddPlayer(Game.SimulationComponent.Player);
+                Game.SimulationComponent.World.AddPlayer(Game.SimulationComponent.Player);
                 Game.ScreenManager.NavigateToScreen(new LobbyScreen(Game.ScreenManager));
                 return;
             }
             var player = new RemotePlayer(client, message.Nick, message.TextureName);//TODO: texturename
             Game.SimulationComponent.Simulation.InsertPlayer(player);
 
-            Game.SimulationComponent.World.Manipulator.AddPlayer(player);
+            Game.SimulationComponent.World.AddPlayer(player);
 
 
         }
@@ -105,7 +110,7 @@ namespace NoobFight.Components
 
         private void PlayerLoginResponse(Client client, PlayerLoginResponseMessage message)
         {
-            Game.SimulationComponent.Player = Game.SimulationComponent.Simulation.CreateLocalPlayer(Nick, TextureName);
+            Game.SimulationComponent.Player = Game.SimulationComponent.Simulation.CreateLocalPlayer(message.PlayerId, Nick, TextureName);
             client.writeStream(new WorldListRequestMessage());
             playerLoaded.Set();
         }
@@ -132,6 +137,18 @@ namespace NoobFight.Components
             Game.SimulationComponent.World = Game.SimulationComponent.Simulation.CreateNewWorld(GameMode.Timed, worldName);
             worldLoaded.Set();
             client.writeStream(new PlayerJoinRequestMessage(worldName));
+        }
+        public void CreateWorld(string name, GameMode mode)
+        {
+            client.writeStream(new CreateWorldRequestMessage(name, mode));
+        }
+
+        private void CreateWorld(Client client, CreateWorldResponseMessage message)
+        {
+            if (client.Connected == false)
+                throw new NotSupportedException();
+            Game.SimulationComponent.World = Game.SimulationComponent.Simulation.CreateNewWorld(message.Mode, message.WorldName);
+            worldLoaded.Set();
         }
 
         public void Disconnect()

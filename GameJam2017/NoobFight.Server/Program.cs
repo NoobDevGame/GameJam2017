@@ -51,12 +51,14 @@ namespace NoobFight.Server
 
         private static void StartWorld(Client client, StartWorldRequest message)
         {
-            var world = simulation.Worlds.FirstOrDefault(i => i.Players.Count() > 0 && i.Players.Any(p => p.ID == client.ID));
+            var world = simulation.Worlds.FirstOrDefault(i => i.Players.Count() > 0 && i.Players.Any(p => p.PlayerID == client.ID));
 
             if (world != null)
             {
                 var mapstart = new StartWorldMessage("Hallo");
-                world.Start(MapGenerator.CreateMap(mapstart.MapName));
+                var map = new Map(mapstart.MapName);
+                map.Load();
+                world.Start(map);
 
                 foreach (var player in world.Players.OfType<RemotePlayer>())
                 {
@@ -70,7 +72,7 @@ namespace NoobFight.Server
             var world = simulation.CreateNewWorld(message.Mode, message.WorldName);
             world.AddEventCallback = SendEvent;
 
-            var player = simulation.Players.First(i => i.ID == client.ID);
+            var player = simulation.Players.First(i => i.PlayerID == client.ID);
             world.AddPlayer(player);
 
             var joinmessage = new PlayerJoinResponseMessage(client.ID, player.Name, player.TextureName);

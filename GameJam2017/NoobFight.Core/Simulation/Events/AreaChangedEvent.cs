@@ -54,7 +54,7 @@ namespace NoobFight.Core.Simulation.Events
             using (MemoryStream ms = new MemoryStream())
             using (BinaryWriter bw = new BinaryWriter(ms))
             {
-                bw.Write(Player.ID);
+                bw.Write(Player.PlayerID);
                 bw.Write(DestinationArea);
                 return ms.ToArray();
             }

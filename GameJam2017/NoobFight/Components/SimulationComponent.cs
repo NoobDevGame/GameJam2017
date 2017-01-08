@@ -30,8 +30,8 @@ namespace NoobFight.Components
         {
             Simulation = new Simulation(SimulationMode.Single);
             World = Simulation.CreateNewWorld(gamemode, "Default World");
-            Player = Simulation.CreateLocalPlayer( "Hallo", texturename); ;
-            World.Manipulator.AddPlayer(Player);
+            Player = Simulation.CreateLocalPlayer(1, "Hallo", texturename); ;
+            World.AddPlayer(Player);
             var map = new Map(mapname);
             map.Load();
             World.Start(map);

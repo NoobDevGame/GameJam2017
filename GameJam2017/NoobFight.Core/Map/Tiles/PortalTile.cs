@@ -24,10 +24,5 @@ namespace NoobFight.Core.Map.Tiles
                     manipulator.ChangeArea(((IPlayer)entity), this.Property.destinationarea);
             }
         }
-
-        public override void OnClick(IWorldManipulator manipulator, IEntity entity, Vector2 clickPosition)
-        {
-
-        }
     }
 }
