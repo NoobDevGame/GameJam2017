@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,24 +16,33 @@ namespace NoobFight.Core.Network.Messages
         }
         public long Id { get; private set; }
         public string Nick { get; private set; }
-
-        public PlayerJoinResponseMessage(long id, string nick)
+        public string TextureName { get; set; }
+        public PlayerJoinResponseMessage(long id, string nick, string textureName)
         {
             Id = id;
             Nick = nick;
+            TextureName = textureName;
         }
         public override void Deserialize(byte[] payload)
         {
-            Id = BitConverter.ToInt64(payload, 0);
-            Nick = Encoding.UTF8.GetString(payload, sizeof(long), payload.Length - sizeof(long));
+            using (MemoryStream ms = new MemoryStream(payload))
+            using (BinaryReader br = new BinaryReader(ms))
+            {
+                Id = br.ReadInt64();
+                Nick = br.ReadString();
+                TextureName = br.ReadString();
+            }
         }
         public override byte[] Serialize()
         {
-            byte[] nickBuffer = Encoding.UTF8.GetBytes(Nick);
-            byte[] buffer = new byte[sizeof(long) + nickBuffer.Length];
-            Array.Copy(BitConverter.GetBytes(Id), buffer, sizeof(long));
-            Array.Copy(nickBuffer, 0, buffer, sizeof(long), nickBuffer.Length);
-            return buffer;
+            using (MemoryStream ms = new MemoryStream())
+            using (BinaryWriter bw = new BinaryWriter(ms))
+            {
+                bw.Write(Id);
+                bw.Write(Nick);
+                bw.Write(TextureName);
+                return ms.ToArray();
+            }
         }
     }
 }

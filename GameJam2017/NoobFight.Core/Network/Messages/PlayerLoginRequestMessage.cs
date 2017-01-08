@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +10,11 @@ namespace NoobFight.Core.Network.Messages
     {
         public override MessageType DataType => MessageType.PlayerLoginRequest;
         public string Nick { get; private set; }
-        public PlayerLoginRequestMessage(string nick)
+        public string TextureName { get; private set; }
+        public PlayerLoginRequestMessage(string nick, string textureName)
         {
             Nick = nick;
+            TextureName = textureName;
         }
 
         public PlayerLoginRequestMessage()
@@ -22,47 +24,22 @@ namespace NoobFight.Core.Network.Messages
 
         public override void Deserialize(byte[] payload)
         {
-            int length = BitConverter.ToInt32(payload, 0);
-            Nick = Encoding.UTF8.GetString(payload, 4, payload.Length-4);
+            using (MemoryStream ms = new MemoryStream(payload))
+            using (BinaryReader br = new BinaryReader(ms))
+            {
+                Nick = br.ReadString();
+                TextureName = br.ReadString();
+            }
         }
         public override byte[] Serialize()
         {
-            if (Nick == null)
-                return new byte[4];
-            byte[] nickBuffer = Encoding.UTF8.GetBytes(Nick);
-            byte[] buffer = new byte[nickBuffer.Length+sizeof(int)];
-            Array.Copy(BitConverter.GetBytes(nickBuffer.Length), 0, buffer, 0, sizeof(int));
-            Array.Copy(nickBuffer, 0, buffer, sizeof(int), nickBuffer.Length);
-            return buffer;
+            using (MemoryStream ms = new MemoryStream())
+            using (BinaryWriter bw = new BinaryWriter(ms))
+            {
+                bw.Write(Nick);
+                bw.Write(TextureName);
+                return ms.ToArray();
+            }
         }
-    }
-    public class PlayerLoginResponseMessage : NetworkMessage
-    {
-        public override MessageType DataType => MessageType.PlayerLoginResponse;
-
-        public long PlayerId { get; private set; }
-
-        public PlayerLoginResponseMessage()
-        {
-
-        }
-
-
-
-        public PlayerLoginResponseMessage(long playerId)
-        {
-            PlayerId = playerId;
-            
-        }
-
-        public override byte[] Serialize()
-        {
-            return BitConverter.GetBytes(PlayerId);
-        }
-        public override void Deserialize(byte[] payload)
-        {
-            PlayerId = BitConverter.ToInt64(payload, 0);
-        }
-        
     }
 }

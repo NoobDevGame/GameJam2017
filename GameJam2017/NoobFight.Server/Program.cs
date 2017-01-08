@@ -61,7 +61,7 @@ namespace NoobFight.Server
            
 
             var player = simulation.Players.First(i => i.ID == client.ID);
-            var joinmessage = new PlayerJoinResponseMessage(client.ID, player.Name);
+            var joinmessage = new PlayerJoinResponseMessage(client.ID, player.Name, player.TextureName);
 
             
 
@@ -69,7 +69,7 @@ namespace NoobFight.Server
 
             foreach (var oPlayer in world.Players.OfType<RemotePlayer>())
             {
-                client.writeStream(new PlayerJoinResponseMessage(oPlayer.ID, oPlayer.Name));
+                client.writeStream(new PlayerJoinResponseMessage(oPlayer.ID, oPlayer.Name, player.TextureName));
                 oPlayer.Client.writeStream(joinmessage);
             }
 
@@ -152,7 +152,7 @@ namespace NoobFight.Server
         {
             //if (simulation.Players.FirstOrDefault(x=>x.Name == message.Nick) == null)
             {
-                IPlayer player = new RemotePlayer(client,client.ID, message.Nick, "");
+                IPlayer player = new RemotePlayer(client,client.ID, message.Nick, message.TextureName);
                 simulation.InsertPlayer(player);
                 client.writeStream(new PlayerLoginResponseMessage(player.ID));
                 Console.WriteLine($"New player {message.Nick} joined");
