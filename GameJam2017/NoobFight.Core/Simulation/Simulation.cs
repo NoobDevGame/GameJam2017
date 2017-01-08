@@ -32,6 +32,8 @@ namespace NoobFight.Core.Simulation
             _components.Add(new CollisionSimulationComponent());
             if(Mode == SimulationMode.Lokal )
                 _components.Add(new TileCollisionSimulationComponent());
+            if(Mode == SimulationMode.Lokal )
+                _components.Add(new EntityCollisionComponent());
         }
 
         public IWorld CreateNewWorld(GameMode mode)

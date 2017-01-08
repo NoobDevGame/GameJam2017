@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using NoobFight.Contract;
+using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
 using NoobFight.Core.Simulation.Events;
 
@@ -16,12 +17,16 @@ namespace NoobFight.Core.Simulation.Components
                     RectangleF recEntity = new RectangleF(entity.Position.X - entity.Radius
                         ,entity.Position.Y - entity.Height,entity.Radius * 2,entity.Height);
 
+                    var @char = entity as ICharacter;
+                     @char?.TileInteractionList.Clear();
+
                     foreach (var activeTile in area.ActiveTiles)
                     {
                         RectangleF recTile = new RectangleF(activeTile.Position.X,activeTile.Position.Y,1,1);
 
                         if (recEntity.IntersectsWith(recTile))
                         {
+                            @char?.TileInteractionList.Add(activeTile);
                             world.Manipulator.AddEvent(new CollisionEvent(activeTile, entity));
                         }
                     }
