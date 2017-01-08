@@ -19,16 +19,6 @@ namespace NoobFight.Screens
             StackPanel stack = new StackPanel(manager);
             Controls.Add(stack);
 
-            stack.Controls.Add(new Label(manager) { Text = "Username: ", HorizontalAlignment = HorizontalAlignment.Left });
-
-            Textbox nameInput = new Textbox(manager);
-            nameInput.HorizontalAlignment = HorizontalAlignment.Stretch;
-            nameInput.Margin = new Border(0, 0, 0, 10);
-            nameInput.Background = new BorderBrush(Color.White);
-            stack.Controls.Add(nameInput);
-
-            stack.Controls.Add(new Panel(manager) { Height = 10, Width = 10 });
-
             stack.Controls.Add(new Label(manager) { Text = "Server Address: ", HorizontalAlignment = HorizontalAlignment.Left });
 
             Textbox ipInput = new Textbox(manager);
@@ -52,7 +42,7 @@ namespace NoobFight.Screens
                     int port = 667;
                     if (splt.Length > 1)
                         int.TryParse(splt[1], out port);
-                    manager.Game.NetworkComponent.Connect(splt[0], port,nameInput.Text,"monkey");
+                    manager.Game.NetworkComponent.Connect(splt[0], port,manager.Game.PlayerComponent.PlayerName,manager.Game.PlayerComponent.PlayerTexture);
                     manager.NavigateToScreen(new ConnectingScreen(manager));
                 }
                 catch (Exception ex)

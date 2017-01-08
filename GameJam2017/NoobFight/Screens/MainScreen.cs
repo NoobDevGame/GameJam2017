@@ -32,7 +32,7 @@ namespace NoobFight.Screens
             optionButton.MinWidth = 300;
             optionButton.LeftMouseClick += (s, e) =>
             {
-                //manager.NavigateToScreen(new OptionsScreen(manager));
+                manager.NavigateToScreen(new OptionsScreen(manager));
             };
             stack.Controls.Add(optionButton);
 
