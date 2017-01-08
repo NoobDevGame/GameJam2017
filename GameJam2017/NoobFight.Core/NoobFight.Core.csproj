@@ -70,6 +70,7 @@
     <Compile Include="Simulation\Components\InputSimulationComponent.cs" />
     <Compile Include="Simulation\Components\MoveSimulationComponent.cs" />
     <Compile Include="Simulation\Components\SimulationComponent.cs" />
+    <Compile Include="Simulation\Components\TileCollisionSimulationComponent.cs" />
     <Compile Include="Simulation\Events\AreaChangedEvent.cs" />
     <Compile Include="Simulation\Events\CollisionEvent.cs" />
     <Compile Include="Simulation\Events\PlayerWorldEvent.cs" />

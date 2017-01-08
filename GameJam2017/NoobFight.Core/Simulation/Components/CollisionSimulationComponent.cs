@@ -15,8 +15,6 @@ namespace NoobFight.Core.Simulation.Components
 
         public override void SimulateWorld(IWorld world, GameTime gameTime)
         {
-            manipulator = world.CreateNewManipulator();
-
             foreach (var area in world.CurrentMap.Areas)
             {
                 foreach (var entity in area.Entities)
@@ -39,14 +37,12 @@ namespace NoobFight.Core.Simulation.Components
                         float minImpact = 2f;
                         int minAxis = 0;
 
-                        List<IActiveTile> collidingTiles = new List<IActiveTile>();
 
                         // Schleife über alle betroffenen Zellen zur Ermittlung der ersten Kollision
                         for (int x = minCellX; x <= maxCellX; x++)
                         {
                             for (int y = minCellY; y <= maxCellY; y++)
                             {
-                                var activeTile = area.ActiveTiles.FirstOrDefault(tile => tile.Position.X == x && tile.Position.Y == y);
 
                                 // Zellen ignorieren die vom Spieler nicht berührt werden
                                 if (position.X - entity.Radius > x + 1 ||
@@ -54,11 +50,6 @@ namespace NoobFight.Core.Simulation.Components
                                     position.Y - entity.Height > y + 1 ||
                                     position.Y < y)
                                     continue;
-
-                                if (activeTile != null)
-                                {
-                                    collidingTiles.Add(activeTile);
-                                }
 
 
                                 // Zellen ignorieren die den Spieler nicht blockieren
@@ -112,13 +103,6 @@ namespace NoobFight.Core.Simulation.Components
                             }
                         }
 
-                        if (collidingTiles.Count > 0)
-                        {
-                            foreach (var tile in collidingTiles)
-                            {
-                                manipulator.AddEvent(new CollisionEvent(tile, entity));
-                            }
-                        }
 
                         // Im Falle einer Kollision in diesem Schleifendurchlauf...
                         if (collision)
