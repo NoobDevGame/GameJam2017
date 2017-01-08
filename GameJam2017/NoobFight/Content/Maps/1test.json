@@ -94,7 +94,7 @@
          "name":"EventLayer",
          "objects":[
                 {
-                 "height":70,
+                 "height":45,
                  "id":14,
                  "name":"",
                  "rotation":0,
@@ -102,7 +102,18 @@
                  "visible":true,
                  "width":70,
                  "x":0,
-                 "y":630
+                 "y":655
+                }, 
+                {
+                 "height":110,
+                 "id":15,
+                 "name":"",
+                 "rotation":0,
+                 "type":"Portal",
+                 "visible":true,
+                 "width":70,
+                 "x":1330,
+                 "y":380
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -111,7 +122,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":15,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tileheight":70,

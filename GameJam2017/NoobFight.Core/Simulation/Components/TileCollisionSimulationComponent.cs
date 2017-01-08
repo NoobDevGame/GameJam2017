@@ -22,9 +22,7 @@ namespace NoobFight.Core.Simulation.Components
 
                     foreach (var activeTile in area.ActiveTiles)
                     {
-                        RectangleF recTile = new RectangleF(activeTile.Position.X,activeTile.Position.Y,1,1);
-
-                        if (recEntity.IntersectsWith(recTile))
+                        if (recEntity.IntersectsWith(activeTile.Region))
                         {
                             @char?.TileInteractionList.Add(activeTile);
                             world.Manipulator.AddEvent(new CollisionEvent(activeTile, entity));

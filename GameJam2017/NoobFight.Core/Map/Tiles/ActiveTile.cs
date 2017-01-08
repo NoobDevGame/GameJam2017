@@ -8,16 +8,17 @@ using NoobFight.Contract.Entities;
 using NoobFight.Contract;
 using NoobFight.Core.Simulation;
 using NoobFight.Contract.Simulation;
+using System.Drawing;
 
 namespace NoobFight.Core.Map.Tiles
 {
     public abstract class ActiveTile : IActiveTile
     {
-        public Vector2 Position { get; private set; }
+        public RectangleF Region { get; private set; }
 
-        public ActiveTile(Vector2 position)
+        public ActiveTile(RectangleF region)
         {
-            this.Position = position;
+            this.Region = region;
         }
 
         public virtual void OnAttack(IWorldManipulator manipulator, IEntity entity)

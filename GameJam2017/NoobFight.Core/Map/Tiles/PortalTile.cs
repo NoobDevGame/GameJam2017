@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
+using System.Drawing;
 
 namespace NoobFight.Core.Map.Tiles
 {
     class PortalTile : ActiveTile
     {
-        public PortalTile(Vector2 position) : base(position)
+        public PortalTile(RectangleF region) : base(region)
         {
         }
 

@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
+using System.Drawing;
 
 namespace NoobFight.Core.Map.Tiles
 {
     class LavaTile : ActiveTile
     {
-        public LavaTile(Vector2 position) : base(position)
+        public LavaTile(RectangleF region) : base(region)
         {
         }
 

@@ -11,7 +11,6 @@ namespace NoobFight.Core.Simulation.Components
     public class CollisionSimulationComponent : SimulationComponent
     {
         private float gap = 0.00005f;
-        IWorldManipulator manipulator;
 
         public override void SimulateWorld(IWorld world, GameTime gameTime)
         {

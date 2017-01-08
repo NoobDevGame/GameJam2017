@@ -7,6 +7,7 @@ using NoobFight.Contract.Map;
 using NoobFight.Core.Entities;
 using NoobFight.Contract.Entities;
 using NoobFight.Core.Map.Tiles;
+using System.Drawing;
 
 namespace NoobFight.Core.Map
 {
@@ -129,7 +130,6 @@ namespace NoobFight.Core.Map
 
         static Dictionary<string, Type> ActiveTiles = new Dictionary<string, Type>();
 
-
         private static Area Convert(FileArea fa, string name)
         {
             Area area = new Area(name, fa.width, fa.height);
@@ -156,19 +156,12 @@ namespace NoobFight.Core.Map
                             Type tileType;
                             if (ActiveTiles.TryGetValue(fileObject.type, out tileType))
                             {
-                                for (var x = position.X; x < position.X + size.X; x++)
-                                {
-                                    for (var y = position.Y; y < position.Y + size.Y; y++)
-                                    {
-                                        var obj = (ActiveTile)Activator.CreateInstance(tileType, position);
-                                        area.ActiveTiles.Add(obj);
-                                    }
-                                }
+                                var obj = (ActiveTile)Activator.CreateInstance(tileType,
+                                                    new RectangleF(new PointF(position.X, position.Y), new SizeF(size.X, size.Y)));
 
-
+                                area.ActiveTiles.Add(obj);
                             }
                         }
-
 
                         if (fileObject.type == "spawn")
                         {
@@ -214,12 +207,9 @@ namespace NoobFight.Core.Map
                 }
 
                 area.MapTextures.Add(key, contenttexture);
-
-
             }
 
             return area;
         }
-
     }
 }
