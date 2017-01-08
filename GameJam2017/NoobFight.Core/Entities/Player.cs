@@ -1,6 +1,7 @@
 ﻿using System;
 using NoobFight.Contract;
 using NoobFight.Contract.Entities;
+using NoobFight.Contract.Simulation;
 
 namespace NoobFight.Core.Entities
 {
@@ -16,6 +17,16 @@ namespace NoobFight.Core.Entities
             TextureName = textureName;
         }
 
+        public override void OnEntityCollision(IWorldManipulator manipulator, IEntity collidedEntity)
+        {
+            var item = ((Entity)collidedEntity);
 
+            if (item.Name != "coin")
+                return;
+
+            item.CurrentArea.RemoveEntity(item);
+
+            this.Health -= 1;
+        }
     }
 }

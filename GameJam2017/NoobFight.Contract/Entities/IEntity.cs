@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NoobFight.Contract.Map;
+using NoobFight.Contract.Simulation;
 
 namespace NoobFight.Contract.Entities
 {
@@ -24,5 +25,7 @@ namespace NoobFight.Contract.Entities
         Vector2 Position { get; set; }
         Vector2 Move { get; set; }
         Vector2 Velocity { get; set; }
+
+        void OnEntityCollision(IWorldManipulator manipulator, IEntity collidedEntity);
     }
 }

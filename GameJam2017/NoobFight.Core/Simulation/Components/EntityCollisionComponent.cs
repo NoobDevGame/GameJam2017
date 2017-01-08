@@ -15,8 +15,6 @@ namespace NoobFight.Core.Simulation.Components
             {
                 foreach (var entity in area.Entities)
                 {
-
-
                     if (!(entity is ICharacter))
                         continue;
 
@@ -37,6 +35,7 @@ namespace NoobFight.Core.Simulation.Components
                         if (recEntity.IntersectsWith(recCheck))
                         {
                             @char.EntityInteractionList.Add(checkentity);
+                            world.Manipulator.AddEvent(new EntityCollisionEvent(@char, checkentity));
                         }
                     }
                 }

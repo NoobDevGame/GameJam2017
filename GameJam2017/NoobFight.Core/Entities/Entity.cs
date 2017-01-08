@@ -2,6 +2,7 @@
 using NoobFight.Contract;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Map;
+using NoobFight.Contract.Simulation;
 
 namespace NoobFight.Core.Entities
 {
@@ -29,6 +30,11 @@ namespace NoobFight.Core.Entities
             Radius = 0.495f;
             Height = 1f;
             Position = new Vector2(1, 1);
+        }
+
+        public virtual void OnEntityCollision(IWorldManipulator manipulator, IEntity collidedEntity)
+        {
+
         }
     }
 }

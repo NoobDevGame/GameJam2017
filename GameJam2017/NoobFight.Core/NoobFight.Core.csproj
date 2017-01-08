@@ -86,6 +86,7 @@
     <Compile Include="Simulation\Events\AreaChangedEvent.cs" />
     <Compile Include="Simulation\Events\ClickEvent.cs" />
     <Compile Include="Simulation\Events\CollisionEvent.cs" />
+    <Compile Include="Simulation\Events\EntityCollisionEvent.cs" />
     <Compile Include="Simulation\Events\PlayerWorldEvent.cs" />
     <Compile Include="Simulation\Events\PlayerEventMethod.cs" />
     <Compile Include="Simulation\Events\WorldEvent.cs" />
