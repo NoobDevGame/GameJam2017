@@ -19,11 +19,25 @@ namespace NoobFight.Screens
             StackPanel stack = new StackPanel(manager);
             Controls.Add(stack);
 
+            stack.Controls.Add(new Label(manager) { Text = "Username: ", HorizontalAlignment = HorizontalAlignment.Left });
+
+            Textbox nameInput = new Textbox(manager);
+            nameInput.HorizontalAlignment = HorizontalAlignment.Stretch;
+            nameInput.Margin = new Border(0, 0, 0, 10);
+            nameInput.Background = new BorderBrush(Color.White);
+            stack.Controls.Add(nameInput);
+
+            stack.Controls.Add(new Panel(manager) { Height = 10, Width = 10 });
+
+            stack.Controls.Add(new Label(manager) { Text = "Server Address: ", HorizontalAlignment = HorizontalAlignment.Left });
+
             Textbox ipInput = new Textbox(manager);
             ipInput.HorizontalAlignment = HorizontalAlignment.Stretch;
             ipInput.Margin = new Border(0, 0, 0, 10);
             ipInput.Background = new BorderBrush(Color.White);
             stack.Controls.Add(ipInput);
+
+            stack.Controls.Add(new Panel(manager) { Height = 10, Width = 10 });
 
             Button connectButton = Button.TextButton(manager, "Connect");
             connectButton.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -33,12 +47,17 @@ namespace NoobFight.Screens
             {
                 try
                 {
-                    manager.Game.NetworkComponent.Connect(ipInput.Text, 667);
-                    manager.Game.NetworkComponent.SendMessage(new PingMessage());
+                    //TODO:Nickname ändern
+                    var splt = ipInput.Text.Split(':');
+                    int port = 667;
+                    if (splt.Length > 0)
+                        int.TryParse(splt[1], out port);
+                    manager.Game.NetworkComponent.Connect(splt[0], port,nameInput.Text,"monkey");
+                    manager.NavigateToScreen(new ConnectingScreen(manager));
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    throw new Exception("Connection unsuccessful", ex);
+                    manager.NavigateToScreen(new ConnectingScreen(manager, true));
                 }
             };
             stack.Controls.Add(connectButton);

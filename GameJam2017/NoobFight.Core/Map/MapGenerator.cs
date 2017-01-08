@@ -5,9 +5,11 @@ namespace NoobFight.Core.Map
 {
     public static class MapGenerator
     {
-        private  static  Dictionary<string, IArea> _areas = new Dictionary<string, IArea>();
+        private  static  Dictionary<string, IArea> _areas;
+
         public static IMap CreateMap()
         {
+            _areas = new Dictionary<string, IArea>();
             Map map = new Map();
             map.AddArea(LoadArea("test"));
             map.AddArea(LoadArea("1test"));

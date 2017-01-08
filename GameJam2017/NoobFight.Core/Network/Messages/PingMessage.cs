@@ -9,20 +9,12 @@ namespace NoobFight.Core.Network.Messages
 {
     public class PingMessage : NetworkMessage
     {
-        public override byte DataType => 1;
+        public override MessageType DataType => MessageType.Ping;
 
         public override string ToString()
         {
             return "Ping";
         }
     }
-    public class PongMessage : NetworkMessage
-    {
-        public override byte DataType => 2;
-
-        public override string ToString()
-        {
-            return "Pong";
-        }
-    }
+    
 }

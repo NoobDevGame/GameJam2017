@@ -11,6 +11,7 @@ namespace NoobFight
         static void Main(string[] args)
         {
             NoobFight game;
+
             using (game = new NoobFight())
                 game.Run(60, 60);
         }

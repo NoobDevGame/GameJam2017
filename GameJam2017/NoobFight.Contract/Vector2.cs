@@ -36,9 +36,7 @@ namespace NoobFight.Contract
         {
             return new Vector2(vec1.X * value,vec1.Y *  value);
         }
-
-
-
+        
         public static Vector2 operator * (Vector2 vec1, double value)
         {
             return new Vector2(vec1.X * (float)value,vec1.Y *  (float)value);

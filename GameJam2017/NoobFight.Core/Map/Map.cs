@@ -6,16 +6,18 @@ namespace NoobFight.Core.Map
 {
     public class Map : IMap
     {
-        public IArea StartArea { get; private set; }
-
-        private List<IArea> _areas = new List<IArea>();
+        public IArea StartArea { get; private set; }        
         public IEnumerable<IArea> Areas => _areas;
+
+        private List<IArea> _areas;
 
         public void AddArea(IArea area)
         {
+            _areas = new List<IArea>();
+
             if (StartArea == null)
                 StartArea = area;
-            this._areas.Add(area);
+            _areas.Add(area);
         }
 
 

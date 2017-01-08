@@ -10,12 +10,14 @@ namespace NoobFight.Core.Map
 {
     public class Area : IArea
     {
+
         public Area(string name, int width, int height)
         {
             Width = width;
             Height = height;
             Name = name;
             MapTextures = new Dictionary<string, MapTexture>();
+            _entities = new List<IEntity>();
         }
 
         public string Name { get; private set; }

@@ -14,7 +14,7 @@ namespace NoobFight.Screens
 {
     public class GameScreen : Screen
     {
-        ScreenComponent Manager;
+        new ScreenComponent Manager;
 
         HealthBarControl HealthBar;
         TimeControl TimeControl;

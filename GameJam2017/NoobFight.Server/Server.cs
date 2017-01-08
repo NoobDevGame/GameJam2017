@@ -21,12 +21,13 @@ namespace NoobFight.Server
 
         IWorld world;
 
-        public MessageHandler MessageHandler { get; set; } = new MessageHandler();
+        public MessageHandler MessageHandler { get; set; }
 
         public Server()
         {
-            listener = new TcpListener(IPAddress.Any, 667);
+            listener = new TcpListener(IPAddress.Any, 4344);
             clients = new ConcurrentDictionary<int, Client>();
+            MessageHandler = new MessageHandler();
         }
        
         public void Start()
@@ -52,12 +53,21 @@ namespace NoobFight.Server
                 client.OnMessageReceived += MessageHandler.OnMessageReceived;
             });
         }
-
+        public void RegisterMessageHandler<T>(Action<Client, T> handler) where T : NetworkMessage, new()
+        {
+            MessageHandler.RegisterMessageHandler(handler);
+        }
         private void PingMessage_Received(Client client,PingMessage message)
         {
             client.writeStream(new PongMessage());
         }
-        
+        public void SendBroadcast(NetworkMessage message)
+        {
+            foreach(var client in clients)
+            {
+                client.Value.writeStream(message);
+            }
+        }
 
     }
 }

@@ -57,7 +57,7 @@ namespace NoobFight.Screens
                 if (line == "THANKS FOR PLAYING!")
                 {
                     l.TextColor = Color.Red;
-                    l.Font = manager.Content.Load<SpriteFont>("bigFont");
+                    l.Font = manager.Content.Load<SpriteFont>("HeadlineFont");
                 }
 
                 stack.Controls.Add(l);

@@ -11,29 +11,31 @@ namespace NoobFight.Core.Simulation
 {
     public class World : IWorld
     {
-        private Queue<IWorldEvent> _events = new Queue<IWorldEvent>();
 
+
+        public IMap CurrentMap { get; private set; }
+        public GameMode Mode { get; private set; }
+        public WorldState State { get; private set; }
+        public TimeSpan WorldTime { get; private set; }
+        public IWorldManipulator Manipulator { get; }
+        public IEnumerable<IPlayer> Players => _players;
+        public String Name { get; private set; } = "Default";
+
+
+        private Queue<IWorldEvent> _events;
         private Simulation _simulation;
+        private readonly List<IPlayer> _players;
 
-        public World(GameMode mode, Simulation simulation)
+        public World(GameMode mode, Simulation simulation, string name)
         {
             Mode = mode;
             _simulation = simulation;
             State = WorldState.Loaded;
             Manipulator = CreateNewManipulator();
+            _events = new Queue<IWorldEvent>();
+            _players = new List<IPlayer>();
+            Name = name;
         }
-
-        public IMap CurrentMap { get; private set; }
-
-        private readonly List<IPlayer> _players = new List<IPlayer>();
-        public IEnumerable<IPlayer> Players => _players;
-
-        public GameMode Mode { get; private set; }
-        public WorldState State { get; private set; }
-
-        public TimeSpan WorldTime { get; private set; }
-
-        public IWorldManipulator Manipulator { get; }
 
         public void Start(IMap map)
         {
@@ -64,7 +66,7 @@ namespace NoobFight.Core.Simulation
                 while (_events.Count > 0)
                 {
                     var @event = _events.Dequeue();
-                    @event.Dispatch(this,_simulation);
+                    @event.Dispatch(this, _simulation);
                 }
             }
         }
@@ -97,8 +99,7 @@ namespace NoobFight.Core.Simulation
 
             _players.Remove(player);
         }
-
-
+        
         public IWorldManipulator CreateNewManipulator()
         {
             return new WorldManipulator(this);
