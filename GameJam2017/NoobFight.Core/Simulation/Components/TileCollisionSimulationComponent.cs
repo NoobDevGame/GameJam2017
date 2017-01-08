@@ -20,7 +20,7 @@ namespace NoobFight.Core.Simulation.Components
                     {
                         RectangleF recTile = new RectangleF(activeTile.Position.X,activeTile.Position.Y,1,1);
 
-                        if (recTile.IntersectsWith(recTile))
+                        if (recEntity.IntersectsWith(recTile))
                         {
                             world.Manipulator.AddEvent(new CollisionEvent(activeTile, entity));
                         }
