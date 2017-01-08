@@ -108,7 +108,6 @@ namespace NoobFight.Core.Network
             catch (Exception)
             {
                 OnDisconnected?.Invoke(this, new EventArgs());
-                return null;
             }
         }
         
