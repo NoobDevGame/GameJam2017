@@ -157,7 +157,7 @@
     <ContentFile>
       <Name>coin.png</Name>
       <Processor>BitmapProcessor</Processor>
-      <Importer />
+      <Importer>Bitmap Importer</Importer>
       <Settings>
         <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
         <MipMapCount>1</MipMapCount>
@@ -167,12 +167,17 @@
     <ContentFile>
       <Name>pig.png</Name>
       <Processor>BitmapProcessor</Processor>
-      <Importer />
+      <Importer>Bitmap Importer</Importer>
       <Settings>
         <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
         <MipMapCount>1</MipMapCount>
         <Format>0</Format>
       </Settings>
+    </ContentFile>
+    <ContentFile>
+      <Name>simple.glsl</Name>
+      <Processor>EffectProcessor</Processor>
+      <Importer />
     </ContentFile>
   </Contents>
 </Content>

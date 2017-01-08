@@ -1,5 +1,4 @@
 ﻿
-
 using NoobFight.Core.Map;
 
 namespace NoobFight.Contract.Map
@@ -30,7 +29,6 @@ namespace NoobFight.Contract.Map
 
             _properties = new TileProperty[tilecount];
         }
-
         public void SetTileProperty(int id, TileProperty tileProperty)
         {
             _properties[id] = tileProperty;
