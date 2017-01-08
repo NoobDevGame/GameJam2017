@@ -30,7 +30,9 @@ namespace NoobFight.Server
             server = new Server();
             server.Start();
 
-            world = simulation.CreateNewWorld(GameMode.Timed,"Tolle Welt");
+            simulation = new Simulation(SimulationMode.Server);
+
+            world = simulation.CreateNewWorld(GameMode.Timed, "Tolle Welt");
             world.Start(MapGenerator.CreateMap());
 
             canceltoken = new CancellationTokenSource();

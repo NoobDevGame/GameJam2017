@@ -50,7 +50,7 @@ namespace NoobFight.Screens
                     //TODO:Nickname ändern
                     var splt = ipInput.Text.Split(':');
                     int port = 667;
-                    if (splt.Length > 0)
+                    if (splt.Length > 1)
                         int.TryParse(splt[1], out port);
                     manager.Game.NetworkComponent.Connect(splt[0], port,nameInput.Text,"monkey");
                     manager.NavigateToScreen(new ConnectingScreen(manager));

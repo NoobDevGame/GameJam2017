@@ -50,6 +50,14 @@
     <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\NoobFight\Content\Maps\1test.json">
+      <Link>Content\Maps\1test.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\NoobFight\Content\Maps\test-orginal.json">
+      <Link>Content\Maps\test-orginal.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="..\NoobFight\Content\Maps\test.json">
       <Link>Content\Maps\test.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
