@@ -73,12 +73,17 @@ namespace NoobFight.Screens
                 input.Jump = true;
 
             var mouse = Mouse.GetState();
+            if (mouse.X < Manager.Game.Window.ClientRectangle.Width && mouse.Y < Manager.Game.Window.ClientRectangle.Height)
+            {
+                if (mouse.IsButtonDown(MouseButton.Left))
+                    input.LeftClick = true;
 
-            if (mouse.IsButtonDown(MouseButton.Left))
-                input.LeftClick = true;
-            
-            if (mouse.IsButtonDown(MouseButton.Right))
-                input.RightClick = true;
+                if (mouse.IsButtonDown(MouseButton.Right))
+                    input.RightClick = true;
+                
+                input.MousePosition = new Contract.Vector2(mouse.X - Manager.Game.Window.ClientRectangle.Width/2, mouse.Y- Manager.Game.Window.ClientRectangle.Height/2);
+            }
+
 
             Manager.Game.SimulationComponent.Player.Input = input;
 

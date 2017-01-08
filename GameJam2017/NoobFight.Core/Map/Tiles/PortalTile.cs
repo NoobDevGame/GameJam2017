@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
-using NoobFight.Contract;
 
 namespace NoobFight.Core.Map.Tiles
 {
@@ -13,16 +12,16 @@ namespace NoobFight.Core.Map.Tiles
 
         public override void OnCollision(IWorldManipulator manipulator, IEntity entity)
         {
+
+        }
+
+        public override void OnClick(IWorldManipulator manipulator, IEntity entity)
+        {
             if (entity is IPlayer)
             {
                 if (!string.IsNullOrEmpty(this.Property.destinationarea))
                     manipulator.ChangeArea(((IPlayer)entity), this.Property.destinationarea);
             }
-        }
-
-        public override void OnClick(IWorldManipulator manipulator, IEntity entity, Vector2 clickPosition)
-        {
-
         }
     }
 }

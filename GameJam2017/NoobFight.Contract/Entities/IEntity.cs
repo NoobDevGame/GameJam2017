@@ -26,6 +26,8 @@ namespace NoobFight.Contract.Entities
         Vector2 Move { get; set; }
         Vector2 Velocity { get; set; }
 
+        void OnClick(IWorldManipulator manipulator, IEntity entity);
+
         void OnEntityCollision(IWorldManipulator manipulator, IEntity collidedEntity);
     }
 }

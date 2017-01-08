@@ -36,5 +36,10 @@ namespace NoobFight.Core.Entities
         {
 
         }
+
+        public virtual void OnClick(IWorldManipulator manipulator, IEntity entity)
+        {
+            
+        }
     }
 }

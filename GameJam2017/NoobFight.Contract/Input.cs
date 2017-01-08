@@ -13,6 +13,6 @@ namespace NoobFight.Contract
         public bool Jump;
         public bool LeftClick;
         public bool RightClick;
-        Vector2 MousePosition;
+        public Vector2 MousePosition;
     }
 }

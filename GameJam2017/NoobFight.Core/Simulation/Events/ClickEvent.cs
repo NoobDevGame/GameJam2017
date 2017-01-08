@@ -1,26 +1,34 @@
 ﻿using NoobFight.Contract.Map;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
-using NoobFight.Contract;
 
 namespace NoobFight.Core.Simulation.Events
 {
     class ClickEvent : WorldEvent
     {
+        private IPlayer player;
         private IEntity entity;
-        private IActiveTile tile;
-        private Vector2 clickPosition;
+        private IActiveTile activeTile;
 
         public override void Dispatch(IWorld world, ISimulation simulation)
         {
-            tile.OnClick(world.CreateNewManipulator(), entity, clickPosition);
+            if (this.activeTile != null)
+                activeTile.OnClick(world.CreateNewManipulator(), player);
+
+            if (this.entity != null)
+                entity.OnClick(world.CreateNewManipulator(), player);
         }
 
-        public ClickEvent(IActiveTile BlockType, IEntity entity, Vector2 clickPosition)
+        public ClickEvent(IPlayer player, IEntity entity)
         {
-            tile = BlockType;
+            this.player = player;
             this.entity = entity;
-            this.clickPosition = clickPosition;
+        }
+
+        public ClickEvent(IPlayer player, IActiveTile activeTile)
+        {
+            this.player = player;
+            this.activeTile = activeTile;
         }
     }
 }

@@ -29,7 +29,7 @@ namespace NoobFight.Core.Map.Tiles
 
         }
 
-        public virtual void OnClick(IWorldManipulator manipulator, IEntity entity, Vector2 clickPosition)
+        public virtual void OnClick(IWorldManipulator manipulator, IEntity entity)
         {
 
         }
