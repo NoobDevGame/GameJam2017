@@ -32,11 +32,11 @@ namespace NoobFight.Screens
             HorizontalAlignment = HorizontalAlignment.Stretch;
             Controls.Add(mainStack);
 
-            var playerTextures = File.ReadAllLines("content/playertextures.txt").ToList();
+            var playerTextures = manager.Content.ListContent("player");
 
             List<PlayerTexture> playerTex = new List<PlayerTexture>();
 
-            foreach(var tex in playerTextures)
+            foreach(var tex in playerTextures.Select(Path.GetFileNameWithoutExtension))
             {
                 try
                 {
