@@ -6,6 +6,7 @@ using NoobFight.Contract.Map;
 using NoobFight.Contract.Simulation;
 using NoobFight.Core.Entities;
 using NoobFight.Core.Simulation.Events;
+using System.Linq;
 
 namespace NoobFight.Core.Simulation
 {
@@ -19,6 +20,7 @@ namespace NoobFight.Core.Simulation
         public IEnumerable<IPlayer> Players => _players;
         public String Name { get; private set; } = "Default";
 
+        public Action<IWorld,IWorldEvent> AddEventCallback { get; set; }
 
         private Queue<IWorldEvent> _events;
         private Simulation _simulation;
@@ -44,7 +46,7 @@ namespace NoobFight.Core.Simulation
             {
                 CurrentMap.SetId(player);
                 player.Position = CurrentMap.StartArea.SpawnPoint;
-                CurrentMap.StartArea.AddEntity(player);
+                AddEvent(new AreaChangedEvent(player, CurrentMap.StartArea.Name));
             }
         }
 
@@ -70,38 +72,46 @@ namespace NoobFight.Core.Simulation
             }
         }
 
-        public void AddEvent(IWorldEvent @event)
+        public void AddEvent(IWorldEvent @event,bool bypass = false)
         {
             lock (_events)
             {
-                _events.Enqueue(@event);
+                if (bypass ||_simulation.Mode == SimulationMode.Single || _simulation.Mode == @event.SimulationMode)
+                {
+                    _events.Enqueue(@event);
+
+                    if (@event.ShareMode)
+                    {
+                        AddEventCallback?.Invoke(this, @event);
+                    }
+                    
+                }
             }
         }
 
         public void AddPlayer(IPlayer player)
         {
             _players.Add(player);
-
-            if (State == WorldState.Running || State == WorldState.Paused)
-            {
-                player.Position = CurrentMap.StartArea.SpawnPoint;
-                CurrentMap.StartArea.AddEntity(player);
-            }
         }
 
         public void RemovePlayer(IPlayer player)
         {
-            if (State == WorldState.Running || State == WorldState.Paused)
-            {
-                player.CurrentArea?.RemoveEntity(player);
-            }
-
             _players.Remove(player);
         }
-        
+
         public IWorldManipulator CreateNewManipulator()
         {
             return new WorldManipulator(this);
+        }
+
+        public IPlayer FindPlayerById(long playerid)
+        {
+            return _players.First(i => i.ID == playerid);
+        }
+
+        public void Resume()
+        {
+            State = WorldState.Running;
         }
     }
 }

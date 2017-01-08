@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Map;
 
@@ -13,6 +14,7 @@ namespace NoobFight.Core.Entities
         public List<IActiveTile> TileInteractionList { get; private set; }
 
         public int Health { get; set; }
+        public int Score { get; set; }
 
         public Character(string name) : base(name, EntityType.Character)
         {

@@ -9,5 +9,9 @@ namespace NoobFight.Core.Network.Messages
     public class PlayerNotJoinResponseMessage : NetworkMessage
     {
         public override MessageType DataType => MessageType.PlayerNotJoin;
+        public PlayerNotJoinResponseMessage()
+        {
+
+        }
     }
 }

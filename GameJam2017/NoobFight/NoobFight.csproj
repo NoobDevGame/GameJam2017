@@ -81,9 +81,12 @@
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\LobbyScreen.cs" />
     <Compile Include="Screens\MainScreen.cs" />
+    <Compile Include="Screens\NewWorldScreen.cs" />
     <Compile Include="Screens\OptionsScreen.cs" />
+    <Compile Include="Screens\PauseScreen.cs" />
     <Compile Include="Screens\PlayScreen.cs" />
     <Compile Include="Screens\SingleplayerScreen.cs" />
+    <Compile Include="Screens\TabScreen.cs" />
     <Compile Include="Screens\WorldSelectScreen.cs" />
   </ItemGroup>
   <ItemGroup>

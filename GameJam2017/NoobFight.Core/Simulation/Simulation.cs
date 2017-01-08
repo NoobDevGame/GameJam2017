@@ -28,22 +28,20 @@ namespace NoobFight.Core.Simulation
             _players = new List<IPlayer>();
 
             _components.Add(new GravitySimulationComponent());
-            if(Mode == (SimulationMode.Lokal | SimulationMode.Single))
+            if (Mode == SimulationMode.Lokal || Mode == SimulationMode.Single)
                 _components.Add(new InputSimulationComponent());
 
-            
+
             _components.Add(new MoveSimulationComponent());
 
             _components.Add(new CollisionSimulationComponent());
-            if(Mode == (SimulationMode.Lokal | SimulationMode.Single))
-                _components.Add(new TileCollisionSimulationComponent());
-            if(Mode == (SimulationMode.Lokal | SimulationMode.Single))
-                _components.Add(new EntityCollisionComponent());
+            _components.Add(new TileCollisionSimulationComponent());
+            _components.Add(new EntityCollisionComponent());
         }
 
         public IWorld CreateNewWorld(GameMode mode, string name)
         {
-            World newworld = new World(mode,this,name);
+            World newworld = new World(mode, this, name);
             _worlds.Add(newworld);
 
             return newworld;
@@ -53,11 +51,11 @@ namespace NoobFight.Core.Simulation
         {
             foreach (var world in _worlds)
             {
-                Update(world,gameTime);
+                Update(world, gameTime);
             }
         }
-        
-        public IPlayer CreateLocalPlayer(string name, string textureName)
+
+        public IPlayer CreateLocalPlayer(long id, string name, string textureName)
         {
             Player player = new Player(1,name, textureName);
             InsertPlayer(player);
@@ -91,9 +89,11 @@ namespace NoobFight.Core.Simulation
                 {
                     component.SimulateWorld(world, gameTime);
                 }
+
+                world.UpdateEvents();
             }
 
-            world.UpdateEvents();
+
         }
     }
 }

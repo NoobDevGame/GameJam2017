@@ -49,14 +49,24 @@ namespace NoobFight.Screens
                 }
             }
 
-            mainStack.Controls.Add(new Label(manager) { Text = "Player: ", HorizontalAlignment = HorizontalAlignment.Left });
+
+            Panel p = new Panel(manager);
+            p.Background = NineTileBrush.FromSingleTexture(manager.Content.Load<Texture2D>("ui/panels/grey_panel"), 8, 8);
+            p.Padding = Border.All(5);
+            mainStack.Controls.Add(p);
+
+            StackPanel pTexStack = new StackPanel(manager);
+            p.Controls.Add(pTexStack);
+
+            pTexStack.Controls.Add(new Label(manager) { Text = "Player: ", HorizontalAlignment = HorizontalAlignment.Left });
+
 
             Image playerImage = new Image(manager);
             playerImage.Height = 200;
             playerImage.Width = 300;
             playerImage.Texture = playerTex.FirstOrDefault().Texture;
             playerImage.Tag = 0;
-            mainStack.Controls.Add(playerImage);
+            pTexStack.Controls.Add(playerImage);
 
             if( manager.Game.PlayerComponent.PlayerTexture != null)
             {
@@ -70,7 +80,7 @@ namespace NoobFight.Screens
 
             Panel rightLeftPanel = new Panel(manager);
             rightLeftPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
-            mainStack.Controls.Add(rightLeftPanel);
+            pTexStack.Controls.Add(rightLeftPanel);
 
             Button leftButton = Button.TextButton(manager, " < ");
             leftButton.Height = 40;
@@ -115,7 +125,6 @@ namespace NoobFight.Screens
             Textbox nameInput = new Textbox(manager);
             nameInput.HorizontalAlignment = HorizontalAlignment.Stretch;
             nameInput.Margin = new Border(0, 0, 0, 10);
-            nameInput.Background = new BorderBrush(Color.White);
             nameInput.Text = "Player";
             mainStack.Controls.Add(nameInput);
 
@@ -126,7 +135,6 @@ namespace NoobFight.Screens
 
             Button saveButton = Button.TextButton(manager, "Save");
             saveButton.HorizontalAlignment = HorizontalAlignment.Stretch;
-            saveButton.Height = 40;
             saveButton.LeftMouseClick += (s, e) =>
             {
                 manager.Game.PlayerComponent.PlayerTexture = playerTex.ElementAt((int)playerImage.Tag).TextureName;

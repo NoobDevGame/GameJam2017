@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using engenious;
 using engenious.Graphics;
 using NoobFight.Core.Map;
+using NoobFight.Contract.Entities;
+using System.IO;
 
 namespace NoobFight.Controls
 {
@@ -145,9 +147,11 @@ namespace NoobFight.Controls
                 {
                     position = manager.Game.CameraComponent.HalfViewport - new Vector2(entity.Radius, entity.Height);
                 }
-
+                var pathName = entity.TextureName;
+                if (entity is ICharacter)
+                    pathName = Path.Combine("player" , pathName);
                 Rectangle destination = new Rectangle((int)(position.X), (int)(position.Y), (int)(entity.Radius * 2 * 70), (int)(entity.Height * 70));
-                batch.Draw(manager.Content.Load<Texture2D>(entity.TextureName), destination, Color.White);
+                batch.Draw(manager.Content.Load<Texture2D>(pathName), destination, Color.White);
             }
 
         }

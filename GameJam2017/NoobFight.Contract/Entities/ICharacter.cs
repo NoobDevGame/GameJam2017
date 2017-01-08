@@ -11,6 +11,8 @@ namespace NoobFight.Contract.Entities
     {
         int Health { get; set; }
 
+        int Score { get; set; }
+
         float InteractionRadius { get; set; }
 
         List<IEntity> EntityInteractionList { get; }

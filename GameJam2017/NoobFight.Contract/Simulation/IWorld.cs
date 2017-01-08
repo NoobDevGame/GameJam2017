@@ -24,15 +24,18 @@ namespace NoobFight.Contract.Simulation
 
         IWorldManipulator CreateNewManipulator();
 
+        Action<IWorld, IWorldEvent> AddEventCallback { get; set; }
+
         string Name { get; }
 
         void Start(IMap map);
 
         void Pause();
+        void Resume();
 
         void AddPlayer(IPlayer player);
 
         void RemovePlayer(IPlayer player);
-
+        IPlayer FindPlayerById(long playerid);
     }
 }

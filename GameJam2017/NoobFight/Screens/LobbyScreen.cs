@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using engenious;
+using engenious.Graphics;
 
 namespace NoobFight.Screens
 {
@@ -15,29 +16,56 @@ namespace NoobFight.Screens
 
         Button startButton, exitButton;
 
+        Listbox<string> playerList;
+
         ScreenComponent Manager;
 
         public LobbyScreen(ScreenComponent manager) : base(manager)
         {
             Manager = manager;
 
-            StackPanel mainStack = new StackPanel(manager);
-            VerticalAlignment = VerticalAlignment.Stretch;
-            HorizontalAlignment = HorizontalAlignment.Stretch;
-            Controls.Add(mainStack);
+            Grid grid = new Grid(manager);
+            grid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            grid.VerticalAlignment = VerticalAlignment.Stretch;
+            grid.Columns.Add(new ColumnDefinition() { Width = 1, ResizeMode = ResizeMode.Parts });
+            grid.Columns.Add(new ColumnDefinition() { Width = 1, ResizeMode = ResizeMode.Parts });
+            grid.Columns.Add(new ColumnDefinition() {ResizeMode = ResizeMode.Auto });
+            grid.Rows.Add(new RowDefinition() { Height = 1, ResizeMode = ResizeMode.Parts });
+            grid.Rows.Add(new RowDefinition() { ResizeMode = ResizeMode.Auto });
+            Controls.Add(grid);
 
-            connectedPlayers = new Label(manager);
-            connectedPlayers.Text = "Connected Players: --";
-            mainStack.Controls.Add(connectedPlayers);
+            Panel objectivePanel = new Panel(manager);
+            objectivePanel.VerticalAlignment = VerticalAlignment.Stretch;
+            objectivePanel.HorizontalAlignment = HorizontalAlignment.Stretch;
+            objectivePanel.Background = NineTileBrush.FromSingleTexture(manager.Content.Load<Texture2D>("ui/panels/grey_panel"), 8, 8);
+            objectivePanel.Controls.Add(new Label(Manager) { HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Text = "Hier könnten Objectives stehen..." });
+            objectivePanel.Padding = Border.All(10);
+            grid.AddControl(objectivePanel, 0, 0, 2, 1);
+
+            playerList = new Listbox<string>(manager);
+            playerList.VerticalAlignment = VerticalAlignment.Stretch;
+            playerList.TemplateGenerator += (s) =>
+            {
+                Panel p = new Panel(manager);
+                p.HorizontalAlignment = HorizontalAlignment.Stretch;
+
+                p.Controls.Add(new Label(manager) { Text = s });
+                return p;
+            };
+            playerList.MinWidth = 200;
+            playerList.Margin = new Border(5, 0, 0, 5);
+            foreach (var p in manager.Game.SimulationComponent.World.Players)
+                playerList.Items.Add(p.Name);
+            grid.AddControl(playerList, 2, 0, 1, 2);
 
             startButton = Button.TextButton(manager, "Start");
             startButton.HorizontalAlignment = HorizontalAlignment.Stretch;
             startButton.Height = 40;
             startButton.LeftMouseClick += (s, e) =>
             {
-                //DO STUFF HERE
+                manager.Game.NetworkComponent.StartWorld();
             };
-            mainStack.Controls.Add(startButton);
+            grid.AddControl(startButton, 0, 1);
 
             exitButton = Button.TextButton(manager, "Exit");
             exitButton.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -46,7 +74,7 @@ namespace NoobFight.Screens
             {
                 //EXIT HERE
             };
-            mainStack.Controls.Add(exitButton);
+            grid.AddControl(exitButton, 1, 1);
 
         }
 
@@ -54,7 +82,12 @@ namespace NoobFight.Screens
         {
             base.OnUpdate(gameTime);
 
-            connectedPlayers.Text = "Connected Players: " + Manager.Game.SimulationComponent.World.Players.Count();
+            if(Manager.Game.SimulationComponent.World.Players.Count() != playerList.Items.Count)
+            {
+                playerList.Items.Clear();
+                foreach (var p in Manager.Game.SimulationComponent.World.Players)
+                    playerList.Items.Add(p.Name);
+            }
         }
     }
 }

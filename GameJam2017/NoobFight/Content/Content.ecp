@@ -4,111 +4,6 @@
   <OutputDir>bin/{Configuration}/</OutputDir>
   <Name>Content</Name>
   <Contents>
-    <ContentFolder>
-      <Name>ui</Name>
-      <Contents>
-        <ContentFile>
-          <Name>buttonLong_beige.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-        <ContentFile>
-          <Name>buttonLong_beige_pressed.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-        <ContentFile>
-          <Name>buttonLong_brown.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-        <ContentFile>
-          <Name>buttonLong_brown_pressed.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-        <ContentFile>
-          <Name>buttonLong_grey.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-        <ContentFile>
-          <Name>buttonLong_grey_pressed.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-        <ContentFile>
-          <Name>iconCheck_brown.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-        <ContentFile>
-          <Name>progress_background.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-        <ContentFile>
-          <Name>progress_red.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-        <ContentFile>
-          <Name>ui_sheet.png</Name>
-          <Processor>BitmapProcessor</Processor>
-          <Importer>Bitmap Importer</Importer>
-          <Settings>
-            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
-            <MipMapCount>1</MipMapCount>
-            <Format>0</Format>
-          </Settings>
-        </ContentFile>
-      </Contents>
-    </ContentFolder>
     <ContentFile>
       <Name>tiles_spritesheet.png</Name>
       <Processor>BitmapProcessor</Processor>
@@ -174,6 +69,1186 @@
         </ContentFile>
         <ContentFile>
           <Name>pig.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFolder>
+          <Name>ui</Name>
+          <Contents>
+            <ContentFolder>
+              <Name>buttons</Name>
+              <Contents>
+                <ContentFile>
+                  <Name>button_green_default.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_green_flat.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_green_hovered.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_green_pressed.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_grey_default.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_grey_flat.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_grey_hovered.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_grey_pressed.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_red_default.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_red_flat.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_red_hovered.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>button_red_pressed.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+              </Contents>
+            </ContentFolder>
+            <ContentFolder>
+              <Name>checkboxes</Name>
+              <Contents>
+                <ContentFile>
+                  <Name>green_round_tick.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>green_square_cross.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>green_square_tick.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>grey_round_tick.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>grey_square_cross.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>grey_square_tick.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>red_round_tick.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>red_square_cross.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>red_square_tick.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>round_default.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>square_default.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+              </Contents>
+            </ContentFolder>
+            <ContentFolder>
+              <Name>old</Name>
+              <Contents>
+                <ContentFile>
+                  <Name>buttonLong_beige.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>buttonLong_beige_pressed.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>buttonLong_brown.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>buttonLong_brown_pressed.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>buttonLong_grey.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>buttonLong_grey_pressed.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>iconCheck_brown.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>progress_background.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>progress_red.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+              </Contents>
+            </ContentFolder>
+            <ContentFolder>
+              <Name>other</Name>
+              <Contents>
+                <ContentFile>
+                  <Name>arrowBeige_left.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>arrowBeige_right.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>arrowBrown_left.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>arrowBrown_right.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>arrowSilver_left.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>arrowSilver_right.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>arrowSlate_left.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>arrowSlate_right.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>arrow_down_grey.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>crossair_black.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>crossair_red.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>dropdown.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+              </Contents>
+            </ContentFolder>
+            <ContentFolder>
+              <Name>panels</Name>
+              <Contents>
+                <ContentFile>
+                  <Name>beige_panel.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>blue_panel.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>brown_panel.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>green_panel.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>grey_panel.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>red_panel.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>slate_panel.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>yellow_panel.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+              </Contents>
+            </ContentFolder>
+            <ContentFolder>
+              <Name>progress</Name>
+              <Contents>
+                <ContentFile>
+                  <Name>progress_background.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+                <ContentFile>
+                  <Name>progress_red.png</Name>
+                  <Processor>BitmapProcessor</Processor>
+                  <Importer>Bitmap Importer</Importer>
+                  <Settings>
+                    <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                    <MipMapCount>1</MipMapCount>
+                    <Format>0</Format>
+                  </Settings>
+                </ContentFile>
+              </Contents>
+            </ContentFolder>
+          </Contents>
+        </ContentFolder>
+      </Contents>
+    </ContentFolder>
+    <ContentFolder>
+      <Name>ui</Name>
+      <Contents>
+        <ContentFolder>
+          <Name>buttons</Name>
+          <Contents>
+            <ContentFile>
+              <Name>button_green_default.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_green_flat.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_green_hovered.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_green_pressed.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_grey_default.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_grey_flat.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_grey_hovered.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_grey_pressed.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_red_default.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_red_flat.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_red_hovered.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>button_red_pressed.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+          </Contents>
+        </ContentFolder>
+        <ContentFolder>
+          <Name>checkboxes</Name>
+          <Contents>
+            <ContentFile>
+              <Name>green_round_tick.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>green_square_cross.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>green_square_tick.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>grey_round_tick.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>grey_square_cross.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>grey_square_tick.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>red_round_tick.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>red_square_cross.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>red_square_tick.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>round_default.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>square_default.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+          </Contents>
+        </ContentFolder>
+        <ContentFolder>
+          <Name>old</Name>
+          <Contents>
+            <ContentFile>
+              <Name>buttonLong_beige.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>buttonLong_beige_pressed.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>buttonLong_brown.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>buttonLong_brown_pressed.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>buttonLong_grey.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>buttonLong_grey_pressed.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>iconCheck_brown.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>progress_background.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>progress_red.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+          </Contents>
+        </ContentFolder>
+        <ContentFolder>
+          <Name>other</Name>
+          <Contents>
+            <ContentFile>
+              <Name>arrowBeige_left.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>arrowBeige_right.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>arrowBrown_left.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>arrowBrown_right.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>arrowSilver_left.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>arrowSilver_right.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>arrowSlate_left.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>arrowSlate_right.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>arrow_down_grey.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>crossair_black.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>crossair_red.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>dropdown.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>textbox.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+          </Contents>
+        </ContentFolder>
+        <ContentFolder>
+          <Name>panels</Name>
+          <Contents>
+            <ContentFile>
+              <Name>beige_panel.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>blue_panel.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>brown_panel.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>green_panel.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>grey_panel.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>red_panel.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>slate_panel.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>yellow_panel.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+          </Contents>
+        </ContentFolder>
+        <ContentFolder>
+          <Name>progress</Name>
+          <Contents>
+            <ContentFile>
+              <Name>progress_background.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+            <ContentFile>
+              <Name>progress_red.png</Name>
+              <Processor>BitmapProcessor</Processor>
+              <Importer>Bitmap Importer</Importer>
+              <Settings>
+                <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+                <MipMapCount>1</MipMapCount>
+                <Format>0</Format>
+              </Settings>
+            </ContentFile>
+          </Contents>
+        </ContentFolder>
+        <ContentFile>
+          <Name>bg.png</Name>
+          <Processor>BitmapProcessor</Processor>
+          <Importer>Bitmap Importer</Importer>
+          <Settings>
+            <AutoGenerateMipMaps>False</AutoGenerateMipMaps>
+            <MipMapCount>1</MipMapCount>
+            <Format>0</Format>
+          </Settings>
+        </ContentFile>
+        <ContentFile>
+          <Name>main_bg.png</Name>
           <Processor>BitmapProcessor</Processor>
           <Importer>Bitmap Importer</Importer>
           <Settings>

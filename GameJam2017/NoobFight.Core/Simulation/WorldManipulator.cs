@@ -14,30 +14,14 @@ namespace NoobFight.Core.Simulation
             _world = world;
         }
 
-        public void AddPlayer(IPlayer player)
-        {
-            var @event = new PlayerWorldEvent()
-            {
-                //PlayerId = player.Id.Value,
-                Method = PlayerEventMethod.Insert,
-            };
-            _world.AddEvent(@event);
-
-        }
-
-        public void RemovePlayer(IPlayer player)
-        {
-            var @event = new PlayerWorldEvent()
-            {
-                PlayerId = player.Id.Value,
-                Method = PlayerEventMethod.Remove,
-            };
-            _world.AddEvent(@event);
-        }
-
         public void AddEvent(IWorldEvent worldEvent)
         {
             this._world.AddEvent(worldEvent);
+        }
+
+        public void AddServerEvent(IWorldEvent worldEvent)
+        {
+            this._world.AddEvent(worldEvent,true);
         }
 
         public void ChangeArea(IPlayer player, string destinationArea)

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using engenious;
 using engenious.Input;
+using engenious.Graphics;
 
 namespace NoobFight.Screens
 {
@@ -18,6 +19,8 @@ namespace NoobFight.Screens
 
         HealthBarControl HealthBar;
         TimeControl TimeControl;
+
+        Label ScoreLabel;
 
         TimeSpan TimeOffset;
 
@@ -41,15 +44,53 @@ namespace NoobFight.Screens
             HealthBar.Margin = new Border(0, 10, 0, 0);
             Controls.Add(HealthBar);
 
+            Panel timePanel = new Panel(manager);
+            timePanel.HorizontalAlignment = HorizontalAlignment.Left;
+            timePanel.VerticalAlignment = VerticalAlignment.Top;
+            timePanel.Background = NineTileBrush.FromSingleTexture(manager.Content.Load<Texture2D>("ui/panels/green_panel"), 8, 8);
+            timePanel.Padding = Border.All(5);
+            timePanel.Margin = Border.All(5);
+            Controls.Add(timePanel);
+
+            Panel scorePanel = new Panel(manager);
+            scorePanel.HorizontalAlignment = HorizontalAlignment.Right;
+            scorePanel.VerticalAlignment = VerticalAlignment.Top;
+            scorePanel.Background = NineTileBrush.FromSingleTexture(manager.Content.Load<Texture2D>("ui/panels/green_panel"), 8, 8);
+            scorePanel.Padding = Border.All(5);
+            scorePanel.Margin = Border.All(5);
+            Controls.Add(scorePanel);
+
+            ScoreLabel = new Label(manager);
+            ScoreLabel.Text = "0";
+            scorePanel.Controls.Add(ScoreLabel);
+
             TimeControl = new TimeControl(manager);
             TimeControl.VerticalAlignment = VerticalAlignment.Top;
             TimeControl.HorizontalAlignment = HorizontalAlignment.Left;
-            Controls.Add(TimeControl);
+            timePanel.Controls.Add(TimeControl);
+        }
+
+        protected override void OnKeyDown(KeyEventArgs args)
+        {
+            base.OnKeyDown(args);
+            if (args.Key == Keys.Tab)
+                Manager.NavigateToScreen(new TabScreen(Manager));
+        }
+
+        protected override void OnKeyUp(KeyEventArgs args)
+        {
+            base.OnKeyUp(args);
+
+            if (Manager.ActiveScreen is TabScreen)
+                Manager.NavigateBack();
         }
 
         protected override void OnUpdate(engenious.GameTime gameTime)
         {
             base.OnUpdate(gameTime);
+
+            if (Manager.ActiveScreen is PauseScreen || Manager.ActiveScreen is TabScreen)
+                return;
 
             if (TimeOffset.Milliseconds == 0)
                 TimeOffset = gameTime.TotalGameTime;
@@ -72,6 +113,9 @@ namespace NoobFight.Screens
             if (key.IsKeyDown(Keys.Space))
                 input.Jump = true;
 
+            if (key.IsKeyDown(Keys.Escape))
+                Manager.NavigateToScreen(new PauseScreen(Manager));
+
             var mouse = Mouse.GetState();
             if (mouse.X < Manager.Game.Window.ClientRectangle.Width && mouse.Y < Manager.Game.Window.ClientRectangle.Height)
             {
@@ -88,6 +132,9 @@ namespace NoobFight.Screens
             Manager.Game.SimulationComponent.Player.Input = input;
 
             HealthBar.Value = Manager.Game.SimulationComponent.Player.Health;
+
+            if (int.Parse(ScoreLabel.Text) != Manager.Game.SimulationComponent.Player.Score)
+                ScoreLabel.Text = Manager.Game.SimulationComponent.Player.Score.ToString();
         }
     }
 }

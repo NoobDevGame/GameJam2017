@@ -15,7 +15,7 @@ namespace NoobFight.Core.Network.Messages
         PlayerLoginRequest,
         PlayerLoginResponse,
         PlayerJoinResponse,
-        CreateWorld,
+        CreateWorldResponse,
         EntityDataUpdate,
         WorldListRequest,
         WorldListResponse,
@@ -23,6 +23,11 @@ namespace NoobFight.Core.Network.Messages
         CreateMapRequest,
         CreateMapResponse,
         StartWorld,
-        PlayerNotJoin
+        PlayerNotJoin,
+        WorldEvent,
+        CreateWorldRequest,
+        StartWorldRequest,
+        PlayerLeave,
+        PlayerLogout
     }
 }

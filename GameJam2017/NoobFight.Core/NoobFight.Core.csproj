@@ -60,6 +60,11 @@
     <Compile Include="Network\MessageHandler.cs" />
     <Compile Include="Network\MessageManager.cs" />
     <Compile Include="Network\Messages\CreateMapMessage.cs" />
+    <Compile Include="Network\Messages\CreateWorldResponseMessage.cs" />
+    <Compile Include="Network\Messages\PlayerLeaveMessage.cs" />
+    <Compile Include="Network\Messages\PlayerLogoutMessage.cs" />
+    <Compile Include="Network\Messages\StartWorldRequest.cs" />
+    <Compile Include="Network\Messages\WorldEventMessage.cs" />
     <Compile Include="Network\Messages\PlayerJoinRequestMessage.cs" />
     <Compile Include="Network\Messages\PlayerLoginResponseMessage.cs" />
     <Compile Include="Network\Messages\PlayerNotJoinResponseMessage.cs" />
@@ -68,7 +73,7 @@
     <Compile Include="Network\Messages\WorldListRequestMessage.cs" />
     <Compile Include="Network\Messages\ConnectedPlayersRequestMessage.cs" />
     <Compile Include="Network\Messages\ConnectedPlayersResponseMessage.cs" />
-    <Compile Include="Network\Messages\CreateWorldMessage.cs" />
+    <Compile Include="Network\Messages\CreateWorldRequestMessage.cs" />
     <Compile Include="Network\Messages\EntityDataUpdateMessage.cs" />
     <Compile Include="Network\Messages\MessageType.cs" />
     <Compile Include="Network\Messages\NetworkMessage.cs" />
@@ -87,7 +92,7 @@
     <Compile Include="Simulation\Events\ClickEvent.cs" />
     <Compile Include="Simulation\Events\CollisionEvent.cs" />
     <Compile Include="Simulation\Events\EntityCollisionEvent.cs" />
-    <Compile Include="Simulation\Events\PlayerWorldEvent.cs" />
+    <Compile Include="Simulation\Events\EventManager.cs" />
     <Compile Include="Simulation\Events\PlayerEventMethod.cs" />
     <Compile Include="Simulation\Events\WorldEvent.cs" />
     <Compile Include="Simulation\Simulation.cs" />

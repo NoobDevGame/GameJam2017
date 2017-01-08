@@ -25,5 +25,6 @@ namespace NoobFight.Contract.Map
         MapTexture GetMapTextures(int id);
         Dictionary<string, MapTexture> MapTextures { get; } //TODO enumerable
         bool IsCellBlocked(int x, int y);
+        bool ContainsEntity(IPlayer player);
     }
 }

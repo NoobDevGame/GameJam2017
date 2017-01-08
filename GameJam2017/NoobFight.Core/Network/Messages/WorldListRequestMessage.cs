@@ -9,5 +9,9 @@ namespace NoobFight.Core.Network.Messages
     public class WorldListRequestMessage : NetworkMessage
     {
         public override MessageType DataType => MessageType.WorldListRequest;
+        public WorldListRequestMessage()
+        {
+
+        }
     }
 }

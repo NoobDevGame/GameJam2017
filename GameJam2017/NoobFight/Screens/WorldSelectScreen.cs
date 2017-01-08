@@ -1,6 +1,7 @@
 ﻿using engenious;
 using MonoGameUi;
 using NoobFight.Components;
+using NoobFight.Contract.Simulation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,27 @@ namespace NoobFight.Screens
 
         public WorldSelectScreen(ScreenComponent manager, string[] worlds) : base(manager)
         {
-            StackPanel mainStack = new StackPanel(manager);
-            Controls.Add(mainStack);
+            Grid grid = new Grid(manager);
+            grid.HorizontalAlignment = HorizontalAlignment.Stretch;
+            grid.VerticalAlignment = VerticalAlignment.Stretch;
+            grid.Columns.Add(new ColumnDefinition() { Width = 1, ResizeMode = ResizeMode.Parts });
+            grid.Columns.Add(new ColumnDefinition() { Width = 1, ResizeMode = ResizeMode.Parts });
+            grid.Rows.Add(new RowDefinition() { Height = 1, ResizeMode = ResizeMode.Parts });
+            grid.Rows.Add(new RowDefinition() { ResizeMode = ResizeMode.Auto });
+            Controls.Add(grid);
 
             worldList = new Listbox<string>(manager);
             worldList.HorizontalAlignment = HorizontalAlignment.Stretch;
-            worldList.TemplateGenerator = (s) => new Label(manager) { Text = s , HorizontalAlignment = HorizontalAlignment.Stretch};
-            worldList.SelectedItemBrush = new BorderBrush(Color.Green);
-            mainStack.Controls.Add(worldList);
+            worldList.VerticalAlignment = VerticalAlignment.Stretch;
+            worldList.TemplateGenerator = (s) =>
+            {
+                Panel p = new Panel(manager);
+                p.HorizontalAlignment = HorizontalAlignment.Stretch;
+
+                p.Controls.Add(new Label(manager) { Text = s });
+                return p;
+            };
+            grid.AddControl(worldList, 0, 0, 2 ,1);
 
             foreach(var world in worlds)
             {
@@ -40,7 +54,7 @@ namespace NoobFight.Screens
             {
                 manager.Game.NetworkComponent.JoinWorld(worldList.SelectedItem);
             };
-            mainStack.Controls.Add(joinButton);
+            grid.AddControl(joinButton, 0, 1);
 
             Button createButton = Button.TextButton(manager, "Create World");
             createButton.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -48,9 +62,9 @@ namespace NoobFight.Screens
             createButton.MinWidth = 300;
             createButton.LeftMouseClick += (s, e) =>
             {
-               
+                manager.NavigateToScreen(new NewWorldScreen(manager));
             };
-            mainStack.Controls.Add(createButton);
+            grid.AddControl(createButton, 1, 1);
         }
     }
 }

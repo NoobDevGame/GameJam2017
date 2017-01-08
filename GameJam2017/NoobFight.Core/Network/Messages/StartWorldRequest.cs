@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace NoobFight.Core.Network.Messages
 {
-    public class CreateWorldMessage : NetworkMessage
-    {
-        public override MessageType DataType => MessageType.CreateWorld;
 
-        public CreateWorldMessage()
+    public class StartWorldRequest : NetworkMessage
+    {
+        public override MessageType DataType => MessageType.StartWorldRequest;
+
+        public StartWorldRequest()
         {
 
         }

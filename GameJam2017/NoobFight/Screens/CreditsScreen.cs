@@ -37,7 +37,7 @@ namespace NoobFight.Screens
             scroll.VerticalAlignment = VerticalAlignment.Stretch;
             scroll.HorizontalAlignment = HorizontalAlignment.Stretch;
             Controls.Add(scroll);
-            scroll.VerticalScrollbarVisible = false;
+            //scroll.VerticalScrollbarVisible = false;
 
             stack = new StackPanel(manager);
             stack.Margin = new Border(0, manager.GraphicsDevice.Viewport.Height, 0, 0);

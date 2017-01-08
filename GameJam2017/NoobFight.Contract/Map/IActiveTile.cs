@@ -12,7 +12,7 @@ namespace NoobFight.Contract.Map
 
         void OnAttack(IWorldManipulator manipulator, IEntity entity);
 
-        void OnClick(IWorldManipulator manipulator, IEntity entity);
+        void OnClick(IWorldManipulator manipulator, IEntity entity, Vector2 clickPosition);
 
         void OnCollision(IWorldManipulator manipulator, IEntity entity);
     }

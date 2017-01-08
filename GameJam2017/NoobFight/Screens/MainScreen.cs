@@ -1,4 +1,5 @@
-﻿using MonoGameUi;
+﻿using engenious.Graphics;
+using MonoGameUi;
 using NoobFight.Components;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace NoobFight.Screens
         public MainScreen(ScreenComponent manager) : base(manager)
         {
             Padding = new Border(0, 0, 0, 0);
+
+            Background = new TextureBrush(manager.Content.Load<Texture2D>("ui/main_bg"), TextureBrushMode.Stretch);
 
             StackPanel stack = new StackPanel(manager);
             Controls.Add(stack);

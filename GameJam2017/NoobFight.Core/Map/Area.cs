@@ -87,5 +87,10 @@ namespace NoobFight.Core.Map
 
             return false;
         }
+
+        public bool ContainsEntity(IPlayer player)
+        {
+            return Entities.OfType<IPlayer>().Contains(player);
+        }
     }
 }

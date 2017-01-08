@@ -29,7 +29,7 @@ namespace NoobFight.Screens
             grid.Columns.Add(new ColumnDefinition() { Width = 1, ResizeMode = ResizeMode.Parts });
 
             grid.Rows.Add(new RowDefinition() { ResizeMode = ResizeMode.Auto });
-            grid.Rows.Add(new RowDefinition() { Height = 1, ResizeMode = ResizeMode.Auto });
+            grid.Rows.Add(new RowDefinition() { Height = 1, ResizeMode = ResizeMode.Parts });
             grid.Rows.Add(new RowDefinition() { ResizeMode = ResizeMode.Auto });
 
             Combobox<string> gamemodeSelect = new Combobox<string>(manager);
@@ -41,29 +41,31 @@ namespace NoobFight.Screens
                 gamemodeSelect.Items.Add(item.ToString());
             gamemodeSelect.SelectFirst();
             gamemodeSelect.HorizontalAlignment = HorizontalAlignment.Stretch;
-            gamemodeSelect.Height = 30;
-            gamemodeSelect.Background = new BorderBrush(Color.White);
+            gamemodeSelect.Height = 50;
+            gamemodeSelect.Margin = new Border(10, 10, 10, 0);
             grid.AddControl(gamemodeSelect, 0, 0);
 
             Listbox<string> mapList = new Listbox<string>(manager);
             mapList.TemplateGenerator = (s) =>
             {
-                return new Label(manager) { Text = s };
+                Panel p = new Panel(manager);
+                p.HorizontalAlignment = HorizontalAlignment.Stretch;
+
+                p.Controls.Add(new Label(manager) { Text = s });
+                return p;
             };
             mapList.Items.Add("Testmap"); //TODO: Make dynamic!
             mapList.HorizontalAlignment = HorizontalAlignment.Stretch;
             mapList.VerticalAlignment = VerticalAlignment.Stretch;
-            mapList.Background = new BorderBrush(Color.White);
-            mapList.Margin = new Border(0, 10, 0, 10);
-            mapList.SelectedItemBrush = new BorderBrush(Color.DarkGreen);
+            mapList.Margin = new Border(10, 20, 10, 10);
             grid.AddControl(mapList, 0, 1);
 
             Button playButton = Button.TextButton(manager, "Play!");
             playButton.HorizontalAlignment = HorizontalAlignment.Stretch;
-            playButton.Height = 50;
+            playButton.Margin = Border.All(10);
             playButton.LeftMouseClick += (s, e) =>
             {
-                manager.Game.SimulationComponent.CreateSinglePlayerSimulation((GameMode)Enum.Parse(typeof(GameMode), (string)gamemodeSelect.SelectedItem),"pig","Hallo");
+                manager.Game.SimulationComponent.CreateSinglePlayerSimulation((GameMode)Enum.Parse(typeof(GameMode), (string)gamemodeSelect.SelectedItem),manager.Game.PlayerComponent.PlayerTexture,manager.Game.PlayerComponent.PlayerName);
                 manager.NavigateToScreen(new GameScreen(manager));
             };
             grid.AddControl(playButton, 0, 2);
