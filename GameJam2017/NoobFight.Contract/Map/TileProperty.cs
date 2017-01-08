@@ -5,5 +5,6 @@
         public bool collisionevent;
         public bool blocked;
         public int entitytype;
+        public string destinationarea;
     }
 }

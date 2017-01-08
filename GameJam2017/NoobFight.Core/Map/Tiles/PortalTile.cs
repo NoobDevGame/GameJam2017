@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NoobFight.Contract;
+﻿using System.Drawing;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
-using System.Drawing;
 
 namespace NoobFight.Core.Map.Tiles
 {
     class PortalTile : ActiveTile
     {
-        public PortalTile(RectangleF region) : base(region)
+        public PortalTile(RectangleF region, TileProperty property) : base(region, property)
         {
         }
 
@@ -20,7 +14,8 @@ namespace NoobFight.Core.Map.Tiles
         {
             if (entity is IPlayer)
             {
-                manipulator.ChangeArea(((IPlayer)entity), "1test");
+                if (!string.IsNullOrEmpty(this.Property.destinationarea))
+                    manipulator.ChangeArea(((IPlayer)entity), this.Property.destinationarea);
             }
         }
     }

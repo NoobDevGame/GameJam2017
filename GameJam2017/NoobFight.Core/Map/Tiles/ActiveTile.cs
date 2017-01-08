@@ -1,14 +1,7 @@
-﻿using NoobFight.Contract.Map;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+using NoobFight.Contract.Map;
 using NoobFight.Contract.Entities;
-using NoobFight.Contract;
-using NoobFight.Core.Simulation;
 using NoobFight.Contract.Simulation;
-using System.Drawing;
 
 namespace NoobFight.Core.Map.Tiles
 {
@@ -16,9 +9,12 @@ namespace NoobFight.Core.Map.Tiles
     {
         public RectangleF Region { get; private set; }
 
-        public ActiveTile(RectangleF region)
+        public TileProperty Property { get; private set; }
+
+        public ActiveTile(RectangleF region, TileProperty property)
         {
             this.Region = region;
+            this.Property = property;
         }
 
         public virtual void OnAttack(IWorldManipulator manipulator, IEntity entity)

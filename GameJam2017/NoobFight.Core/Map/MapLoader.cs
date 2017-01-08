@@ -97,6 +97,8 @@ namespace NoobFight.Core.Map
 
         private class FileObjectProperty
         {
+            public bool blocked { get; set; }
+            public string destinationarea { get; set; }
             public bool collisionevent { get; set; }
             public int entitytype { get; set; }
             public string @class { get; set; }
@@ -156,8 +158,21 @@ namespace NoobFight.Core.Map
                             Type tileType;
                             if (ActiveTiles.TryGetValue(fileObject.type, out tileType))
                             {
-                                var obj = (ActiveTile)Activator.CreateInstance(tileType,
-                                                    new RectangleF(new PointF(position.X, position.Y), new SizeF(size.X, size.Y)));
+                                var region = new RectangleF(new PointF(position.X, position.Y), new SizeF(size.X, size.Y));
+
+                                TileProperty properties = default(TileProperty);
+                                if (fileObject.properties != null)
+                                {
+                                    properties = new TileProperty()
+                                    {
+                                        collisionevent = fileObject.properties.collisionevent,
+                                        destinationarea = fileObject.properties.destinationarea,
+                                        entitytype = fileObject.properties.entitytype,
+                                        blocked = fileObject.properties.blocked
+                                    };
+                                }
+
+                                var obj = (ActiveTile)Activator.CreateInstance(tileType, region, properties);
 
                                 area.ActiveTiles.Add(obj);
                             }

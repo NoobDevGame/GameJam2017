@@ -16,7 +16,7 @@ namespace NoobFight.Core.Simulation.Events
 
         public override void Dispatch(IWorld world, ISimulation simulation)
         {
-            tile.OnCollision(world.CreateNewManipulator() ,entity);
+            tile.OnCollision(world.CreateNewManipulator(), entity);
         }
 
         public CollisionEvent(IActiveTile BlockType, IEntity entity)

@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NoobFight.Contract;
+﻿using System.Drawing;
 using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
-using System.Drawing;
 
 namespace NoobFight.Core.Map.Tiles
 {
     class LavaTile : ActiveTile
     {
-        public LavaTile(RectangleF region) : base(region)
+        public LavaTile(RectangleF region, TileProperty property) : base(region, property)
         {
         }
 

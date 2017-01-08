@@ -1,17 +1,14 @@
-﻿using NoobFight.Contract.Entities;
+﻿using System.Drawing;
+using NoobFight.Core.Map;
+using NoobFight.Contract.Entities;
 using NoobFight.Contract.Simulation;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NoobFight.Contract.Map
 {
     public interface IActiveTile
     {
         RectangleF Region { get; }
+        TileProperty Property { get; }
 
         void OnAttack(IWorldManipulator manipulator, IEntity entity);
 
