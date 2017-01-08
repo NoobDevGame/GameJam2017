@@ -23,11 +23,14 @@ namespace NoobFight.Core.Entities
             var item = ((Entity)collidedEntity);
 
             if (item.Name != "coin")
+            {
                 return;
+            }
+
 
             item.CurrentArea.RemoveEntity(item);
 
-            this.Health -= 1;
+            Score++;
         }
     }
 }
