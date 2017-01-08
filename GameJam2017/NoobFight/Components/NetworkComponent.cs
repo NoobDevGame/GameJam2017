@@ -84,8 +84,9 @@ namespace NoobFight.Components
 
             if (Game.SimulationComponent.Player.ID == message.Id)
             {
+          
                 Game.SimulationComponent.World.Manipulator.AddPlayer(Game.SimulationComponent.Player);
-                Game.ScreenManager.NavigateToScreen(new Screens.GameScreen(Game.ScreenManager));
+                Game.ScreenManager.NavigateToScreen(new LobbyScreen(Game.ScreenManager));
                 return;
             }
             var player = new RemotePlayer(client, message.Id, message.Nick, message.TextureName);//TODO: texturename
