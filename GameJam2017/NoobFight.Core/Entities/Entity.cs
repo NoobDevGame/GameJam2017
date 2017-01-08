@@ -36,7 +36,6 @@ namespace NoobFight.Core.Entities
 
         public virtual void OnEntityCollision(IWorldManipulator manipulator, IEntity collidedEntity)
         {
-
         }
 
         public virtual void OnClick(IWorldManipulator manipulator, IEntity entity)

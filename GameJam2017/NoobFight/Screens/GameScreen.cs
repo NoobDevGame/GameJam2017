@@ -61,7 +61,7 @@ namespace NoobFight.Screens
             Controls.Add(scorePanel);
 
             ScoreLabel = new Label(manager);
-            ScoreLabel.Text = "0";
+            ScoreLabel.Text = "-1";
             scorePanel.Controls.Add(ScoreLabel);
 
             TimeControl = new TimeControl(manager);
