@@ -110,7 +110,7 @@ namespace NoobFight.Components
                 Game.ScreenManager.NavigateToScreen(new LobbyScreen(Game.ScreenManager));
                 return;
             }
-            var player = new RemotePlayer(client, message.Nick, message.TextureName);//TODO: texturename
+            var player = new RemotePlayer(client, message.Id, message.Nick, message.TextureName);//TODO: texturename
             Game.SimulationComponent.Simulation.InsertPlayer(player);
 
             Game.SimulationComponent.World.AddPlayer(player);

@@ -177,7 +177,7 @@ namespace NoobFight.Server
         {
             if (simulation.Players.FirstOrDefault(x=>x.Name == message.Nick) == null)
             {
-                IPlayer player = new RemotePlayer(client, message.Nick, message.TextureName);
+                IPlayer player = new RemotePlayer(client, client.ID, message.Nick, message.TextureName);
                 simulation.InsertPlayer(player);
                 client.writeStream(new PlayerLoginResponseMessage(player.PlayerID));
                 Console.WriteLine($"New player {message.Nick} joined");
