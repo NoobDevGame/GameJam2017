@@ -47,8 +47,7 @@ namespace NoobFight.Components
             {
                 Game.ScreenManager.NavigateToScreen(new WorldSelectScreen(Game.ScreenManager, e.Worlds));
             });
-
-
+            messageHandler.RegisterMessageHandler<CreateWorldResponseMessage>(CreateWorld);
         }
 
         public void StartWorld(Client client, StartWorldMessage message)
@@ -56,6 +55,7 @@ namespace NoobFight.Components
             var map = new Map(message.MapName);
             map.Load();
             Game.SimulationComponent.World.Start(map);
+            Game.ScreenManager.NavigateToScreen(new GameScreen(Game.ScreenManager));
         }
         public void StartWorld()
         {
@@ -89,7 +89,7 @@ namespace NoobFight.Components
             if (Game.SimulationComponent.World == null)
                 worldLoaded.WaitOne();
 
-            if (Game.SimulationComponent.Player.Id == message.Id)
+            if (Game.SimulationComponent.Player.PlayerID == message.Id)
             {
                 Game.SimulationComponent.World.AddPlayer(Game.SimulationComponent.Player);
                 Game.ScreenManager.NavigateToScreen(new LobbyScreen(Game.ScreenManager));

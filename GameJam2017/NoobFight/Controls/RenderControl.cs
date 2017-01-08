@@ -59,6 +59,8 @@ namespace NoobFight.Controls
         public RenderTarget2D ControlTexture { get; set; }
         protected override void OnPreDraw(GameTime gameTime)
         {
+            if (ActualClientArea.Width == 0 || ActualClientArea.Height == 0)
+                return;
             if (ControlTexture == null)
             {
                 ControlTexture = new RenderTarget2D(manager.GraphicsDevice, ActualClientArea.Width, ActualClientArea.Height, PixelInternalFormat.Rgb8);

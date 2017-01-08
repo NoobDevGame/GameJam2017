@@ -132,7 +132,7 @@ namespace NoobFight.Server
 
         private static void EntityUpdated(Client client, EntityDataUpdateMessage entitydata)
         {
-            var entity = simulation.Players.First(i => i.PlayerID == entitydata.Id);
+            var entity = simulation.Players.First(i => i.PlayerID == client.ID);
             entitydata.UpdateEntity(entity);
         }
 

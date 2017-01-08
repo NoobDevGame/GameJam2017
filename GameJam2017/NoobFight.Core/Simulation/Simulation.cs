@@ -57,7 +57,7 @@ namespace NoobFight.Core.Simulation
 
         public IPlayer CreateLocalPlayer(long id, string name, string textureName)
         {
-            Player player = new Player(1,name, textureName);
+            Player player = new Player(id ,name, textureName);
             InsertPlayer(player);
 
             return player;
