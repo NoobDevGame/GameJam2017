@@ -19,7 +19,17 @@ namespace NoobFight.Core.Network
         public void RegisterMessageHandler<T>(Action<Client, T> handler) where T : NetworkMessage, new()
         {
             var id = new T().DataType;
-            messageHandlers.Add(id, (Client c, NetworkMessage msg) => handler(c, (T)msg));
+
+            if (messageHandlers.ContainsKey(id))
+            {
+                messageHandlers[id] += (Client c, NetworkMessage msg) => handler(c, (T)msg);
+            }
+            else
+            {
+                messageHandlers.Add(id, (Client c, NetworkMessage msg) => handler(c, (T)msg));
+            }
+
+            
         }
 
         public void OnMessageReceived(object sender, NetworkMessage message)
