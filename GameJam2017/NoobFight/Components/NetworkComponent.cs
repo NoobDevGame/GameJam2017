@@ -88,7 +88,7 @@ namespace NoobFight.Components
                 Game.ScreenManager.NavigateToScreen(new Screens.GameScreen(Game.ScreenManager));
                 return;
             }
-            var player = new RemotePlayer(client, message.Id, message.Nick, "monkey");//TODO: texturename
+            var player = new RemotePlayer(client, message.Id, message.Nick, message.TextureName);//TODO: texturename
             Game.SimulationComponent.Simulation.InsertPlayer(player);
 
             Game.SimulationComponent.World.Manipulator.AddPlayer(player);
@@ -119,7 +119,7 @@ namespace NoobFight.Components
             Nick = nick;
             TextureName = textureName;
 
-            client.writeStream(new PlayerLoginRequestMessage(Nick));
+            client.writeStream(new PlayerLoginRequestMessage(Nick, textureName));
 
         }
 

@@ -62,6 +62,7 @@
     <Compile Include="Network\MessageManager.cs" />
     <Compile Include="Network\Messages\CreateMapMessage.cs" />
     <Compile Include="Network\Messages\PlayerJoinRequestMessage.cs" />
+    <Compile Include="Network\Messages\PlayerLoginResponseMessage.cs" />
     <Compile Include="Network\Messages\PlayerNotJoinResponseMessage.cs" />
     <Compile Include="Network\Messages\StartMapMessage.cs" />
     <Compile Include="Network\Messages\WorldListResponseMessage.cs" />
