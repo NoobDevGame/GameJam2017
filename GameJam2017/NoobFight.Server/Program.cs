@@ -81,6 +81,8 @@ namespace NoobFight.Server
 
             client.writeStream(new CreateWorldResponseMessage(message));
             client.writeStream(joinmessage);
+
+            server.SendBroadcast(new NewWorldBroadcast(message.WorldName));
         }
 
         private static void SendEvent(IWorld world, IWorldEvent @event)

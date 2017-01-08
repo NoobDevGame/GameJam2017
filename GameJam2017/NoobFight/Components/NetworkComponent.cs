@@ -21,7 +21,7 @@ namespace NoobFight.Components
 
         private Client client;
 
-        private MessageHandler messageHandler;
+        public MessageHandler MessageHandler { get; private set; }
         private AutoResetEvent worldLoaded, playerLoaded;
 
         int frame = 0;
@@ -34,22 +34,26 @@ namespace NoobFight.Components
         {
             Game = game;
             client = new Client();
-            messageHandler = new MessageHandler();
+            MessageHandler = new MessageHandler();
             worldLoaded = new AutoResetEvent(false);
             playerLoaded = new AutoResetEvent(false);
 
-            messageHandler.RegisterMessageHandler<ConnectedPlayersResponseMessage>(ConnectedPlayersResp);
-            messageHandler.RegisterMessageHandler<PlayerLoginResponseMessage>(PlayerLoginResponse);
-            messageHandler.RegisterMessageHandler<PlayerJoinResponseMessage>(PlayerJoin);
-            messageHandler.RegisterMessageHandler<EntityDataUpdateMessage>(UpdateEntity);
-            messageHandler.RegisterMessageHandler<StartWorldMessage>(StartWorld);
-            messageHandler.RegisterMessageHandler<WorldListResponseMessage>((c, e) =>
+            MessageHandler.RegisterMessageHandler<ConnectedPlayersResponseMessage>(ConnectedPlayersResp);
+            MessageHandler.RegisterMessageHandler<PlayerLoginResponseMessage>(PlayerLoginResponse);
+            MessageHandler.RegisterMessageHandler<PlayerJoinResponseMessage>(PlayerJoin);
+            MessageHandler.RegisterMessageHandler<EntityDataUpdateMessage>(UpdateEntity);
+            MessageHandler.RegisterMessageHandler<StartWorldMessage>(StartWorld);
+            MessageHandler.RegisterMessageHandler<WorldListResponseMessage>((c, e) =>
             {
                 Game.ScreenManager.NavigateToScreen(new WorldSelectScreen(Game.ScreenManager, e.Worlds));
             });
-            messageHandler.RegisterMessageHandler<CreateWorldResponseMessage>(CreateWorld);
-            messageHandler.RegisterMessageHandler<WorldEventMessage>(WorldEvent);
-            messageHandler.RegisterMessageHandler<PlayerLoginErrorMessage>(PlayerLoginError);
+            MessageHandler.RegisterMessageHandler<CreateWorldResponseMessage>(CreateWorld);
+            MessageHandler.RegisterMessageHandler<WorldEventMessage>(WorldEvent);
+            MessageHandler.RegisterMessageHandler<PlayerLoginErrorMessage>(PlayerLoginError);
+            MessageHandler.RegisterMessageHandler<NewWorldBroadcast>((s, e) =>
+            {
+                Console.WriteLine(e.WorldName);
+            });
         }
 
         private void PlayerLoginError(Client client, PlayerLoginErrorMessage message)
@@ -135,7 +139,7 @@ namespace NoobFight.Components
             Game.SimulationComponent.CreateNetworkSimulation();
 
             client.Connect(host, port);
-            client.OnMessageReceived += messageHandler.OnMessageReceived;
+            client.OnMessageReceived += MessageHandler.OnMessageReceived;
             client.BeginReceive();
 
             Nick = nick;

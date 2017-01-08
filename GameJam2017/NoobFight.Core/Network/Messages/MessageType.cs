@@ -29,6 +29,7 @@ namespace NoobFight.Core.Network.Messages
         StartWorldRequest,
         PlayerLeave,
         PlayerLogout,
-        PlayerLoginError
+        PlayerLoginError,
+        NewWorldBroadcast
     }
 }
