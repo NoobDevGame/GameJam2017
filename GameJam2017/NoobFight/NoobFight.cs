@@ -14,6 +14,7 @@ namespace NoobFight
         public NetworkComponent NetworkComponent { get; private set; }
         public SimulationComponent SimulationComponent { get; private set; }
         public CameraComponent CameraComponent { get; private set; }
+        public PlayerComponent PlayerComponent { get; private set; }
 
         public NoobFight()
         {
@@ -30,6 +31,9 @@ namespace NoobFight
 
             SimulationComponent = new SimulationComponent(this);
             SimulationComponent.UpdateOrder = 3;
+
+            PlayerComponent = new PlayerComponent(this);
+            Components.Add(PlayerComponent);
 
             Components.Add(CameraComponent);
             Components.Add(ScreenManager);
