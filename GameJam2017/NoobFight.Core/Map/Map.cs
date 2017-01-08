@@ -9,12 +9,10 @@ namespace NoobFight.Core.Map
         public IArea StartArea { get; private set; }        
         public IEnumerable<IArea> Areas => _areas;
 
-        private List<IArea> _areas;
+        private List<IArea> _areas = new List<IArea>();
 
         public void AddArea(IArea area)
         {
-            _areas = new List<IArea>();
-
             if (StartArea == null)
                 StartArea = area;
             _areas.Add(area);

@@ -28,8 +28,10 @@ namespace NoobFight.Core.Simulation
             _players = new List<IPlayer>();
 
             _components.Add(new GravitySimulationComponent());
-            if(Mode == SimulationMode.Lokal )
+            if(Mode == SimulationMode.Lokal)
                 _components.Add(new InputSimulationComponent());
+
+            
             _components.Add(new MoveSimulationComponent());
 
             _components.Add(new CollisionSimulationComponent());

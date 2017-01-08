@@ -64,6 +64,7 @@ namespace NoobFight.Screens
             playButton.LeftMouseClick += (s, e) =>
             {
                 manager.Game.SimulationComponent.World = manager.Game.SimulationComponent.Simulation.CreateNewWorld((GameMode)Enum.Parse(typeof(GameMode), (string)gamemodeSelect.SelectedItem),"Default World");
+                manager.Game.SimulationComponent.Player = manager.Game.SimulationComponent.Simulation.CreateLocalPlayer(1, "Hallo", "pig"); ;
                 manager.Game.SimulationComponent.World.Manipulator.AddPlayer(manager.Game.SimulationComponent.Player);
                 manager.Game.SimulationComponent.World.Start(MapGenerator.CreateMap());
                 manager.NavigateToScreen(new GameScreen(manager));

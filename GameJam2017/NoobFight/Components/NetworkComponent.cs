@@ -54,7 +54,7 @@ namespace NoobFight.Components
 
         public override void Update(GameTime gameTime)
         {
-            if (Game.SimulationComponent.World != null && frame++ % 2 == 0)
+            if (client.Connected && Game.SimulationComponent.World != null && frame++ % 2 == 0)
             {
 
                 client.writeStream(new EntityDataUpdateMessage(Game.SimulationComponent.Player));
