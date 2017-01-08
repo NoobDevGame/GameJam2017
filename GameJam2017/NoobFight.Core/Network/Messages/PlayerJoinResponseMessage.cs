@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace NoobFight.Core.Network.Messages
 {
-    public class PlayerJoinMessage : NetworkMessage
+    public class PlayerJoinResponseMessage : NetworkMessage
     {
-        public override MessageType DataType => MessageType.PlayerJoin;
-        public PlayerJoinMessage()
+        public override MessageType DataType => MessageType.PlayerJoinResponse;
+        public PlayerJoinResponseMessage()
         {
 
         }
         public long Id { get; private set; }
         public string Nick { get; private set; }
-        public PlayerJoinMessage(long id, string nick)
+
+        public PlayerJoinResponseMessage(long id, string nick)
         {
             Id = id;
             Nick = nick;

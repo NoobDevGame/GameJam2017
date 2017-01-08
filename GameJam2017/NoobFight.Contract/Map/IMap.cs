@@ -10,6 +10,8 @@ namespace NoobFight.Contract.Map
     {
         IArea StartArea { get; }
 
+        string Name { get; }
+
         IEnumerable<IArea> Areas { get; }
 
         void AddArea(IArea area);

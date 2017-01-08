@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace NoobFight.Core.Network.Messages
 {
-    public class WorldListMessage : NetworkMessage
+    public class WorldListRequestMessage : NetworkMessage
     {
-        public override MessageType DataType => MessageType.WorldListRequestMessage;
+        public override MessageType DataType => MessageType.WorldListRequest;
     }
 }

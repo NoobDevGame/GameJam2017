@@ -7,10 +7,10 @@ namespace NoobFight.Core.Map
     {
         private  static  Dictionary<string, IArea> _areas;
 
-        public static IMap CreateMap()
+        public static IMap CreateMap(string name)
         {
             _areas = new Dictionary<string, IArea>();
-            Map map = new Map();
+            Map map = new Map(name);
             map.AddArea(LoadArea("test"));
             map.AddArea(LoadArea("1test"));
 

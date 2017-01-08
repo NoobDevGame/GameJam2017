@@ -17,7 +17,7 @@ namespace NoobFight.Server
     internal class Server
     {
         TcpListener listener;
-        ConcurrentDictionary<int, Client> clients;
+        ConcurrentDictionary<long, Client> clients;
 
         IWorld world;
 
@@ -26,13 +26,12 @@ namespace NoobFight.Server
         public Server()
         {
             listener = new TcpListener(IPAddress.Any, 4344);
-            clients = new ConcurrentDictionary<int, Client>();
+            clients = new ConcurrentDictionary<long, Client>();
             MessageHandler = new MessageHandler();
         }
        
         public void Start()
         {
-            MessageHandler.RegisterMessageHandler<PingMessage>(PingMessage_Received);
             listener.Start();
             listener.BeginAcceptTcpClient(HandShake, null);
         }
@@ -45,22 +44,25 @@ namespace NoobFight.Server
             Task.Run(() =>
             {
                 bool added = false;
-                var client = new Client(tcpClient, clients.Count + 1);
+                var client = new Client(tcpClient, BitConverter.ToInt64(Guid.NewGuid().ToByteArray(), 0));
                 while (!added)
                     added = clients.TryAdd(client.ID, client);
 
-                client.BeginReceive();
                 client.OnMessageReceived += MessageHandler.OnMessageReceived;
+                client.BeginReceive();
             });
         }
+
+        internal void RegisterMessageHandler<T>()
+        {
+            throw new NotImplementedException();
+        }
+
         public void RegisterMessageHandler<T>(Action<Client, T> handler) where T : NetworkMessage, new()
         {
             MessageHandler.RegisterMessageHandler(handler);
         }
-        private void PingMessage_Received(Client client,PingMessage message)
-        {
-            client.writeStream(new PongMessage());
-        }
+
         public void SendBroadcast(NetworkMessage message)
         {
             foreach(var client in clients)

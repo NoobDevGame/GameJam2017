@@ -14,10 +14,15 @@ namespace NoobFight.Core.Network.Messages
         ConnectedPlayersResponse,
         PlayerLoginRequest,
         PlayerLoginResponse,
-        PlayerJoin,
-        CreateWorldMessage,
-        EntityDataUpdateMessage,
-        WorldListRequestMessage,
-        WorldListResponseMessage
+        PlayerJoinResponse,
+        CreateWorld,
+        EntityDataUpdate,
+        WorldListRequest,
+        WorldListResponse,
+        PlayerJoinRequest,
+        CreateMapRequest,
+        CreateMapResponse,
+        StartWorld,
+        PlayerNotJoin
     }
 }

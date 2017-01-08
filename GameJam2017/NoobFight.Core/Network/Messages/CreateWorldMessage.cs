@@ -8,7 +8,7 @@ namespace NoobFight.Core.Network.Messages
 {
     public class CreateWorldMessage : NetworkMessage
     {
-        public override MessageType DataType => MessageType.CreateWorldMessage;
+        public override MessageType DataType => MessageType.CreateWorld;
 
         public CreateWorldMessage()
         {

@@ -63,10 +63,7 @@ namespace NoobFight.Screens
             playButton.Height = 50;
             playButton.LeftMouseClick += (s, e) =>
             {
-                manager.Game.SimulationComponent.World = manager.Game.SimulationComponent.Simulation.CreateNewWorld((GameMode)Enum.Parse(typeof(GameMode), (string)gamemodeSelect.SelectedItem),"Default World");
-                manager.Game.SimulationComponent.Player = manager.Game.SimulationComponent.Simulation.CreateLocalPlayer(1, "Hallo", "pig"); ;
-                manager.Game.SimulationComponent.World.Manipulator.AddPlayer(manager.Game.SimulationComponent.Player);
-                manager.Game.SimulationComponent.World.Start(MapGenerator.CreateMap());
+                manager.Game.SimulationComponent.CreateSinglePlayerSimulation((GameMode)Enum.Parse(typeof(GameMode), (string)gamemodeSelect.SelectedItem),"pig","Hallo");
                 manager.NavigateToScreen(new GameScreen(manager));
             };
             grid.AddControl(playButton, 0, 2);
@@ -78,5 +75,7 @@ namespace NoobFight.Screens
             backButton.LeftMouseClick += (s, e) => { manager.NavigateBack(); };
             Controls.Add(backButton);
         }
+
+        
     }
 }

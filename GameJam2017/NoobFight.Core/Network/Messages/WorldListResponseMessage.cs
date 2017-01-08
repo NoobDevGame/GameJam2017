@@ -10,7 +10,7 @@ namespace NoobFight.Core.Network.Messages
     public class WorldListResponseMessage : NetworkMessage
     {
         public string[] Worlds { get; set; }
-        public override MessageType DataType => MessageType.WorldListResponseMessage;
+        public override MessageType DataType => MessageType.WorldListResponse;
 
         public WorldListResponseMessage()
         {

@@ -31,25 +31,60 @@ namespace NoobFight.Server
             server.Start();
 
             simulation = new Simulation(SimulationMode.Server);
-
-            world = simulation.CreateNewWorld(GameMode.Timed, "Tolle Welt");
-            world.Start(MapGenerator.CreateMap());
+            world = simulation.CreateNewWorld(GameMode.Timed,"Tolle Welt");
 
             canceltoken = new CancellationTokenSource();
             thread = new Thread(UpdateSimulation);
             thread.IsBackground = true;
             thread.Start();
 
-            server.RegisterMessageHandler<ConnectedPlayersRequestMessage>((c, m) => new ConnectedPlayersResponseMessage(1));
+            server.RegisterMessageHandler<ConnectedPlayersRequestMessage>(GetConnectedPlayer);
             server.RegisterMessageHandler<PlayerLoginRequestMessage>(PlayerLoginRequest);
             server.RegisterMessageHandler<EntityDataUpdateMessage>(EntityUpdated);
-            server.RegisterMessageHandler<WorldListMessage>((c, m) =>
-            {
-                c.writeStream(new WorldListResponseMessage(simulation.Worlds.Select(t=>t.Name).ToArray()));
-            });
+            server.RegisterMessageHandler<WorldListRequestMessage>(GetWorldList);
+            server.RegisterMessageHandler<PlayerJoinRequestMessage>(PlayerJoinRequest);
             eventWait.WaitOne();
 
             canceltoken.Cancel();
+        }
+
+        private static void PlayerJoinRequest(Client client, PlayerJoinRequestMessage message)
+        {
+            var world = simulation.Worlds.FirstOrDefault(i => i.Name == message.WorldName);
+                
+            if (world == null || world.State == (WorldState.Paused | WorldState.Running ))
+            {
+                client.writeStream(new PlayerNotJoinResponseMessage());
+                return;
+            }
+
+           
+
+            var player = simulation.Players.First(i => i.ID == client.ID);
+            var joinmessage = new PlayerJoinResponseMessage(client.ID, player.Name);
+
+            
+
+            client.writeStream(joinmessage);
+
+            foreach (var oPlayer in world.Players.OfType<RemotePlayer>())
+            {
+                client.writeStream(new PlayerJoinResponseMessage(oPlayer.ID, oPlayer.Name));
+                oPlayer.Client.writeStream(joinmessage);
+            }
+
+            world.AddPlayer(player);
+
+        }
+
+        private static void GetConnectedPlayer(Client client, ConnectedPlayersRequestMessage message)
+        {
+            client.writeStream(new ConnectedPlayersResponseMessage(simulation.Players.Count()));
+        }
+
+        private static void GetWorldList(Client client, WorldListRequestMessage message)
+        {
+            client.writeStream(new WorldListResponseMessage(simulation.Worlds.Select(t => t.Name).ToArray()));
         }
 
         private static void EntityUpdated(Client client, EntityDataUpdateMessage entitydata)
@@ -67,23 +102,46 @@ namespace NoobFight.Server
             {
                 simulation.Update(new Contract.GameTime(TimeSpan.FromMilliseconds(13)));
                 
-
                 if (frame++ % 2 == 0)
                 {
-                    List<EntityDataUpdateMessage> updates = new List<EntityDataUpdateMessage>();
-                    foreach (var player in simulation.Players.OfType<RemotePlayer>())
-                        updates.Add(new EntityDataUpdateMessage(player));
-
-                    foreach (var player in simulation.Players.OfType<RemotePlayer>())
+                    foreach (var world in simulation.Worlds)
                     {
-                        foreach (var update in updates)
-                        {
-                            if (update.ID == player.ID)
-                                continue;
+                        
 
-                            player.Client.writeStream(update);
+                        if (world.State != WorldState.Running && world.State  != WorldState.Paused)
+                        {
+                            if (world.Players.Count() == 2)
+                            {
+                                var mapname = "hallo";
+                                world.Start(MapGenerator.CreateMap(mapname));
+
+                                foreach (var player in world.Players.OfType<RemotePlayer>())
+                                {
+                                    player.Client.writeStream(new StartWorldMessage(mapname));
+
+                                }
+                            }
+
+                            continue;
+                        }
+
+                        List<EntityDataUpdateMessage> updates = new List<EntityDataUpdateMessage>();
+                        foreach (var player in world.Players.OfType<RemotePlayer>())
+                            updates.Add(new EntityDataUpdateMessage(player));
+
+                        foreach (var player in world.Players.OfType<RemotePlayer>())
+                        {
+                            foreach (var update in updates)
+                            {
+                                if (update.ID == player.ID)
+                                    continue;
+
+                                player.Client.writeStream(update);
+                            }
                         }
                     }
+
+                    
                 }
 
                 Thread.Sleep(13);
@@ -94,24 +152,11 @@ namespace NoobFight.Server
         {
             //if (simulation.Players.FirstOrDefault(x=>x.Name == message.Nick) == null)
             {
-                IPlayer player = new RemotePlayer(client,BitConverter.ToInt64(Guid.NewGuid().ToByteArray(),0), message.Nick, "");
+                IPlayer player = new RemotePlayer(client,client.ID, message.Nick, "");
                 simulation.InsertPlayer(player);
                 client.writeStream(new PlayerLoginResponseMessage(player.ID));
                 Console.WriteLine($"New player {message.Nick} joined");
-                server.SendBroadcast(new ConnectedPlayersResponseMessage(simulation.Players.Count()));
-
-                client.writeStream(new CreateWorldMessage());
-                world.Manipulator.AddPlayer(player);
-                
-                var joinMessage = new PlayerJoinMessage(player.ID, player.Name);
-                client.writeStream(joinMessage);
-                
-                foreach (var remotePlayer in world.Players.OfType<RemotePlayer>())
-                {
-                    remotePlayer.Client.writeStream(joinMessage);
-                    client.writeStream(new PlayerJoinMessage(remotePlayer.ID,remotePlayer.Name));
-                }
-                
+                server.SendBroadcast(new ConnectedPlayersResponseMessage(simulation.Players.Count()));  
             }
         }
     }

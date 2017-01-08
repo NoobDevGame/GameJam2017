@@ -16,7 +16,7 @@ namespace NoobFight.Core.Network
     {
         private object writeLock = new object();
         public NetworkStream Stream { get { return tcpClient.GetStream(); } }
-        public int ID { get; private set; }
+        public long ID { get; private set; }
         public bool Connected => tcpClient.Connected;
 
         public delegate void MessageEventHandler(object sender, NetworkMessage message);
@@ -38,7 +38,7 @@ namespace NoobFight.Core.Network
             this.tcpClient = tcpClient;
             mainToken = new CancellationToken();
         }
-        public Client(TcpClient tcpClient, int id) : this(tcpClient)
+        public Client(TcpClient tcpClient, long id) : this(tcpClient)
         {
             ID = id;
         }
