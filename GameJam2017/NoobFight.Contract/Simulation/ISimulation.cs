@@ -13,6 +13,8 @@ namespace NoobFight.Contract.Simulation
 
         IEnumerable<IPlayer> Players { get;  }
 
+        SimulationMode Mode { get; }
+
         IWorld CreateNewWorld(GameMode mode);
 
         void Update(GameTime gameTime);

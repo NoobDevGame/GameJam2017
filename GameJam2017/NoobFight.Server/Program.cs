@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using NoobFight.Contract.Simulation;
 
 namespace NoobFight.Server
 {
@@ -21,7 +22,7 @@ namespace NoobFight.Server
             server = new Server();
             server.Start();
 
-            simulation = new Simulation();
+            simulation = new Simulation(SimulationMode.Server);
 
             server.MessageHandler.RegisterMessageHandler<ConnectedPlayersRequestMessage>((c, m) => new ConnectedPlayersResponseMessage(1));
 

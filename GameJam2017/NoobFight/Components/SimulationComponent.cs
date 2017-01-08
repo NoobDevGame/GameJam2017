@@ -21,7 +21,7 @@ namespace NoobFight.Components
         public SimulationComponent(NoobFight game) : base(game)
         {
             Game = game;
-            Simulation = new Simulation();
+            Simulation = new Simulation(SimulationMode.Lokal);
             Player = Simulation.CreateLocalPlayer("Local Player", "monkey");
         }
 

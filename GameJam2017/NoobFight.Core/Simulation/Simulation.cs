@@ -11,6 +11,8 @@ namespace NoobFight.Core.Simulation
 {
     public class Simulation : ISimulation
     {
+        public SimulationMode Mode { get; private set; }
+
         private List<World> _worlds = new List<World>();
         public IEnumerable<IWorld> Worlds => _worlds;
 
@@ -19,10 +21,13 @@ namespace NoobFight.Core.Simulation
 
         private List<SimulationComponent> _components= new List<SimulationComponent>();
 
-        public Simulation()
+        public Simulation(SimulationMode mode)
         {
+            Mode = mode;
+
             _components.Add(new GravitySimulationComponent());
-            _components.Add(new InputSimulationComponent());
+            if(Mode == SimulationMode.Lokal )
+                _components.Add(new InputSimulationComponent());
             _components.Add(new MoveSimulationComponent());
             _components.Add(new CollisionSimulationComponent());
         }
