@@ -103,7 +103,7 @@ namespace NoobFight.Server
 
 
 
-            var player = simulation.Players.First(i => i.Id == client.ID);
+            var player = simulation.Players.First(i => i.PlayerID == client.ID);
             var joinmessage = new PlayerJoinResponseMessage(client.ID, player.Name, player.TextureName);
 
 
@@ -112,7 +112,7 @@ namespace NoobFight.Server
 
             foreach (var oPlayer in world.Players.OfType<RemotePlayer>())
             {
-                client.writeStream(new PlayerJoinResponseMessage(oPlayer.Id.Value, oPlayer.Name, oPlayer.TextureName));
+                client.writeStream(new PlayerJoinResponseMessage(oPlayer.PlayerID, oPlayer.Name, oPlayer.TextureName));
                 oPlayer.Client.writeStream(joinmessage);
             }
 
@@ -132,7 +132,7 @@ namespace NoobFight.Server
 
         private static void EntityUpdated(Client client, EntityDataUpdateMessage entitydata)
         {
-            var entity = simulation.Players.First(i => i.Id == entitydata.Id);
+            var entity = simulation.Players.First(i => i.PlayerID == entitydata.Id);
             entitydata.UpdateEntity(entity);
         }
 
@@ -158,7 +158,7 @@ namespace NoobFight.Server
                         {
                             foreach (var update in updates)
                             {
-                                if (update.Id == player.Id)
+                                if (update.Id == player.PlayerID)
                                     continue;
 
                                 player.Client.writeStream(update);
@@ -179,7 +179,7 @@ namespace NoobFight.Server
             {
                 IPlayer player = new RemotePlayer(client, message.Nick, message.TextureName);
                 simulation.InsertPlayer(player);
-                client.writeStream(new PlayerLoginResponseMessage(player.Id.Value));
+                client.writeStream(new PlayerLoginResponseMessage(player.PlayerID));
                 Console.WriteLine($"New player {message.Nick} joined");
                 server.SendBroadcast(new ConnectedPlayersResponseMessage(simulation.Players.Count()));
             }

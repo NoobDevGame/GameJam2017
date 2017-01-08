@@ -13,7 +13,7 @@ namespace NoobFight.Core.Network.Messages
     {
         public override MessageType DataType => MessageType.EntityDataUpdate;
 
-        public int Id { get; private set; }
+        public long Id { get; private set; }
         public Vector2 _position;
         public Vector2 _velocity;
 
@@ -25,7 +25,7 @@ namespace NoobFight.Core.Network.Messages
         //TODO: Entity: ID
         public EntityDataUpdateMessage(IPlayer entity)
         {
-            Id = entity.Id.Value;
+            Id = entity.PlayerID;
             _position = entity.Position;
             _velocity = entity.Velocity;
         }
