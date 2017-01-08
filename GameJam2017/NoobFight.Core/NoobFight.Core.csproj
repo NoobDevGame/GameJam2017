@@ -61,6 +61,7 @@
     <Compile Include="Network\MessageManager.cs" />
     <Compile Include="Network\Messages\CreateMapMessage.cs" />
     <Compile Include="Network\Messages\CreateWorldResponseMessage.cs" />
+    <Compile Include="Network\Messages\NewWorldBroadcast.cs" />
     <Compile Include="Network\Messages\PlayerLeaveMessage.cs" />
     <Compile Include="Network\Messages\PlayerLogoutMessage.cs" />
     <Compile Include="Network\Messages\StartWorldRequest.cs" />

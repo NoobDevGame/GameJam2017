@@ -2,6 +2,7 @@
 using MonoGameUi;
 using NoobFight.Components;
 using NoobFight.Contract.Simulation;
+using NoobFight.Core.Network.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +66,12 @@ namespace NoobFight.Screens
                 manager.NavigateToScreen(new NewWorldScreen(manager));
             };
             grid.AddControl(createButton, 1, 1);
+
+            manager.Game.NetworkComponent.MessageHandler.RegisterMessageHandler<NewWorldBroadcast>((c, m) =>
+            {
+                if (!worldList.Items.Contains(m.WorldName) && IsActiveScreen)
+                    worldList.Items.Add(m.WorldName);
+            });
         }
     }
 }
