@@ -48,6 +48,21 @@ namespace NoobFight.Components
                 Game.ScreenManager.NavigateToScreen(new WorldSelectScreen(Game.ScreenManager, e.Worlds));
             });
             messageHandler.RegisterMessageHandler<CreateWorldResponseMessage>(CreateWorld);
+            messageHandler.RegisterMessageHandler<WorldEventMessage>(WorldEvent);
+            messageHandler.RegisterMessageHandler<PlayerLoginErrorMessage>(PlayerLoginError);
+        }
+
+        private void PlayerLoginError(Client client, PlayerLoginErrorMessage message)
+        {
+            client.Disconnect();
+            Game.ScreenManager.NavigateToScreen(new ConnectingScreen(Game.ScreenManager, true, "Already a player with this name connected"));
+        }
+
+        private void WorldEvent(Client client, WorldEventMessage message)
+        {
+            var @event = message.WorldEvent;
+            @event.Refill(Game.SimulationComponent.World);
+            Game.SimulationComponent.World.Manipulator.AddServerEvent(@event);
         }
 
         public void StartWorld(Client client, StartWorldMessage message)
@@ -65,7 +80,7 @@ namespace NoobFight.Components
 
         private void UpdateEntity(Client client, EntityDataUpdateMessage entitydata)
         {
-            var player = Game.SimulationComponent.Simulation.Players.FirstOrDefault(i => i.Id == entitydata.Id);
+            var player = Game.SimulationComponent.Simulation.Players.FirstOrDefault(i => i.PlayerID== entitydata.Id);
             if (player != null)
             {
                 entitydata.UpdateEntity(player);

@@ -39,7 +39,7 @@ namespace NoobFight.Components
 
         public void CreateNetworkSimulation()
         {
-            Simulation = new Simulation(SimulationMode.Single);
+            Simulation = new Simulation(SimulationMode.Lokal);
 
         }
 

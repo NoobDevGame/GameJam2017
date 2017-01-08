@@ -48,7 +48,7 @@ namespace NoobFight.Core.Network.Messages
 
         public override void Deserialize(byte[] payload)
         {
-            Id = BitConverter.ToInt32(payload, 0);
+            Id = BitConverter.ToInt64(payload, 0);
             var x = BitConverter.ToSingle(payload, 8);
             var y = BitConverter.ToSingle(payload, 12);
             _position = new Vector2(x, y);

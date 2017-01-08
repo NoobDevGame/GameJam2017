@@ -46,7 +46,7 @@ namespace NoobFight.Screens
                 }
                 catch (Exception ex)
                 {
-                    manager.NavigateToScreen(new ConnectingScreen(manager, true));
+                    manager.NavigateToScreen(new ConnectingScreen(manager, true, "Connection Error"));
                 }
             };
             stack.Controls.Add(connectButton);

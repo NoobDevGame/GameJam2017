@@ -37,5 +37,7 @@ namespace NoobFight.Contract.Simulation
 
         void RemovePlayer(IPlayer player);
         IPlayer FindPlayerById(long playerid);
+
+        IEntity FindEntityById(int id);
     }
 }

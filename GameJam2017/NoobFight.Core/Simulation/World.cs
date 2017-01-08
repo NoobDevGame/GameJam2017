@@ -113,5 +113,10 @@ namespace NoobFight.Core.Simulation
         {
             State = WorldState.Running;
         }
+
+        public IEntity FindEntityById(int id)
+        {
+            return CurrentMap.GetEntityById(id);
+        }
     }
 }

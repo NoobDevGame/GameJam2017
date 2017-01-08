@@ -79,6 +79,7 @@
     <Compile Include="Network\Messages\NetworkMessage.cs" />
     <Compile Include="Network\Messages\PlayerJoinResponseMessage.cs" />
     <Compile Include="Network\Messages\PlayerLoginRequestMessage.cs" />
+    <Compile Include="Network\Messages\PlayerLoginErrorMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simulation\Components\CollisionSimulationComponent.cs" />
     <Compile Include="Simulation\Components\EntityCollisionComponent.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Simulation\Events\EntityCollisionEvent.cs" />
     <Compile Include="Simulation\Events\EventManager.cs" />
     <Compile Include="Simulation\Events\PlayerEventMethod.cs" />
+    <Compile Include="Simulation\Events\RemoveEntityEvent.cs" />
     <Compile Include="Simulation\Events\WorldEvent.cs" />
     <Compile Include="Simulation\Simulation.cs" />
     <Compile Include="Simulation\World.cs" />

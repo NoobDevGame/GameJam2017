@@ -28,7 +28,7 @@ namespace NoobFight.Core.Entities
             }
 
 
-            item.CurrentArea.RemoveEntity(item);
+            manipulator.RemoveEntity(collidedEntity);
 
             Score++;
         }

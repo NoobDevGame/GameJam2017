@@ -41,5 +41,15 @@ namespace NoobFight.Core.Map
             IdManager.SetId(entity);
         }
 
+        public IEntity GetEntityById(int id)
+        {
+            IEntity entity;
+            if (!IdManager.TryGetEntity(id,out entity))
+            {
+                return null;
+            }
+
+            return entity;
+        }
     }
 }

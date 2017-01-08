@@ -132,7 +132,7 @@ namespace NoobFight.Server
 
         private static void EntityUpdated(Client client, EntityDataUpdateMessage entitydata)
         {
-            var entity = simulation.Players.First(i => i.PlayerID == client.ID);
+            var entity = simulation.Players.First(i => i.PlayerID == entitydata.Id);
             entitydata.UpdateEntity(entity);
         }
 
@@ -175,13 +175,17 @@ namespace NoobFight.Server
 
         private static void PlayerLoginRequest(Client client, PlayerLoginRequestMessage message)
         {
-            //if (simulation.Players.FirstOrDefault(x=>x.Name == message.Nick) == null)
+            if (simulation.Players.FirstOrDefault(x=>x.Name == message.Nick) == null)
             {
                 IPlayer player = new RemotePlayer(client, message.Nick, message.TextureName);
                 simulation.InsertPlayer(player);
                 client.writeStream(new PlayerLoginResponseMessage(player.PlayerID));
                 Console.WriteLine($"New player {message.Nick} joined");
                 server.SendBroadcast(new ConnectedPlayersResponseMessage(simulation.Players.Count()));
+            }
+            else
+            {
+                client.writeStream(new PlayerLoginErrorMessage());
             }
         }
     }

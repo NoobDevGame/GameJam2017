@@ -9,5 +9,6 @@ namespace NoobFight.Contract.Simulation
         void AddServerEvent(IWorldEvent worldEvent);
 
         void ChangeArea(IPlayer player, string destinationArea);
+        void RemoveEntity(IEntity collidedEntity);
     }
 }

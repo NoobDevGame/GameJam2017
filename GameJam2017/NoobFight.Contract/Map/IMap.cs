@@ -18,5 +18,6 @@ namespace NoobFight.Contract.Map
         void SetId(IEntity entity);
 
         void Load();
+        IEntity GetEntityById(int id);
     }
 }

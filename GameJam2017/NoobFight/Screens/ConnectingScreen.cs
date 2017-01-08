@@ -14,12 +14,12 @@ namespace NoobFight.Screens
 
         ScreenComponent Manager;
 
-        public ConnectingScreen(ScreenComponent manager, bool error = false) : base(manager)
+        public ConnectingScreen(ScreenComponent manager, bool error = false, string message = "Connecting..." ) : base(manager)
         {
             Manager = manager;
 
             infoLabel = new Label(manager);
-            infoLabel.Text = "Connecting...";
+            infoLabel.Text = message;
             Controls.Add(infoLabel);
 
             if (error)
@@ -35,8 +35,6 @@ namespace NoobFight.Screens
 
         private void ConnectionError()
         {
-            infoLabel.Text = "Connection Error!";
-
             Button backButton = Button.TextButton(Manager, "Back");
             backButton.HorizontalAlignment = HorizontalAlignment.Left;
             backButton.VerticalAlignment = VerticalAlignment.Top;

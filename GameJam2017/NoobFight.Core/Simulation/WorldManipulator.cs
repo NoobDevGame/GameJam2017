@@ -28,5 +28,10 @@ namespace NoobFight.Core.Simulation
         {
             AddEvent(new AreaChangedEvent(player, destinationArea));
         }
+
+        public void RemoveEntity(IEntity entity)
+        {
+            AddEvent(new RemoveEntityEvent(entity));
+        }
     }
 }

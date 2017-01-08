@@ -14,5 +14,6 @@ namespace NoobFight.Contract.Simulation
         PlayerWorld = 3,
         Click = 4,
         EntityCollision = 5,
+        RemoveEntity = 6,
     }
 }
