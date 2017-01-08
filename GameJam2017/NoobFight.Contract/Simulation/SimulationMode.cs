@@ -4,5 +4,6 @@
     {
         Lokal,
         Server,
+        Single,
     }
 }

@@ -11,7 +11,7 @@ namespace NoobFight.Core.Network.Messages
 {
     public class EntityDataUpdateMessage : NetworkMessage
     {
-        public override MessageType DataType => MessageType.EntityDataUpdateMessage;
+        public override MessageType DataType => MessageType.EntityDataUpdate;
 
         public long ID { get; private set; }
         public Vector2 _position;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NoobFight.Contract.Entities;
+using NoobFight.Core.Map;
 
 namespace NoobFight.Components
 {
@@ -21,14 +22,30 @@ namespace NoobFight.Components
         {
             Game = game;
 
-            Simulation = new Simulation(SimulationMode.Lokal);
+
             //Player = Simulation.CreateLocalPlayer("Local Player", "monkey")
+        }
+
+        public void CreateSinglePlayerSimulation(GameMode gamemode, string texturename,string mapname)
+        {
+            Simulation = new Simulation(SimulationMode.Single);
+            World = Simulation.CreateNewWorld(gamemode, "Default World");
+            Player = Simulation.CreateLocalPlayer(1, "Hallo", texturename); ;
+            World.Manipulator.AddPlayer(Player);
+            World.Start(MapGenerator.CreateMap(mapname));
+        }
+
+        public void CreateNetworkSimulation()
+        {
+            Simulation = new Simulation(SimulationMode.Single);
+
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            Simulation.Update(new Contract.GameTime(gameTime.ElapsedGameTime));
+            if (Simulation != null)
+                Simulation.Update(new Contract.GameTime(gameTime.ElapsedGameTime));
         }
     }
 }
